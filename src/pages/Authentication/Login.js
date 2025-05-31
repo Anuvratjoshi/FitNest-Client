@@ -27,7 +27,7 @@ import { useFormik } from "formik";
 // actions
 import { loginUser, socialLogin, resetLoginFlag } from "../../slices/thunks";
 
-import logoLight from "../../assets/images/logo-light.png";
+import mainLogo from "../../assets/images/main-logo.png";
 import { createSelector } from "reselect";
 //import images
 
@@ -43,23 +43,19 @@ const Login = (props) => {
   }));
   // Inside your component
   const { user, error, loading, errorMsg } = useSelector(loginpageData);
-
   const [userLogin, setUserLogin] = useState([]);
   const [passwordShow, setPasswordShow] = useState(false);
 
   useEffect(() => {
     if (user && user) {
-      const updatedUserData =
-        process.env.REACT_APP_DEFAULTAUTH === "firebase"
-          ? user.multiFactor.user.email
-          : user.user.email;
-      const updatedUserPassword =
-        process.env.REACT_APP_DEFAULTAUTH === "firebase"
-          ? ""
-          : user.user.confirm_password;
       setUserLogin({
-        email: updatedUserData,
-        password: updatedUserPassword,
+        password: "",
+        email:
+          user?.data?.role === "admin"
+            ? user?.data?.ownersEmail
+            : user?.data?.role === "user"
+            ? user?.data?.email
+            : "",
       });
     }
   }, [user]);
@@ -69,8 +65,8 @@ const Login = (props) => {
     enableReinitialize: true,
 
     initialValues: {
-      email: userLogin.email || "admin@themesbrand.com" || "",
-      password: userLogin.password || "123456" || "",
+      email: userLogin.email || "",
+      password: userLogin.password || "",
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
@@ -108,15 +104,10 @@ const Login = (props) => {
           <Container>
             <Row>
               <Col lg={12}>
-                <div className="text-center mt-sm-5 mb-4 text-white-50">
-                  <div>
-                    <Link to="/" className="d-inline-block auth-logo">
-                      <img src={logoLight} alt="" height="20" />
-                    </Link>
-                  </div>
-                  <p className="mt-3 fs-15 fw-medium">
-                    Premium Admin & Dashboard Template
-                  </p>
+                <div className="d-flex align-items-center justify-content-center text-white-50">
+                  <Link to="/" className="d-inline-block auth-logo">
+                    <img src={mainLogo} alt="" height="200" width="340" />
+                  </Link>
                 </div>
               </Col>
             </Row>
@@ -128,11 +119,13 @@ const Login = (props) => {
                     <div className="text-center mt-2">
                       <h5 className="text-primary">Welcome Back !</h5>
                       <p className="text-muted">
-                        Sign in to continue to Velzon.
+                        Sign in to continue to FitNest.
                       </p>
                     </div>
                     {error && error ? (
-                      <Alert color="danger"> {error} </Alert>
+                      <Alert color="danger" fade={false}>
+                        {error}
+                      </Alert>
                     ) : null}
                     <div className="p-2 mt-4">
                       <Form
@@ -239,46 +232,11 @@ const Login = (props) => {
                           >
                             {loading ? (
                               <Spinner size="sm" className="me-2">
-                                {" "}
-                                Loading...{" "}
+                                Loading...
                               </Spinner>
                             ) : null}
                             Sign In
                           </Button>
-                        </div>
-
-                        <div className="mt-4 text-center">
-                          <div className="signin-other-title">
-                            <h5 className="fs-13 mb-4 title">Sign In with</h5>
-                          </div>
-                          <div>
-                            <Link
-                              to="#"
-                              className="btn btn-primary btn-icon me-1"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                socialResponse("facebook");
-                              }}
-                            >
-                              <i className="ri-facebook-fill fs-16" />
-                            </Link>
-                            <Link
-                              to="#"
-                              className="btn btn-danger btn-icon me-1"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                socialResponse("google");
-                              }}
-                            >
-                              <i className="ri-google-fill fs-16" />
-                            </Link>
-                            <Button color="dark" className="btn-icon">
-                              <i className="ri-github-fill fs-16"></i>
-                            </Button>{" "}
-                            <Button color="info" className="btn-icon">
-                              <i className="ri-twitter-fill fs-16"></i>
-                            </Button>
-                          </div>
                         </div>
                       </Form>
                     </div>
@@ -287,14 +245,13 @@ const Login = (props) => {
 
                 <div className="mt-4 text-center">
                   <p className="mb-0">
-                    Don't have an account ?{" "}
+                    Don't have an account ?
                     <Link
                       to="/register"
-                      className="fw-semibold text-primary text-decoration-underline"
+                      className="fw-semibold text-primary text-decoration-underline mx-1"
                     >
-                      {" "}
-                      Signup{" "}
-                    </Link>{" "}
+                      Signup
+                    </Link>
                   </p>
                 </div>
               </Col>

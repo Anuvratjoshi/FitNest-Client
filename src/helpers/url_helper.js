@@ -1,7 +1,7 @@
 // --------------------------------------------fitNest routes----------------------------------------------
 
 //#### FITNEST REGISTER ####
-export const GYM_REGISTER = "/auth/gym-signup";
+export const GYM_REGISTER = "/auth/gymRegisration";
 export const GYM_SIGNIN = "/auth/ownerSignin";
 
 // --------------------------------------------theme routes----------------------------------------------
