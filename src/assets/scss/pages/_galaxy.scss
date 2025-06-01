@@ -205,6 +205,14 @@ body {
                 --#{$prefix}body-bg-image: #{$body-bg-image-3-dark};
             }
 
+            &[data-body-image="img-4"] {
+                --#{$prefix}body-bg-image: #{$body-bg-image-4-dark};
+            }
+
+            &[data-body-image="img-5"] {
+                --#{$prefix}body-bg-image: #{$body-bg-image-5-dark};
+            }
+
             [for="body-img-one"] {
                 background-image: $body-bg-image-1-dark;
                 background-size: cover;
@@ -217,6 +225,16 @@ body {
 
             [for="body-img-three"] {
                 background-image: $body-bg-image-3-dark;
+                background-size: cover;
+            }
+
+            [for="body-img-four"] {
+                background-image: $body-bg-image-4-dark;
+                background-size: cover;
+            }
+
+            [for="body-img-five"] {
+                background-image: $body-bg-image-5-dark;
                 background-size: cover;
             }
         }
