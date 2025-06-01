@@ -22,6 +22,11 @@ const AuthProtected = props => {
     redirect is un-auth access protected routes via url
     */
 
+    // Prevent rendering while loading to avoid flashing protected content
+    if (loading) {
+        return null
+    }
+
     if (!userProfile && !loading && !token) {
         return (
             <Navigate

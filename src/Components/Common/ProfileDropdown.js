@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
     Dropdown,
     DropdownItem,
@@ -10,39 +9,32 @@ import {
 
 //import images
 import avatar1 from '../../assets/images/users/avatar-1.jpg'
-import { createSelector } from 'reselect'
+import { useProfile } from '../Hooks/UserHooks'
 
 const ProfileDropdown = () => {
-    const profiledropdownData = createSelector(
-        state => state.Profile.user,
-        user => user,
-    )
-    // Inside your component
-    const user = useSelector(profiledropdownData)
-
+    const navigate = useNavigate()
+    const { token, userProfile } = useProfile()
     const [userName, setUserName] = useState('Admin')
 
     useEffect(() => {
-        if (sessionStorage.getItem('authUser')) {
-            const obj = JSON.parse(sessionStorage.getItem('authUser'))
-            setUserName(
-                process.env.REACT_APP_DEFAULTAUTH === 'fake'
-                    ? obj.username === undefined
-                        ? user.first_name
-                            ? user.first_name
-                            : obj.data.first_name
-                        : 'Admin' || 'Admin'
-                    : process.env.REACT_APP_DEFAULTAUTH === 'firebase'
-                      ? obj.email && obj.email
-                      : 'Admin',
-            )
+        if (token && userProfile) {
+            setUserName(userProfile?.gymName)
         }
-    }, [userName, user])
+    }, [userName, token])
 
     //Dropdown Toggle
     const [isProfileDropdown, setIsProfileDropdown] = useState(false)
     const toggleProfileDropdown = () => {
         setIsProfileDropdown(!isProfileDropdown)
+    }
+
+    const clickHandler = type => {
+        if (type === 'logout') {
+            sessionStorage.removeItem('authUser')
+            localStorage.removeItem('authUser')
+            navigate('/login')
+            window.location.reload()
+        }
     }
     return (
         <React.Fragment>
@@ -143,15 +135,17 @@ const ProfileDropdown = () => {
                         </Link>
                     </DropdownItem>
                     <DropdownItem className='p-0'>
-                        <Link
-                            to={process.env.PUBLIC_URL + '/logout'}
+                        <div
+                            onClick={() => {
+                                clickHandler('logout')
+                            }}
                             className='dropdown-item'
                         >
                             <i className='mdi mdi-logout text-muted fs-16 align-middle me-1'></i>{' '}
                             <span className='align-middle' data-key='t-logout'>
                                 Logout
                             </span>
-                        </Link>
+                        </div>
                     </DropdownItem>
                 </DropdownMenu>
             </Dropdown>

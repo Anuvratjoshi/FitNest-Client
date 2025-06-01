@@ -17,8 +17,7 @@ const Index = () => {
         <React.Fragment>
             <Routes>
                 <Route>
-                    {!loading &&
-                        !token &&
+                    {!token &&
                         publicRoutes.map((route, idx) => (
                             <Route
                                 path={route.path}
