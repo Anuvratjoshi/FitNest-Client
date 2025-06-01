@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Default Progress
 
-const defaultProgressCode =
-    `
+const defaultProgressCode = `
 <!-- Base Examples -->
 <div className="mb-4">
     <Progress value={0} />
@@ -23,21 +22,19 @@ const defaultProgressCode =
 
 <div>
     <Progress value={100} />
-</div>`;
+</div>`
 
 const DefaultProgressExample = () => (
     <PrismCode
         code={defaultProgressCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Progress with background color
 
-const backgroundColorCode =
-    `
+const backgroundColorCode = `
 <!-- Backgrounds -->
 <div className="mb-4">
     <Progress color="primary" value={15} />
@@ -57,55 +54,51 @@ const backgroundColorCode =
 
 <div>
     <Progress color="danger" value={100} />
-</div>`;
+</div>`
 
 const BackgroundColorExample = () => (
     <PrismCode
         code={backgroundColorCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Progress with Label
 
-const labelCode =
-    `
+const labelCode = `
 <!-- Labels Example -->
 <Progress color="primary" value={25}> 25% </Progress>
-`;
+`
 
 const LabelExample = () => (
     <PrismCode
         code={labelCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Multiple Bars
-const multipleBarsCode =
-    `
+const multipleBarsCode = `
 <!-- Multiple Bars -->
 <Progress multi>
     <Progress bar value="15" />
     <Progress bar color="success" value="30" />
     <Progress bar color="info" value="20" />
 </Progress>
-`;
+`
 
 const MultipleBarsExample = () => (
     <PrismCode
         code={multipleBarsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Height
-const heightCode =
-    `
+const heightCode = `
 <!-- Prgress sm -->
 <div className="mb-4">
     <h5 className="fs-13">Small Progress</h5>
@@ -129,19 +122,18 @@ const heightCode =
     <h5 className="fs-13">Extra Large Progress</h5>
     <Progress color="danger" value={70} className="progress-xl" />
 </div>
-`;
+`
 
 const HeightExample = () => (
     <PrismCode
         code={heightCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Striped Progress
-const stripedCode =
-    `
+const stripedCode = `
 <!-- Striped Prgress -->
 <div className="mb-4">
     <Progress striped value={25} />
@@ -149,36 +141,34 @@ const stripedCode =
 <div>
     <Progress color="success" striped value={40} />
 </div>
-`;
+`
 
 const StripedExample = () => (
     <PrismCode
         code={stripedCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Animated Striped Progress
-const animatedStripedCode =
-    `
+const animatedStripedCode = `
 <!-- Animated Striped Progress -->
 <div>
     <Progress value={75} striped animated />
 </div>
-`;
+`
 
 const AnimatedStripedExample = () => (
     <PrismCode
         code={animatedStripedCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Gradient Progress
-const gradientCode =
-    `
+const gradientCode = `
 <!-- Gradient -->
 <div className="mb-4">
     <Progress value={15} className="bg-gradient" />
@@ -195,19 +185,18 @@ const gradientCode =
 <div>
     <Progress color="danger" value={100} className="bg-gradient" />
 </div>
-`;
+`
 
 const GradientExample = () => (
     <PrismCode
         code={gradientCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Animated Progress
-const animatedCode =
-    `
+const animatedCode = `
 <!-- Animated Progress -->
 <div className="mb-4">
     <Progress value={15} className="animated-progess" />
@@ -224,19 +213,18 @@ const animatedCode =
 <div>
     <Progress value={100} color="danger" className="animated-progess" />
 </div>
-`;
+`
 
 const AnimatedExample = () => (
     <PrismCode
         code={animatedCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Custom Progress
-const customCode =
-    `
+const customCode = `
 <!-- Custom Progress -->
 <div className="mb-4">
     <Progress value={15} color="primary" className="animated-progess custom-progress" />
@@ -253,19 +241,18 @@ const customCode =
 <div>
     <Progress value={100} color="danger" className="animated-progess custom-progress" />
 </div>
-`;
+`
 
 const CustomExample = () => (
     <PrismCode
         code={customCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Custom Progress with Label
-const customProgressCode =
-    `
+const customProgressCode = `
 <!-- Custom Progress with Label -->
 <div className="d-flex align-items-center pb-2 mt-4">
     <div className="flex-shrink-0 me-3">
@@ -311,19 +298,18 @@ const customProgressCode =
         </div>
     </div>
 </div>
-`;
+`
 
 const CustomProgressExample = () => (
     <PrismCode
         code={customProgressCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Content Progress
-const contentCode =
-    `
+const contentCode = `
 <!-- Content Progress -->
 <Card className="bg-light overflow-hidden shadow-none">
     <CardBody>
@@ -375,21 +361,18 @@ const contentCode =
         <Progress value={82} color="danger" className="bg-danger-subtle rounded-0" />
     </div>
 </Card>
-`;
-
-
+`
 
 const ContentExample = () => (
     <PrismCode
         code={contentCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Progress with Steps
-const progressWithStepCode =
-    `
+const progressWithStepCode = `
 <!-- Progress with Steps -->
 <div className="position-relative m-4">
     <Progress value={50} style={{ height: "1px" }} />
@@ -397,33 +380,47 @@ const progressWithStepCode =
     <Button size="sm" color="primary" className="position-absolute top-0 start-50 translate-middle rounded-pill" style={{ width: "2rem", height: "2rem" }}>2</Button>
     <Button size="sm" color="light" className="position-absolute top-0 start-100 translate-middle rounded-pill" style={{ width: "2rem", height: "2rem" }}>3</Button>
 </div>
-`;
+`
 
 const ProgressWithStepExample = () => (
     <PrismCode
         code={progressWithStepCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Step Progress with Arrow
-const stepProgressArrowCode =
-    `
+const stepProgressArrowCode = `
 <!-- Step Progress with Arrow -->
 <Progress multi className='progress-step-arrow progress-info'>
     <Progress bar value="35"> Step 1 </Progress>
     <Progress bar value="35"> Step 2 </Progress>
     <Progress bar value="35" color="light" className="text-body"> Step 3 </Progress>
 </Progress>
-`;
+`
 
 const StepProgressArrowExample = () => (
     <PrismCode
         code={stepProgressArrowCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { DefaultProgressExample, BackgroundColorExample, LabelExample, MultipleBarsExample, HeightExample, StripedExample, AnimatedStripedExample, GradientExample, AnimatedExample, CustomExample, CustomProgressExample, ContentExample, ProgressWithStepExample, StepProgressArrowExample };
+export {
+    DefaultProgressExample,
+    BackgroundColorExample,
+    LabelExample,
+    MultipleBarsExample,
+    HeightExample,
+    StripedExample,
+    AnimatedStripedExample,
+    GradientExample,
+    AnimatedExample,
+    CustomExample,
+    CustomProgressExample,
+    ContentExample,
+    ProgressWithStepExample,
+    StepProgressArrowExample,
+}

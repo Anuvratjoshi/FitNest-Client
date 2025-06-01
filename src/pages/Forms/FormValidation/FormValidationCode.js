@@ -1,9 +1,9 @@
-import React from 'react';
-import PrismCode from '../../../Components/Common/Prism';
+import React from 'react'
+import PrismCode from '../../../Components/Common/Prism'
 
 //BrowserDefaults code
 const BrowserDefaults = () => {
-const code = `<form className="row g-3">
+    const code = `<form className="row g-3">
 <Col md={4}>
     <Label htmlFor="validationDefault01" className="form-label">First name</Label>
     <Input type="text" className="form-control" id="validationDefault01" defaultValue="Mark" required/>
@@ -47,20 +47,17 @@ const code = `<form className="row g-3">
     <button className="btn btn-primary" type="submit">Submit form</button>
 </Col>
 </form>
-`;
-  return (
-    <React.Fragment>
-      <PrismCode
-        code={code}
-        language={"react"}
-      />
-    </React.Fragment>
-  );
-};
+`
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
+}
 
 //CustomStyles code
 const CustomStyles = () => {
-const code = `<Form className="needs-validation"
+    const code = `<Form className="needs-validation"
 onSubmit={(e) => {
   e.preventDefault();
   validation.handleSubmit();
@@ -225,19 +222,16 @@ onSubmit={(e) => {
   Submit form
 </Button>
 </Form>
-`;
-  return (
-    <React.Fragment>
-      <PrismCode
-        code={code}
-         language={"react"}
-      />
-    </React.Fragment>
-  );
-};
+`
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
+}
 //Supported Elements code
 const SupportedElements = () => {
-const code = `<Form className="was-validated">
+    const code = `<Form className="was-validated">
 <div className="mb-3">
     <Label htmlFor="validationTextarea" className="form-label">Textarea</Label>
     <textarea className="form-control" id="validationTextarea" placeholder="Required example textarea"
@@ -282,15 +276,12 @@ const code = `<Form className="was-validated">
     <button className="btn btn-primary" type="submit" disabled>Submit form</button>
 </div>
 </Form>
- `;
-  return (
-    <React.Fragment>
-      <PrismCode
-        code={code}
-         language={"react"}
-      />
-    </React.Fragment>
-  );
-};
+ `
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
+}
 
-export { BrowserDefaults, CustomStyles, SupportedElements };
+export { BrowserDefaults, CustomStyles, SupportedElements }

@@ -1,20 +1,30 @@
-import React from 'react';
-import { Line, Bar, Pie, Doughnut, Radar, PolarArea } from "react-chartjs-2";
-import getChartColorsArray from "../../../Components/Common/ChartsDynamicColor";
-import "chart.js/auto";
-import { CategoryScale, Chart } from "chart.js";
-Chart.register(CategoryScale);
+import React from 'react'
+import { Line, Bar, Pie, Doughnut, Radar, PolarArea } from 'react-chartjs-2'
+import getChartColorsArray from '../../../Components/Common/ChartsDynamicColor'
+import 'chart.js/auto'
+import { CategoryScale, Chart } from 'chart.js'
+Chart.register(CategoryScale)
 // import { Chart, registerables } from 'chart.js';
 // Chart.register(...registerables);
 
-
 const LineChart = ({ dataColors }) => {
-    var lineChartColor = getChartColorsArray(dataColors);
+    var lineChartColor = getChartColorsArray(dataColors)
     const data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October"],
+        labels: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+        ],
         datasets: [
             {
-                label: "Sales Analytics",
+                label: 'Sales Analytics',
                 fill: true,
                 lineTension: 0.5,
                 backgroundColor: lineChartColor[0],
@@ -24,18 +34,18 @@ const LineChart = ({ dataColors }) => {
                 borderDashOffset: 0.0,
                 borderJoinStyle: 'miter',
                 pointBorderColor: lineChartColor[1],
-                pointBackgroundColor: "#fff",
+                pointBackgroundColor: '#fff',
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
                 pointHoverBackgroundColor: lineChartColor[1],
-                pointHoverBorderColor: "#fff",
+                pointHoverBorderColor: '#fff',
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [65, 59, 80, 81, 56, 55, 40, 55, 30, 80]
+                data: [65, 59, 80, 81, 56, 55, 40, 55, 30, 80],
             },
             {
-                label: "Monthly Earnings",
+                label: 'Monthly Earnings',
                 fill: true,
                 lineTension: 0.5,
                 backgroundColor: lineChartColor[2],
@@ -45,17 +55,17 @@ const LineChart = ({ dataColors }) => {
                 borderDashOffset: 0.0,
                 borderJoinStyle: 'miter',
                 pointBorderColor: lineChartColor[3],
-                pointBackgroundColor: "#fff",
+                pointBackgroundColor: '#fff',
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
                 pointHoverBackgroundColor: lineChartColor[3],
-                pointHoverBorderColor: "#EEF0F2",
+                pointHoverBorderColor: '#EEF0F2',
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [80, 23, 56, 65, 23, 35, 85, 25, 92, 36]
-            }
-        ]
+                data: [80, 23, 56, 65, 23, 35, 85, 25, 92, 36],
+            },
+        ],
     }
     const option = {
         x: {
@@ -78,8 +88,8 @@ const LineChart = ({ dataColors }) => {
                     // This more specific font property overrides the global property
                     font: {
                         family: 'Poppins',
-                    }
-                }
+                    },
+                },
             },
         },
     }
@@ -91,20 +101,28 @@ const LineChart = ({ dataColors }) => {
 }
 //Bar Chart
 const BarChart = ({ dataColors }) => {
-    var barChartColor = getChartColorsArray(dataColors);
+    var barChartColor = getChartColorsArray(dataColors)
     const data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+        ],
         datasets: [
             {
-                label: "Sales Analytics",
+                label: 'Sales Analytics',
                 backgroundColor: barChartColor[0],
                 borderColor: barChartColor[0],
                 borderWidth: 1,
                 hoverBackgroundColor: barChartColor[1],
                 hoverBorderColor: barChartColor[1],
-                data: [65, 59, 81, 45, 56, 80, 50, 20]
-            }
-        ]
+                data: [65, 59, 81, 45, 56, 80, 50, 20],
+            },
+        ],
     }
     const option = {
         x: {
@@ -126,10 +144,10 @@ const BarChart = ({ dataColors }) => {
                 labels: {
                     font: {
                         family: 'Poppins',
-                    }
-                }
+                    },
+                },
             },
-        }
+        },
     }
     return (
         <React.Fragment>
@@ -139,91 +157,79 @@ const BarChart = ({ dataColors }) => {
 }
 //Pie Chart
 const PieChart = ({ dataColors }) => {
-    var pieChartColors = getChartColorsArray(dataColors);
+    var pieChartColors = getChartColorsArray(dataColors)
     const data = {
-        labels: [
-            "Desktops",
-            "Tablets"
-        ],
-        datasets: [
-            {
-                data: [300, 180],
-                backgroundColor: pieChartColors,
-                hoverBackgroundColor: pieChartColors,
-                hoverBorderColor: "#fff"
-            }]
-    },
+            labels: ['Desktops', 'Tablets'],
+            datasets: [
+                {
+                    data: [300, 180],
+                    backgroundColor: pieChartColors,
+                    hoverBackgroundColor: pieChartColors,
+                    hoverBorderColor: '#fff',
+                },
+            ],
+        },
         option = {
             plugins: {
                 legend: {
                     labels: {
                         font: {
                             family: 'Poppins',
-                        }
-                    }
+                        },
+                    },
                 },
-            }
+            },
         }
     return (
         <React.Fragment>
-            <Pie data={data} options={option} className="chartjs-chart" />
+            <Pie data={data} options={option} className='chartjs-chart' />
         </React.Fragment>
     )
 }
 //Donut Chart
 const DonutChart = ({ dataColors }) => {
-    var doughnutChartColors = getChartColorsArray(dataColors);
+    var doughnutChartColors = getChartColorsArray(dataColors)
     const data = {
-        labels: [
-            "Desktops",
-            "Tablets"
-        ],
-        datasets: [
-            {
-                data: [300, 210],
-                backgroundColor: doughnutChartColors,
-                hoverBackgroundColor: doughnutChartColors,
-                hoverBorderColor: "#fff"
-            }]
-    },
+            labels: ['Desktops', 'Tablets'],
+            datasets: [
+                {
+                    data: [300, 210],
+                    backgroundColor: doughnutChartColors,
+                    hoverBackgroundColor: doughnutChartColors,
+                    hoverBorderColor: '#fff',
+                },
+            ],
+        },
         option = {
             plugins: {
                 legend: {
                     labels: {
                         font: {
                             family: 'Poppins',
-                        }
-                    }
+                        },
+                    },
                 },
-            }
+            },
         }
     return (
         <React.Fragment>
-            <Doughnut data={data} options={option} className="chartjs-chart" />
+            <Doughnut data={data} options={option} className='chartjs-chart' />
         </React.Fragment>
     )
 }
 //Polar Chart
 const PolarChart = ({ dataColors }) => {
-    var polarAreaChartColors = getChartColorsArray(dataColors);
+    var polarAreaChartColors = getChartColorsArray(dataColors)
     const data = {
-        labels: [
-            "Series 1",
-            "Series 2",
-            "Series 3",
-            "Series 4"
+        labels: ['Series 1', 'Series 2', 'Series 3', 'Series 4'],
+        datasets: [
+            {
+                data: [11, 16, 7, 18],
+                backgroundColor: polarAreaChartColors,
+                label: 'My dataset', // for legend
+                hoverBorderColor: '#fff',
+            },
         ],
-        datasets: [{
-            data: [
-                11,
-                16,
-                7,
-                18
-            ],
-            backgroundColor: polarAreaChartColors,
-            label: 'My dataset', // for legend
-            hoverBorderColor: "#fff"
-        }]
     }
     const option = {
         plugins: {
@@ -231,59 +237,67 @@ const PolarChart = ({ dataColors }) => {
                 labels: {
                     font: {
                         family: 'Poppins',
-                    }
-                }
+                    },
+                },
             },
-        }
+        },
     }
     return (
         <React.Fragment>
-            <PolarArea className="chartjs-chart" data={data} options={option} />
+            <PolarArea className='chartjs-chart' data={data} options={option} />
         </React.Fragment>
     )
 }
 //Radar Chart
 const RadarChart = ({ dataColors }) => {
-    var radarChartColors = getChartColorsArray(dataColors);
+    var radarChartColors = getChartColorsArray(dataColors)
     const data = {
-        labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
-        datasets: [
-            {
-                label: "Desktops",
-                backgroundColor: radarChartColors[0],
-                borderColor: radarChartColors[1], //"#2AB57D",
-                pointBackgroundColor: radarChartColors[1], //"#2AB57D",
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: radarChartColors[1], //"#2AB57D",
-                data: [65, 59, 90, 81, 56, 55, 40]
-            },
-            {
-                label: "Tablets",
-                backgroundColor: radarChartColors[2], //"rgba(81, 86, 190, 0.2)",
-                borderColor: radarChartColors[3], //"#5156BE",
-                pointBackgroundColor: radarChartColors[3], //"#5156BE",
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: radarChartColors[3], //"#5156BE",
-                data: [28, 48, 40, 19, 96, 27, 100]
-            }
-        ]
-    },
+            labels: [
+                'Eating',
+                'Drinking',
+                'Sleeping',
+                'Designing',
+                'Coding',
+                'Cycling',
+                'Running',
+            ],
+            datasets: [
+                {
+                    label: 'Desktops',
+                    backgroundColor: radarChartColors[0],
+                    borderColor: radarChartColors[1], //"#2AB57D",
+                    pointBackgroundColor: radarChartColors[1], //"#2AB57D",
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: radarChartColors[1], //"#2AB57D",
+                    data: [65, 59, 90, 81, 56, 55, 40],
+                },
+                {
+                    label: 'Tablets',
+                    backgroundColor: radarChartColors[2], //"rgba(81, 86, 190, 0.2)",
+                    borderColor: radarChartColors[3], //"#5156BE",
+                    pointBackgroundColor: radarChartColors[3], //"#5156BE",
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: radarChartColors[3], //"#5156BE",
+                    data: [28, 48, 40, 19, 96, 27, 100],
+                },
+            ],
+        },
         option = {
             plugins: {
                 legend: {
                     labels: {
                         font: {
                             family: 'Poppins',
-                        }
-                    }
+                        },
+                    },
                 },
-            }
+            },
         }
     return (
         <React.Fragment>
-            <Radar className="chartjs-chart" data={data} options={option} />
+            <Radar className='chartjs-chart' data={data} options={option} />
         </React.Fragment>
     )
 }

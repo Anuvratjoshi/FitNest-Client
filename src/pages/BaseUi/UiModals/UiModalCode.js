@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Default Modal
 
-const defaultModalCode =
-    `
+const defaultModalCode = `
 <!-- Default Modals -->
 
 const [modal_standard, setmodal_standard] = useState(false);
@@ -61,19 +60,18 @@ const [modal_standard, setmodal_standard] = useState(false);
         </Button>
     </ModalFooter>
 </Modal>
-`;
+`
 
 const DefaultModalExample = () => (
     <PrismCode
         code={defaultModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Vertically Centered Modal
-const centeredModalCode =
-    `
+const centeredModalCode = `
 <!-- Vertically Centered -->
 
 const [modal_center, setmodal_center] = useState(false);
@@ -93,20 +91,18 @@ const [modal_center, setmodal_center] = useState(false);
 >
     ...
 </Modal>
-`;
+`
 
 const CenteredModalExample = () => (
     <PrismCode
         code={centeredModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Grids in Modals
-const gridsModalCode =
-    `
+const gridsModalCode = `
 <!-- Grids in modals -->
 
 const [modal_grid, setmodal_grid] = useState(false);
@@ -189,20 +185,18 @@ const [modal_grid, setmodal_grid] = useState(false);
         </form>
     </ModalBody>
 </Modal>
-`;
+`
 
 const GridsModalExample = () => (
     <PrismCode
         code={gridsModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Static Backdrop Modal
-const staticBackdropModalCode =
-    `
+const staticBackdropModalCode = `
 <!-- Static Backdrop -->
 
 const [modal_backdrop, setmodal_backdrop] = useState(false);
@@ -245,20 +239,18 @@ const [modal_backdrop, setmodal_backdrop] = useState(false);
         </div>
     </ModalBody>
 </Modal>
-`;
+`
 
 const StaticBackdropModalExample = () => (
     <PrismCode
         code={staticBackdropModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Toggle Between Modal
-const togglebetweenCode =
-    `
+const togglebetweenCode = `
 <!-- Default List -->
 
 const [modal_togFirst, setmodal_togFirst] = useState(false);
@@ -352,20 +344,18 @@ const [modal_togFirst, setmodal_togFirst] = useState(false);
         </div>
     </ModalBody>
 </Modal>
-`;
+`
 
 const TogglebetweenExample = () => (
     <PrismCode
         code={togglebetweenCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Tooltips and Popovers
-const tooltipModalCode =
-    `
+const tooltipModalCode = `
 <!-- Tooltips and Popovers -->
 
 const [modal_tooltip, setmodal_tooltip] = useState(false);
@@ -426,20 +416,18 @@ const [modal_tooltip, setmodal_tooltip] = useState(false);
         </div>
     </ModalFooter>
 </Modal>
-`;
+`
 
 const TooltipModalExample = () => (
     <PrismCode
         code={tooltipModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Scrollable Modal
-const scrollableModalCode =
-    `
+const scrollableModalCode = `
 <!-- Scrollable Modal -->
 const [modal_scroll, setmodal_scroll] = useState(false);
 
@@ -459,20 +447,18 @@ const [modal_scroll, setmodal_scroll] = useState(false);
 >
     ...
 </Modal>
-`;
+`
 
 const ScrollableModalExample = () => (
     <PrismCode
         code={scrollableModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Varying Modal Content
-const varyingModalCode =
-    `
+const varyingModalCode = `
 <!-- Varying Modal Content -->
 <div className="hstack gap-2 flex-wrap">
     <Button color="primary" onClick={() => tog_varying1()}>Open Modal for Mary</Button>
@@ -519,20 +505,18 @@ const varyingModalCode =
         </Button>
     </ModalFooter>
 </Modal>
-`;
+`
 
 const VaryingModalExample = () => (
     <PrismCode
         code={varyingModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Optional Sizes
-const optionalModalCode =
-    `
+const optionalModalCode = `
 <!-- Optional Modal Sizes -->
 
 <!-- Fullscreen modal --> 
@@ -623,20 +607,18 @@ const [modal_small, setmodal_small] = useState(false);
 >
     ...
 </Modal>
-`;
+`
 
 const OptionalModalExample = () => (
     <PrismCode
         code={optionalModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Fullscreen Responsive Modals
-const fullscreenResponsiveCode =
-    `
+const fullscreenResponsiveCode = `
 <!-- Fullscreen Modals -->
 const [modal_fullscreen1, setmodal_fullscreen1] = useState(false);
 
@@ -717,20 +699,18 @@ const [modal_fullscreen_xxl, setmodal_fullscreen_xxl] = useState(false);
 <Modal id="exampleModalFullscreenXxl" isOpen={modal_fullscreen_xxl} toggle={() => { tog_fullscreen_xxl(); }} >
     ...
 </Modal>
-`;
+`
 
 const FullscreenResponsiveExample = () => (
     <PrismCode
         code={fullscreenResponsiveCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Animation Modals
-const animationModalCode =
-    `
+const animationModalCode = `
 <!-- Animation Modals -->
 
 const [modal_animationRight, setmodal_animationRight] = useState(false);
@@ -787,20 +767,18 @@ const [modal_animationRight, setmodal_animationRight] = useState(false);
 <Modal id="flipModal" isOpen={modal_animationZoom} toggle={() => { tog_animationZoom(); }} modalClassName="zoomIn" centered >
     ...
 </Modal>
-`;
+`
 
 const AnimationModalExample = () => (
     <PrismCode
         code={animationModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Modal Positions
-const positionModalCode =
-    `
+const positionModalCode = `
 <!-- Positions Modals -->
 
 const [modal_positionTop, setmodal_positionTop] = useState(false);
@@ -847,14 +825,27 @@ const [modal_positionTop, setmodal_positionTop] = useState(false);
 <Modal id="bottom-rightModal" isOpen={modal_positionBottomRight} toggle={() => { tog_positionBottomRight(); }} className="modal-dialog-bottom-right" >
     ...
 </Modal
-`;
+`
 
 const PositionModalExample = () => (
     <PrismCode
         code={positionModalCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { DefaultModalExample, CenteredModalExample, GridsModalExample, StaticBackdropModalExample, TogglebetweenExample, TooltipModalExample, ScrollableModalExample, VaryingModalExample, OptionalModalExample, FullscreenResponsiveExample, AnimationModalExample, PositionModalExample };
+export {
+    DefaultModalExample,
+    CenteredModalExample,
+    GridsModalExample,
+    StaticBackdropModalExample,
+    TogglebetweenExample,
+    TooltipModalExample,
+    ScrollableModalExample,
+    VaryingModalExample,
+    OptionalModalExample,
+    FullscreenResponsiveExample,
+    AnimationModalExample,
+    PositionModalExample,
+}

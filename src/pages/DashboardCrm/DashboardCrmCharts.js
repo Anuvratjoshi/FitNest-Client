@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
-import getChartColorsArray from "../../Components/Common/ChartsDynamicColor";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
+import getChartColorsArray from '../../Components/Common/ChartsDynamicColor'
 
 const SalesForecastCharts = ({ dataColors, series }) => {
-    var areachartSalesColors = getChartColorsArray(dataColors);
+    var areachartSalesColors = getChartColorsArray(dataColors)
 
     var options = {
         chart: {
@@ -22,7 +22,7 @@ const SalesForecastCharts = ({ dataColors, series }) => {
         stroke: {
             show: true,
             width: 5,
-            colors: ['transparent']
+            colors: ['transparent'],
         },
         xaxis: {
             categories: [''],
@@ -32,7 +32,7 @@ const SalesForecastCharts = ({ dataColors, series }) => {
                 color: '#78909C',
                 height: 6,
                 offsetX: 0,
-                offsetY: 0
+                offsetY: 0,
             },
             title: {
                 text: 'Total Forecasted Value',
@@ -48,14 +48,14 @@ const SalesForecastCharts = ({ dataColors, series }) => {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return "$" + value + "k";
-                }
+                    return '$' + value + 'k'
+                },
             },
             tickAmount: 4,
-            min: 0
+            min: 0,
         },
         fill: {
-            opacity: 1
+            opacity: 1,
         },
         legend: {
             show: true,
@@ -66,30 +66,31 @@ const SalesForecastCharts = ({ dataColors, series }) => {
             offsetY: -14,
             itemMargin: {
                 horizontal: 8,
-                vertical: 0
+                vertical: 0,
             },
             markers: {
                 width: 10,
                 height: 10,
-            }
+            },
         },
-        colors: areachartSalesColors
-    };
+        colors: areachartSalesColors,
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="bar"
-                height="341"
-                className="apex-charts"
+                type='bar'
+                height='341'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const DealTypeCharts = ({ dataColors, series }) => {
-    var dealTypeChartsColors = getChartColorsArray(dataColors);
+    var dealTypeChartsColors = getChartColorsArray(dataColors)
 
     var options = {
         chart: {
@@ -99,17 +100,17 @@ const DealTypeCharts = ({ dataColors, series }) => {
                 enabled: true,
                 blur: 1,
                 left: 1,
-                top: 1
+                top: 1,
             },
             toolbar: {
-                show: false
+                show: false,
             },
         },
         stroke: {
-            width: 2
+            width: 2,
         },
         fill: {
-            opacity: 0.2
+            opacity: 0.2,
         },
         legend: {
             show: true,
@@ -123,33 +124,33 @@ const DealTypeCharts = ({ dataColors, series }) => {
             },
             itemMargin: {
                 horizontal: 10,
-                vertical: 0
-            }
+                vertical: 0,
+            },
         },
         markers: {
-            size: 0
+            size: 0,
         },
         colors: dealTypeChartsColors,
         xaxis: {
-            categories: ['2016', '2017', '2018', '2019', '2020', '2021']
-        }
-    };
+            categories: ['2016', '2017', '2018', '2019', '2020', '2021'],
+        },
+    }
     return (
         <React.Fragment>
             <ReactApexChart
-                dir="ltr"
+                dir='ltr'
                 options={options}
                 series={series}
-                type="radar"
-                height="341"
-                className="apex-charts"
+                type='radar'
+                height='341'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const BalanceOverviewCharts = ({ dataColors, series }) => {
-    var revenueExpensesChartsColors = getChartColorsArray(dataColors);
+    var revenueExpensesChartsColors = getChartColorsArray(dataColors)
 
     var options = {
         chart: {
@@ -158,43 +159,57 @@ const BalanceOverviewCharts = ({ dataColors, series }) => {
             toolbar: 'false',
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         stroke: {
             curve: 'smooth',
             width: 2,
         },
         xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec',
+            ],
         },
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return "$" + value + "k";
-                }
+                    return '$' + value + 'k'
+                },
             },
             tickAmount: 5,
             min: 0,
-            max: 260
+            max: 260,
         },
         colors: revenueExpensesChartsColors,
         fill: {
             opacity: 0.06,
             colors: revenueExpensesChartsColors,
-            type: 'solid'
-        }
-    };
+            type: 'solid',
+        },
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="area"
-                height="290"
-                className="apex-charts"
+                type='area'
+                height='290'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
-export { SalesForecastCharts, DealTypeCharts, BalanceOverviewCharts };
+export { SalesForecastCharts, DealTypeCharts, BalanceOverviewCharts }

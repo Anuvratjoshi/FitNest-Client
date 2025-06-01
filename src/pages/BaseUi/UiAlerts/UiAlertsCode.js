@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Default Alerts
 
-const defaultAlertsCode =
-    `
+const defaultAlertsCode = `
 <!-- Primary Alert -->
 <Alert color="primary">
     <strong> Hi! </strong> A simple <b>Primary alert</b> —check it out!
@@ -43,16 +42,15 @@ const defaultAlertsCode =
 <Alert color="dark">
     <strong> Did you know? </strong> A simple <b>dark alert</b> —check it out!
 </Alert>
-`;
+`
 
 const DefaultAlertsExample = () => (
     <PrismCode
         code={defaultAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Borderless Alerts
 
@@ -95,15 +93,15 @@ const borderlessAlertsCode = `
 <!-- Dark Alert -->
 <Alert color="dark" className="border-0 mb-0">
     <strong>Did you know?</strong> A simple <b>dark alert</b> —check it out!
-</Alert>`;
+</Alert>`
 
 const BorderlessExample = () => (
     <PrismCode
         code={borderlessAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Dismissing Alerts
 
@@ -146,15 +144,15 @@ const dismissingAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="mb-0">
     <strong>Did you know?</strong> A simple <b>Dismissible dark alert</b> —check it out!
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const DismissingExample = () => (
     <PrismCode
         code={dismissingAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Link Color Alerts
 
@@ -197,15 +195,15 @@ const linkColorAlertsCode = `
 <!-- Dark Alert -->
 <Alert color="dark" className="mb-0">
     A simple Dark alert with <Link to="#" className="alert-link">an example link</Link>. Give it a click if you like.
-</Alert>`;
+</Alert>`
 
 const LinkColorExample = () => (
     <PrismCode
         code={linkColorAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Live Alert Example
 
@@ -214,15 +212,15 @@ const [show, setShow] = useState(false);
 <Alert color="success" isOpen={show} toggle={() => setShow(false)}>
     Nice, you triggered this alert message!
 </Alert>
-<button type="button" className="btn btn-primary" id="liveAlertBtn" onClick={() => setShow(true)}>Show live alert</button>`;
+<button type="button" className="btn btn-primary" id="liveAlertBtn" onClick={() => setShow(true)}>Show live alert</button>`
 
 const LiveExample = () => (
     <PrismCode
         code={liveAlertsCode}
-        language={("js", "css", "html", "jsx")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html', 'jsx')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Outline Alerts
 
@@ -260,16 +258,15 @@ const outlineAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="border-2 bg-body-secondary mb-0">
     <strong>Did you know?</strong> - Outline <b>dark alert</b> example
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const OutlineAlertsExample = () => (
     <PrismCode
         code={outlineAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Left Border Alerts
 
@@ -312,16 +309,15 @@ const leftBorderAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="alert-border-left mb-0">
     <i className="ri-refresh-line me-3  align-middle fs-16"></i><strong>Dark</strong> - Left border alert
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const LeftBorderAlertsExample = () => (
     <PrismCode
         code={leftBorderAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Label Icon Alerts
 
@@ -364,16 +360,15 @@ const labelIconAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="alert-solid alert-label-icon mb-0">
     <i className="ri-refresh-line label-icon"></i><strong>Dark</strong> - Label icon alert
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const LabelIconAlertsExample = () => (
     <PrismCode
         code={labelIconAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Top Border with Outline Alerts Alerts
 
@@ -416,16 +411,15 @@ const topBarAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="alert-top-border mb-0">
     <i className="ri-refresh-line me-3 align-middle fs-16 text-body"></i><strong>Dark</strong> - Top border alert
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const TopBarAlertsExample = () => (
     <PrismCode
         code={topBarAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Label Icon Arrow Alerts Alerts Alerts
 
@@ -468,16 +462,15 @@ const labelIconArrowAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="alert-label-icon label-arrow mb-0">
     <i className="ri-refresh-line label-icon"></i><strong>Dark</strong> - Label icon arrow alert
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const LabelIconArrowAlertsExample = () => (
     <PrismCode
         code={labelIconArrowAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Rounded Label Icon Alerts
 
@@ -520,16 +513,15 @@ const roundedLabelIconAlertsCode = `
 <!-- Dark Alert -->
 <UncontrolledAlert color="dark" className="alert-label-icon rounded-label">
     <i className="ri-refresh-line label-icon"></i><strong>Dark</strong> - Rounded label alert
-</UncontrolledAlert>`;
+</UncontrolledAlert>`
 
 const RoundedLabelIconAlertsExample = () => (
     <PrismCode
         code={roundedLabelIconAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Additional Content Alerts
 
@@ -605,17 +597,15 @@ const additionalContentAlertsCode = `
 <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
 </div>
 </UncontrolledAlert>
-`;
+`
 
 const AdditionalContentAlertsExample = () => (
     <PrismCode
         code={additionalContentAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
-
+)
 
 // Solid Alerts
 
@@ -658,15 +648,28 @@ const solidAlertsCode = `
 <!-- Dark Alert -->
 <Alert color="dark" className="alert-solid mb-0">
     <strong>Did you know?</strong> - Solid <b>dark alert</b> example
-</Alert>`;
+</Alert>`
 
 const SolidAlertsExample = () => (
     <PrismCode
         code={solidAlertsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-
-export { DefaultAlertsExample, BorderlessExample, DismissingExample, LinkColorExample, LiveExample, OutlineAlertsExample, LeftBorderAlertsExample, LabelIconAlertsExample, TopBarAlertsExample, LabelIconArrowAlertsExample, RoundedLabelIconAlertsExample, SolidAlertsExample, AdditionalContentAlertsExample };
+export {
+    DefaultAlertsExample,
+    BorderlessExample,
+    DismissingExample,
+    LinkColorExample,
+    LiveExample,
+    OutlineAlertsExample,
+    LeftBorderAlertsExample,
+    LabelIconAlertsExample,
+    TopBarAlertsExample,
+    LabelIconArrowAlertsExample,
+    RoundedLabelIconAlertsExample,
+    SolidAlertsExample,
+    AdditionalContentAlertsExample,
+}

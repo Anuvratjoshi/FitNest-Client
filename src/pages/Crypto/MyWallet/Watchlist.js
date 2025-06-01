@@ -1,20 +1,32 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Autoplay, Mousewheel } from "swiper/modules";
-import { watchlist } from "../../../common/data";
-import { Card, CardBody, Col, DropdownItem, DropdownMenu, DropdownToggle, Row, UncontrolledDropdown } from 'reactstrap';
-import WatchListChart from './watchListChart';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { Autoplay, Mousewheel } from 'swiper/modules'
+import { watchlist } from '../../../common/data'
+import {
+    Card,
+    CardBody,
+    Col,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
+    Row,
+    UncontrolledDropdown,
+} from 'reactstrap'
+import WatchListChart from './watchListChart'
 const Watchlist = () => {
     return (
         <React.Fragment>
-            <div className="d-flex align-items-center mb-3">
-                <div className="flex-grow-1">
-                    <h5 className="mb-0">Watchlist</h5>
+            <div className='d-flex align-items-center mb-3'>
+                <div className='flex-grow-1'>
+                    <h5 className='mb-0'>Watchlist</h5>
                 </div>
-                <div className="flexshrink-0">
-                    <button className="btn btn-primary btn-sm"><i className="ri-star-line align-bottom"></i> Add Watchlist</button>
+                <div className='flexshrink-0'>
+                    <button className='btn btn-primary btn-sm'>
+                        <i className='ri-star-line align-bottom'></i> Add
+                        Watchlist
+                    </button>
                 </div>
             </div>
 
@@ -27,23 +39,24 @@ const Watchlist = () => {
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Mousewheel]}
-                className="cryptoSlider">
+                className='cryptoSlider'
+            >
                 {(watchlist || []).map((item, key) => (
                     <SwiperSlide key={key}>
                         <Card>
                             <CardBody>
-                                <div className="float-end">
+                                <div className='float-end'>
                                     <UncontrolledDropdown direction='start'>
                                         <DropdownToggle
-                                            tag="a"
-                                            className="text-reset"
-                                            role="button"
+                                            tag='a'
+                                            className='text-reset'
+                                            role='button'
                                         >
-                                            <span className="text-muted fs-18">
-                                                <i className="mdi mdi-dots-horizontal"></i>
+                                            <span className='text-muted fs-18'>
+                                                <i className='mdi mdi-dots-horizontal'></i>
                                             </span>
                                         </DropdownToggle>
-                                        <DropdownMenu className="dropdown-menu-end">
+                                        <DropdownMenu className='dropdown-menu-end'>
                                             <DropdownItem>
                                                 View Details
                                             </DropdownItem>
@@ -53,30 +66,44 @@ const Watchlist = () => {
                                         </DropdownMenu>
                                     </UncontrolledDropdown>
                                 </div>
-                                <div className="d-flex align-items-center">
+                                <div className='d-flex align-items-center'>
                                     <img
                                         src={item.img}
-                                        className="bg-light rounded-circle p-1 avatar-xs img-fluid"
-                                        alt=""
+                                        className='bg-light rounded-circle p-1 avatar-xs img-fluid'
+                                        alt=''
                                     />
-                                    <h6 className="ms-2 mb-0 fs-14">{item.coinName}</h6>
+                                    <h6 className='ms-2 mb-0 fs-14'>
+                                        {item.coinName}
+                                    </h6>
                                 </div>
-                                <Row className="align-items-end g-0">
+                                <Row className='align-items-end g-0'>
                                     <Col xs={6}>
-                                        <h5 className="mb-1 mt-4">{item.price}</h5>
-                                        <p className={"fs-13 fw-medium mb-0 text-" + item.percentageClass}>
+                                        <h5 className='mb-1 mt-4'>
+                                            {item.price}
+                                        </h5>
+                                        <p
+                                            className={
+                                                'fs-13 fw-medium mb-0 text-' +
+                                                item.percentageClass
+                                            }
+                                        >
                                             {item.percentage}
-                                            <span className="text-muted ms-2 fs-10">({item.coinNameAbbr})</span>
+                                            <span className='text-muted ms-2 fs-10'>
+                                                ({item.coinNameAbbr})
+                                            </span>
                                         </p>
                                     </Col>
                                     <Col xs={6}>
                                         <div
-                                            className="apex-charts crypto-widget"
+                                            className='apex-charts crypto-widget'
                                             data-colors='["--vz-success" , "--vz-transparent"]'
-                                            id="bitcoin_sparkline_charts"
-                                            dir="ltr"
+                                            id='bitcoin_sparkline_charts'
+                                            dir='ltr'
                                         >
-                                            <WatchListChart seriesData={item.series} chartsColor={item.chartsColor} />
+                                            <WatchListChart
+                                                seriesData={item.series}
+                                                chartsColor={item.chartsColor}
+                                            />
                                         </div>
                                     </Col>
                                 </Row>
@@ -86,7 +113,7 @@ const Watchlist = () => {
                 ))}
             </Swiper>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default Watchlist;
+export default Watchlist

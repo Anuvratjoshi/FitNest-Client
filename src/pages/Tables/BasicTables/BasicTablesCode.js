@@ -1,5 +1,5 @@
 import React from 'react'
-import PrismCode from '../../../Components/Common/Prism';
+import PrismCode from '../../../Components/Common/Prism'
 
 //DefaultTables code
 const DefaultTables = () => {
@@ -49,9 +49,7 @@ const DefaultTables = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -104,9 +102,7 @@ const StrippedRow = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -229,9 +225,7 @@ const TablesColors = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -384,9 +378,7 @@ const HoverableRows = () => {
     `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -482,9 +474,7 @@ const CardTables = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -567,9 +557,7 @@ const ActiveTables = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -676,9 +664,7 @@ const BorderedTables = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -784,9 +770,7 @@ const TablesBorderColors = () => {
     `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -864,9 +848,7 @@ const TablesWithoutBorders = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -920,9 +902,7 @@ const SmallTables = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -984,9 +964,7 @@ const TableHead = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1038,9 +1016,7 @@ const TableFoot = () => {
     `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1083,9 +1059,7 @@ const Captions = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1128,9 +1102,7 @@ const TableNesting = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1208,9 +1180,7 @@ const Variants = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1252,9 +1222,7 @@ const VerticalAlignment = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1407,9 +1375,7 @@ const ResponsiveTables = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1505,9 +1471,7 @@ const StripedColumnsTables = () => {
     `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-            />
+            <PrismCode code={code} />
         </React.Fragment>
     )
 }
@@ -1532,4 +1496,3 @@ export {
     ResponsiveTables,
     StripedColumnsTables,
 }
-

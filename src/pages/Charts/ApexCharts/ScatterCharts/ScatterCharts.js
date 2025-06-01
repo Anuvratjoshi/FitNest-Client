@@ -1,15 +1,15 @@
-import React from "react";
-import ReactApexChart from "react-apexcharts";
-import avatar1 from "../../../../assets/images/users/avatar-1.jpg";
-import avatar2 from "../../../../assets/images/users/avatar-2.jpg";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
+import avatar1 from '../../../../assets/images/users/avatar-1.jpg'
+import avatar2 from '../../../../assets/images/users/avatar-2.jpg'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const Basic = ({ dataColors }) => {
-    var chartScatterBasicColors = getChartColorsArray(dataColors);
+    var chartScatterBasicColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "SAMPLE A",
+            name: 'SAMPLE A',
             data: [
                 [16.4, 5.4],
                 [21.7, 2],
@@ -45,7 +45,7 @@ const Basic = ({ dataColors }) => {
             ],
         },
         {
-            name: "SAMPLE B",
+            name: 'SAMPLE B',
             data: [
                 [36.4, 13.4],
                 [1.7, 11],
@@ -81,7 +81,7 @@ const Basic = ({ dataColors }) => {
             ],
         },
         {
-            name: "SAMPLE C",
+            name: 'SAMPLE C',
             data: [
                 [21.7, 3],
                 [23.6, 3.5],
@@ -116,12 +116,12 @@ const Basic = ({ dataColors }) => {
                 [16.4, 0],
             ],
         },
-    ];
+    ]
     const options = {
         chart: {
             zoom: {
                 enabled: true,
-                type: "xy",
+                type: 'xy',
             },
             toolbar: {
                 show: false,
@@ -131,7 +131,7 @@ const Basic = ({ dataColors }) => {
             tickAmount: 10,
             labels: {
                 formatter: function (val) {
-                    return parseFloat(val).toFixed(1);
+                    return parseFloat(val).toFixed(1)
                 },
             },
         },
@@ -139,99 +139,101 @@ const Basic = ({ dataColors }) => {
             tickAmount: 7,
         },
         colors: chartScatterBasicColors,
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="scatter"
+                type='scatter'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const Datetime = ({ dataColors }) => {
-    var chartScatterDateTimeColors = getChartColorsArray(dataColors);
+    var chartScatterDateTimeColors = getChartColorsArray(dataColors)
     const generateDayWiseTimeSeries = (baseval, count, yrange) => {
-        var i = 0;
-        var series = [];
+        var i = 0
+        var series = []
         while (i < count) {
             var y =
-                Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+                Math.floor(Math.random() * (yrange.max - yrange.min + 1)) +
+                yrange.min
 
-            series.push([baseval, y]);
-            baseval += 86400000;
-            i++;
+            series.push([baseval, y])
+            baseval += 86400000
+            i++
         }
-        return series;
-    };
+        return series
+    }
 
     const series = [
         {
-            name: "TEAM 1",
+            name: 'TEAM 1',
             data: generateDayWiseTimeSeries(
-                new Date("11 Feb 2017 GMT").getTime(),
+                new Date('11 Feb 2017 GMT').getTime(),
                 20,
                 {
                     min: 10,
                     max: 60,
-                }
+                },
             ),
         },
         {
-            name: "TEAM 2",
+            name: 'TEAM 2',
             data: generateDayWiseTimeSeries(
-                new Date("11 Feb 2017 GMT").getTime(),
+                new Date('11 Feb 2017 GMT').getTime(),
                 20,
                 {
                     min: 10,
                     max: 60,
-                }
+                },
             ),
         },
         {
-            name: "TEAM 3",
+            name: 'TEAM 3',
             data: generateDayWiseTimeSeries(
-                new Date("11 Feb 2017 GMT").getTime(),
+                new Date('11 Feb 2017 GMT').getTime(),
                 30,
                 {
                     min: 10,
                     max: 60,
-                }
+                },
             ),
         },
         {
-            name: "TEAM 4",
+            name: 'TEAM 4',
             data: generateDayWiseTimeSeries(
-                new Date("11 Feb 2017 GMT").getTime(),
+                new Date('11 Feb 2017 GMT').getTime(),
                 10,
                 {
                     min: 10,
                     max: 60,
-                }
+                },
             ),
         },
         {
-            name: "TEAM 5",
+            name: 'TEAM 5',
             data: generateDayWiseTimeSeries(
-                new Date("11 Feb 2017 GMT").getTime(),
+                new Date('11 Feb 2017 GMT').getTime(),
                 30,
                 {
                     min: 10,
                     max: 60,
-                }
+                },
             ),
         },
-    ];
+    ]
 
     const options = {
         chart: {
             zoom: {
-                type: "xy",
+                type: 'xy',
             },
             toolbar: {
                 show: !1,
@@ -253,32 +255,33 @@ const Datetime = ({ dataColors }) => {
             },
         },
         xaxis: {
-            type: "datetime",
+            type: 'datetime',
         },
         yaxis: {
             max: 70,
         },
         colors: chartScatterDateTimeColors,
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="scatter"
+                type='scatter'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const ImagesChart = ({ dataColors }) => {
-    var chartScatterImagesColors = getChartColorsArray(dataColors);
+    var chartScatterImagesColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "User A",
+            name: 'User A',
             data: [
                 [16.4, 5.4],
                 [21.7, 4],
@@ -301,7 +304,7 @@ const ImagesChart = ({ dataColors }) => {
             ],
         },
         {
-            name: "User B",
+            name: 'User B',
             data: [
                 [6.4, 5.4],
                 [11.7, 4],
@@ -314,7 +317,7 @@ const ImagesChart = ({ dataColors }) => {
                 [11.6, 12],
             ],
         },
-    ];
+    ]
 
     const options = {
         chart: {
@@ -341,13 +344,10 @@ const ImagesChart = ({ dataColors }) => {
             size: 20,
         },
         fill: {
-            type: "image",
+            type: 'image',
             opacity: 1,
             image: {
-                src: [
-                    avatar1,
-                    avatar2,
-                ],
+                src: [avatar1, avatar2],
                 width: 40,
                 height: 40,
             },
@@ -359,31 +359,28 @@ const ImagesChart = ({ dataColors }) => {
             markers: {
                 customHTML: [
                     function () {
-                        return "";
+                        return ''
                     },
                     function () {
-                        return "";
+                        return ''
                     },
                 ],
             },
         },
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="scatter"
+                type='scatter'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
-export {
-    Basic,
-    Datetime,
-    ImagesChart
-};
+export { Basic, Datetime, ImagesChart }

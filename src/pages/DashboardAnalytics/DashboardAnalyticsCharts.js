@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
-import getChartColorsArray from "../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../Components/Common/ChartsDynamicColor'
 
 const AudiencesCharts = ({ dataColors, series }) => {
-    var chartAudienceColumnChartsColors = getChartColorsArray(dataColors);
+    var chartAudienceColumnChartsColors = getChartColorsArray(dataColors)
     var options = {
         chart: {
             type: 'bar',
@@ -12,7 +12,7 @@ const AudiencesCharts = ({ dataColors, series }) => {
             stacked: true,
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
@@ -41,14 +41,27 @@ const AudiencesCharts = ({ dataColors, series }) => {
         stroke: {
             show: true,
             width: 2,
-            colors: ['transparent']
+            colors: ['transparent'],
         },
         grid: {
             show: false,
         },
         colors: chartAudienceColumnChartsColors,
         xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec',
+            ],
             axisTicks: {
                 show: false,
             },
@@ -58,31 +71,32 @@ const AudiencesCharts = ({ dataColors, series }) => {
                 height: 1,
                 width: '100%',
                 offsetX: 0,
-                offsetY: 0
+                offsetY: 0,
             },
         },
         yaxis: {
-            show: false
+            show: false,
         },
         fill: {
-            opacity: 1
-        }
-    };
+            opacity: 1,
+        },
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="bar"
-                height="309"
-                className="apex-charts"
+                type='bar'
+                height='309'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const AudiencesSessionsCharts = ({ dataColors, series }) => {
-    var chartHeatMapBasicColors = getChartColorsArray(dataColors);
+    var chartHeatMapBasicColors = getChartColorsArray(dataColors)
 
     var options = {
         chart: {
@@ -91,29 +105,29 @@ const AudiencesSessionsCharts = ({ dataColors, series }) => {
             offsetX: 0,
             offsetY: -8,
             toolbar: {
-                show: false
-            }
+                show: false,
+            },
         },
         plotOptions: {
             heatmap: {
                 colorScale: {
-                    ranges: [{
-                        from: 0,
-                        to: 50,
-                        color: chartHeatMapBasicColors[0]
-                    },
-                    {
-                        from: 51,
-                        to: 100,
-                        color: chartHeatMapBasicColors[1]
-                    },
+                    ranges: [
+                        {
+                            from: 0,
+                            to: 50,
+                            color: chartHeatMapBasicColors[0],
+                        },
+                        {
+                            from: 51,
+                            to: 100,
+                            color: chartHeatMapBasicColors[1],
+                        },
                     ],
                 },
-
-            }
+            },
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         legend: {
             show: true,
@@ -127,43 +141,46 @@ const AudiencesSessionsCharts = ({ dataColors, series }) => {
             },
             itemMargin: {
                 horizontal: 12,
-                vertical: 0
+                vertical: 0,
             },
         },
         colors: chartHeatMapBasicColors,
         tooltip: {
-            y: [{
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0) + "k";
-                    }
-                    return y;
-                }
-            }]
-        }
-    };
+            y: [
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return y.toFixed(0) + 'k'
+                        }
+                        return y
+                    },
+                },
+            ],
+        },
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="heatmap"
-                height="400"
-                className="apex-charts"
+                type='heatmap'
+                height='400'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const CountriesCharts = ({ dataColors, series }) => {
-    var barchartCountriesColors = getChartColorsArray(dataColors);
+    var barchartCountriesColors = getChartColorsArray(dataColors)
     var options = {
         chart: {
             type: 'bar',
             height: 436,
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
@@ -173,7 +190,7 @@ const CountriesCharts = ({ dataColors, series }) => {
                 dataLabels: {
                     position: 'top',
                 },
-            }
+            },
         },
         colors: barchartCountriesColors,
         dataLabels: {
@@ -182,8 +199,8 @@ const CountriesCharts = ({ dataColors, series }) => {
             style: {
                 fontSize: '12px',
                 fontWeight: 400,
-                colors: ['#adb5bd']
-            }
+                colors: ['#adb5bd'],
+            },
         },
 
         legend: {
@@ -193,35 +210,47 @@ const CountriesCharts = ({ dataColors, series }) => {
             show: false,
         },
         xaxis: {
-            categories: ['India', 'United States', 'China', 'Indonesia', 'Russia', 'Bangladesh', 'Canada', 'Brazil', 'Vietnam', 'UK'],
+            categories: [
+                'India',
+                'United States',
+                'China',
+                'Indonesia',
+                'Russia',
+                'Bangladesh',
+                'Canada',
+                'Brazil',
+                'Vietnam',
+                'UK',
+            ],
         },
-    };
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="bar"
-                height="436"
-                className="apex-charts"
+                type='bar'
+                height='436'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const UsersByDeviceCharts = ({ dataColors, series }) => {
-    var dountchartUserDeviceColors = getChartColorsArray(dataColors);
+    var dountchartUserDeviceColors = getChartColorsArray(dataColors)
     const options = {
-        labels: ["Desktop", "Mobile", "Tablet"],
+        labels: ['Desktop', 'Mobile', 'Tablet'],
         chart: {
-            type: "donut",
+            type: 'donut',
             height: 219,
         },
         plotOptions: {
             pie: {
                 size: 100,
                 donut: {
-                    size: "76%",
+                    size: '76%',
                 },
             },
         },
@@ -241,35 +270,40 @@ const UsersByDeviceCharts = ({ dataColors, series }) => {
             },
             itemMargin: {
                 horizontal: 12,
-                vertical: 0
+                vertical: 0,
             },
         },
         stroke: {
-            width: 0
+            width: 0,
         },
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + 'k Users';
-                }
+                    return value + 'k Users'
+                },
             },
             tickAmount: 4,
-            min: 0
+            min: 0,
         },
         colors: dountchartUserDeviceColors,
-    };
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="donut"
-                height="219"
-                className="apex-charts"
+                type='donut'
+                height='219'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
-
-export { AudiencesCharts, AudiencesSessionsCharts, CountriesCharts, UsersByDeviceCharts };
+export {
+    AudiencesCharts,
+    AudiencesSessionsCharts,
+    CountriesCharts,
+    UsersByDeviceCharts,
+}

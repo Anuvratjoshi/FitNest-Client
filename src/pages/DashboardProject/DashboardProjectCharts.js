@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
-import getChartColorsArray from "../../Components/Common/ChartsDynamicColor";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
+import getChartColorsArray from '../../Components/Common/ChartsDynamicColor'
 
-const ProjectsOverviewCharts = ({ dataColors,series }) => {
-    var linechartcustomerColors = getChartColorsArray(dataColors);
+const ProjectsOverviewCharts = ({ dataColors, series }) => {
+    var linechartcustomerColors = getChartColorsArray(dataColors)
 
     var options = {
         chart: {
@@ -11,7 +11,7 @@ const ProjectsOverviewCharts = ({ dataColors,series }) => {
             type: 'line',
             toolbar: {
                 show: false,
-            }
+            },
         },
         stroke: {
             curve: 'smooth',
@@ -19,41 +19,54 @@ const ProjectsOverviewCharts = ({ dataColors,series }) => {
             width: [0, 1, 0],
         },
         fill: {
-            opacity: [1, 0.1, 1]
+            opacity: [1, 0.1, 1],
         },
         markers: {
             size: [0, 4, 0],
             strokeWidth: 2,
             hover: {
                 size: 4,
-            }
+            },
         },
         xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec',
+            ],
             axisTicks: {
-                show: false
+                show: false,
             },
             axisBorder: {
-                show: false
-            }
+                show: false,
+            },
         },
         grid: {
             show: true,
             xaxis: {
                 lines: {
                     show: true,
-                }
+                },
             },
             yaxis: {
                 lines: {
                     show: false,
-                }
+                },
             },
             padding: {
                 top: 0,
                 right: -2,
                 bottom: 15,
-                left: 10
+                left: 10,
             },
         },
         legend: {
@@ -68,61 +81,63 @@ const ProjectsOverviewCharts = ({ dataColors,series }) => {
             },
             itemMargin: {
                 horizontal: 10,
-                vertical: 0
+                vertical: 0,
             },
         },
         plotOptions: {
             bar: {
                 columnWidth: '30%',
-                barHeight: '70%'
-            }
+                barHeight: '70%',
+            },
         },
         colors: linechartcustomerColors,
         tooltip: {
             shared: true,
-            y: [{
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0);
-                    }
-                    return y;
-
-                }
-            }, {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return "$" + y.toFixed(2) + "k";
-                    }
-                    return y;
-
-                }
-            }, {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0);
-                    }
-                    return y;
-
-                }
-            }]
-        }
-    };
+            y: [
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return y.toFixed(0)
+                        }
+                        return y
+                    },
+                },
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return '$' + y.toFixed(2) + 'k'
+                        }
+                        return y
+                    },
+                },
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return y.toFixed(0)
+                        }
+                        return y
+                    },
+                },
+            ],
+        },
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="line"
-                height="374"
-                className="apex-charts"
+                type='line'
+                height='374'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const TeamMembersCharts = ({ seriesData, chartsColor }) => {
     // const series=  isApexSeriesData.series,
-    const series = [seriesData];
+    const series = [seriesData]
 
     const options = {
         chart: {
@@ -130,48 +145,49 @@ const TeamMembersCharts = ({ seriesData, chartsColor }) => {
             width: 36,
             height: 36,
             sparkline: {
-                enabled: !0
-            }
+                enabled: !0,
+            },
         },
         dataLabels: {
-            enabled: !1
+            enabled: !1,
         },
         plotOptions: {
             radialBar: {
                 hollow: {
                     margin: 0,
-                    size: '50%'
+                    size: '50%',
                 },
                 track: {
-                    margin: 1
+                    margin: 1,
                 },
                 dataLabels: {
-                    show: !1
-                }
-            }
+                    show: !1,
+                },
+            },
         },
-        colors: [chartsColor]
-    };
+        colors: [chartsColor],
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={[...series]}
-                type="radialBar"
-                height="36"
-                className="apex-charts"
+                type='radialBar'
+                height='36'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const PrjectsStatusCharts = ({ dataColors, series }) => {
-    var donutchartProjectsStatusColors = getChartColorsArray(dataColors);
+    var donutchartProjectsStatusColors = getChartColorsArray(dataColors)
 
     var options = {
-        labels: ["Completed", "In Progress", "Yet to Start", "Cancelled"],
+        labels: ['Completed', 'In Progress', 'Yet to Start', 'Cancelled'],
         chart: {
-            type: "donut",
+            type: 'donut',
             height: 230,
         },
         plotOptions: {
@@ -180,10 +196,10 @@ const PrjectsStatusCharts = ({ dataColors, series }) => {
                 offsetX: 0,
                 offsetY: 0,
                 donut: {
-                    size: "90%",
+                    size: '90%',
                     labels: {
                         show: false,
-                    }
+                    },
                 },
             },
         },
@@ -194,22 +210,23 @@ const PrjectsStatusCharts = ({ dataColors, series }) => {
             show: false,
         },
         stroke: {
-            lineCap: "round",
-            width: 0
+            lineCap: 'round',
+            width: 0,
         },
         colors: donutchartProjectsStatusColors,
-    };
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="donut"
-                height="230"
-                className="apex-charts"
+                type='donut'
+                height='230'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
-export { ProjectsOverviewCharts, TeamMembersCharts, PrjectsStatusCharts };
+export { ProjectsOverviewCharts, TeamMembersCharts, PrjectsStatusCharts }

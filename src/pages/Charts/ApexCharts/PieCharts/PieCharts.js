@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
 //Import images
-import smallImage1 from '../../../../assets/images/small/img-1.jpg';
-import smallImage2 from '../../../../assets/images/small/img-2.jpg';
-import smallImage3 from '../../../../assets/images/small/img-3.jpg';
-import smallImage4 from '../../../../assets/images/small/img-4.jpg';
+import smallImage1 from '../../../../assets/images/small/img-1.jpg'
+import smallImage2 from '../../../../assets/images/small/img-2.jpg'
+import smallImage3 from '../../../../assets/images/small/img-3.jpg'
+import smallImage4 from '../../../../assets/images/small/img-4.jpg'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const SimplePie = ({ dataColors }) => {
-    var chartPieBasicColors = getChartColorsArray(dataColors);
+    var chartPieBasicColors = getChartColorsArray(dataColors)
     const series = [44, 55, 13, 43, 22]
     var options = {
         chart: {
@@ -19,28 +19,29 @@ const SimplePie = ({ dataColors }) => {
         },
         labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
         legend: {
-            position: 'bottom'
+            position: 'bottom',
         },
         dataLabels: {
             dropShadow: {
                 enabled: false,
-            }
+            },
         },
-        colors: chartPieBasicColors
-    };
+        colors: chartPieBasicColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="pie"
+            type='pie'
             height={267.7}
         />
     )
 }
 
 const SimpleDonut = ({ dataColors }) => {
-    var chartDonutBasicColors = getChartColorsArray(dataColors);
+    var chartDonutBasicColors = getChartColorsArray(dataColors)
     const series = [44, 55, 41, 17, 15]
     var options = {
         chart: {
@@ -48,29 +49,29 @@ const SimpleDonut = ({ dataColors }) => {
             type: 'donut',
         },
         legend: {
-            position: 'bottom'
+            position: 'bottom',
         },
         dataLabels: {
             dropShadow: {
                 enabled: false,
-            }
+            },
         },
-        colors: chartDonutBasicColors
-    };
+        colors: chartDonutBasicColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="donut"
+            type='donut'
             height={267.7}
         />
-
     )
 }
 
 const UpdateDonut = ({ dataColors }) => {
-    var chartDonutupdatingColors = getChartColorsArray(dataColors);
+    var chartDonutupdatingColors = getChartColorsArray(dataColors)
     const series = [44, 55, 13, 33]
     var options = {
         chart: {
@@ -78,86 +79,91 @@ const UpdateDonut = ({ dataColors }) => {
             type: 'donut',
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         legend: {
-            position: 'bottom'
+            position: 'bottom',
         },
-        colors: chartDonutupdatingColors
-    };
+        colors: chartDonutupdatingColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="donut"
+            type='donut'
             height={267.7}
         />
-
     )
 }
 
 const MonochromePie = () => {
     const series = [25, 15, 44, 55, 41, 17]
     var options = {
-
         chart: {
             height: 300,
             type: 'pie',
         },
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        labels: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+        ],
         theme: {
             monochrome: {
                 enabled: true,
                 color: '#405189',
                 shadeTo: 'light',
-                shadeIntensity: 0.6
-            }
+                shadeIntensity: 0.6,
+            },
         },
 
         plotOptions: {
             pie: {
                 dataLabels: {
-                    offset: -5
-                }
-            }
+                    offset: -5,
+                },
+            },
         },
         title: {
-            text: "Monochrome Pie",
+            text: 'Monochrome Pie',
             style: {
                 fontWeight: 500,
             },
         },
         dataLabels: {
             formatter: function (val, opts) {
-                var name = opts.w.globals.labels[opts.seriesIndex];
-                return [name, val.toFixed(1) + '%'];
+                var name = opts.w.globals.labels[opts.seriesIndex]
+                return [name, val.toFixed(1) + '%']
             },
             dropShadow: {
                 enabled: false,
-            }
+            },
         },
         legend: {
-            show: false
-        }
-    };
+            show: false,
+        },
+    }
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="pie"
+            type='pie'
             height={287.7}
         />
-
     )
 }
 
 const GradientDonut = ({ dataColors }) => {
-    var chartPieGradientColors = getChartColorsArray(dataColors);
+    var chartPieGradientColors = getChartColorsArray(dataColors)
     const series = [44, 55, 41, 17, 15]
     var options = {
-
         chart: {
             height: 300,
             type: 'donut',
@@ -165,11 +171,11 @@ const GradientDonut = ({ dataColors }) => {
         plotOptions: {
             pie: {
                 startAngle: -90,
-                endAngle: 270
-            }
+                endAngle: 270,
+            },
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         fill: {
             type: 'gradient',
@@ -177,8 +183,8 @@ const GradientDonut = ({ dataColors }) => {
         legend: {
             position: 'bottom',
             formatter: function (val, opts) {
-                return val + " - " + opts.w.globals.series[opts.seriesIndex]
-            }
+                return val + ' - ' + opts.w.globals.series[opts.seriesIndex]
+            },
         },
         title: {
             text: 'Gradient Donut with custom Start-angle',
@@ -186,22 +192,22 @@ const GradientDonut = ({ dataColors }) => {
                 fontWeight: 500,
             },
         },
-        colors: chartPieGradientColors
-    };
+        colors: chartPieGradientColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="donut"
+            type='donut'
             height={267.7}
         />
-
     )
 }
 
 const PatternedDonut = ({ dataColors }) => {
-    var chartPiePatternColors = getChartColorsArray(dataColors);
+    var chartPiePatternColors = getChartColorsArray(dataColors)
     const series = [44, 55, 41, 17, 15]
     var options = {
         chart: {
@@ -213,8 +219,8 @@ const PatternedDonut = ({ dataColors }) => {
                 top: -1,
                 left: 3,
                 blur: 3,
-                opacity: 0.2
-            }
+                opacity: 0.2,
+            },
         },
         stroke: {
             width: 0,
@@ -226,60 +232,66 @@ const PatternedDonut = ({ dataColors }) => {
                         show: true,
                         total: {
                             showAlways: true,
-                            show: true
-                        }
-                    }
-                }
-            }
+                            show: true,
+                        },
+                    },
+                },
+            },
         },
-        labels: ["Comedy", "Action", "SciFi", "Drama", "Horror"],
+        labels: ['Comedy', 'Action', 'SciFi', 'Drama', 'Horror'],
         dataLabels: {
             dropShadow: {
                 blur: 3,
-                opacity: 0.8
-            }
+                opacity: 0.8,
+            },
         },
         fill: {
             type: 'pattern',
             opacity: 1,
             pattern: {
                 enabled: true,
-                style: ['verticalLines', 'squares', 'horizontalLines', 'circles', 'slantedLines'],
+                style: [
+                    'verticalLines',
+                    'squares',
+                    'horizontalLines',
+                    'circles',
+                    'slantedLines',
+                ],
             },
         },
         states: {
             hover: {
-                filter: 'none'
-            }
+                filter: 'none',
+            },
         },
         theme: {
-            palette: 'palette2'
+            palette: 'palette2',
         },
         title: {
-            text: "Favoritee Movie Type",
+            text: 'Favoritee Movie Type',
             style: {
                 fontWeight: 500,
             },
         },
         legend: {
-            position: 'bottom'
+            position: 'bottom',
         },
-        colors: chartPiePatternColors
-    };
+        colors: chartPiePatternColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="donut"
+            type='donut'
             height={267.7}
         />
-
     )
 }
 
 const ImagePieChart = ({ dataColors }) => {
-    var chartPieImageColors = getChartColorsArray(dataColors);
+    var chartPieImageColors = getChartColorsArray(dataColors)
     const series = [44, 33, 54, 45]
     const options = {
         chart: {
@@ -294,47 +306,56 @@ const ImagePieChart = ({ dataColors }) => {
             image: {
                 src: [smallImage1, smallImage2, smallImage3, smallImage4],
                 width: 25,
-                imagedHeight: 25
+                imagedHeight: 25,
             },
-
         },
         stroke: {
-            width: 4
+            width: 4,
         },
         dataLabels: {
             enabled: true,
             style: {
-                colors: ['#111']
+                colors: ['#111'],
             },
             background: {
                 enabled: true,
                 foreColor: '#fff',
-                borderWidth: 0
-            }
+                borderWidth: 0,
+            },
         },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    width: 200
+        responsive: [
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200,
+                    },
+                    legend: {
+                        position: 'bottom',
+                    },
                 },
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        }]
+            },
+        ],
     }
 
     return (
-        <ReactApexChart dir="ltr"
-            className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="pie"
+            type='pie'
             height={267.7}
         />
-
     )
 }
 
-export { SimplePie, SimpleDonut, UpdateDonut, MonochromePie, GradientDonut, PatternedDonut, ImagePieChart }
+export {
+    SimplePie,
+    SimpleDonut,
+    UpdateDonut,
+    MonochromePie,
+    GradientDonut,
+    PatternedDonut,
+    ImagePieChart,
+}

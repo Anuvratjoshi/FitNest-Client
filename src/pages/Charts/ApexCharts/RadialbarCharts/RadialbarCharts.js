@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
 // Import Images
-import comingSoon from "../../../../assets/images/comingsoon.png";
-import Img4 from "../../../../assets/images/small/img-4.jpg";
+import comingSoon from '../../../../assets/images/comingsoon.png'
+import Img4 from '../../../../assets/images/small/img-4.jpg'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const SimpleRadialbar = ({ dataColors }) => {
-    var chartRadialbarBasicColors = getChartColorsArray(dataColors);
-    const series = [70];
+    var chartRadialbarBasicColors = getChartColorsArray(dataColors)
+    const series = [70]
     var options = {
-
         chart: {
             height: 350,
             type: 'radialBar',
@@ -20,26 +19,27 @@ const SimpleRadialbar = ({ dataColors }) => {
             radialBar: {
                 hollow: {
                     size: '70%',
-                }
+                },
             },
         },
         labels: ['Cricket'],
-        colors: chartRadialbarBasicColors
-    };
+        colors: chartRadialbarBasicColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
 const MultipleRadialbar = ({ dataColors }) => {
-    var chartRadialbarMultipleColors = getChartColorsArray(dataColors);
-    const series = [44, 55, 67, 83];
+    var chartRadialbarMultipleColors = getChartColorsArray(dataColors)
+    const series = [44, 55, 67, 83]
     var options = {
         chart: {
             height: 350,
@@ -58,31 +58,31 @@ const MultipleRadialbar = ({ dataColors }) => {
                         show: true,
                         label: 'Total',
                         formatter: function (w) {
-                            return 249;
-                        }
-                    }
-                }
-            }
+                            return 249
+                        },
+                    },
+                },
+            },
         },
         labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
-        colors: chartRadialbarMultipleColors
-    };
+        colors: chartRadialbarMultipleColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
 const CircleRadialbar = ({ dataColors }) => {
-    var chartRadialbarCircleColors = getChartColorsArray(dataColors);
-    const series = [76, 67, 61, 55];
+    var chartRadialbarCircleColors = getChartColorsArray(dataColors)
+    const series = [76, 67, 61, 55]
     var options = {
-
         chart: {
             height: 350,
             type: 'radialBar',
@@ -104,9 +104,9 @@ const CircleRadialbar = ({ dataColors }) => {
                     },
                     value: {
                         show: false,
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
         colors: chartRadialbarCircleColors,
         labels: ['Vimeo', 'Messenger', 'Facebook', 'LinkedIn'],
@@ -121,45 +121,50 @@ const CircleRadialbar = ({ dataColors }) => {
                 useSeriesColors: true,
             },
             markers: {
-                size: 0
+                size: 0,
             },
             formatter: function (seriesName, opts) {
-                return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex];
+                return (
+                    seriesName + ':  ' + opts.w.globals.series[opts.seriesIndex]
+                )
             },
             itemMargin: {
-                vertical: 3
-            }
+                vertical: 3,
+            },
         },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                legend: {
-                    show: false
-                }
-            }
-        }]
-    };
+        responsive: [
+            {
+                breakpoint: 480,
+                options: {
+                    legend: {
+                        show: false,
+                    },
+                },
+            },
+        ],
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
 const GradientCircleRadialbar = ({ dataColors }) => {
-    var chartRadialbarGradientColors = getChartColorsArray(dataColors);
-    const series = [75];
+    var chartRadialbarGradientColors = getChartColorsArray(dataColors)
+    const series = [75]
     var options = {
         chart: {
             height: 350,
             type: 'radialBar',
             toolbar: {
-                show: false
-            }
+                show: false,
+            },
         },
         plotOptions: {
             radialBar: {
@@ -176,7 +181,6 @@ const GradientCircleRadialbar = ({ dataColors }) => {
                 track: {
                     strokeWidth: '67%',
                     margin: 0, // margin is in pixels
-
                 },
 
                 dataLabels: {
@@ -185,18 +189,18 @@ const GradientCircleRadialbar = ({ dataColors }) => {
                         offsetY: -10,
                         show: true,
                         color: '#888',
-                        fontSize: '17px'
+                        fontSize: '17px',
                     },
                     value: {
                         formatter: function (val) {
-                            return parseInt(val);
+                            return parseInt(val)
                         },
                         color: '#111',
                         fontSize: '36px',
                         show: true,
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
         fill: {
             type: 'gradient',
@@ -208,27 +212,28 @@ const GradientCircleRadialbar = ({ dataColors }) => {
                 inverseColors: true,
                 opacityFrom: 1,
                 opacityTo: 1,
-                stops: [0, 100]
-            }
+                stops: [0, 100],
+            },
         },
         stroke: {
-            lineCap: 'round'
+            lineCap: 'round',
         },
         labels: ['Percent'],
-    };
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
 const ImageRadialbar = () => {
-    const series = [67];
+    const series = [67]
     var options = {
         chart: {
             height: 315,
@@ -242,53 +247,53 @@ const ImageRadialbar = () => {
                     image: comingSoon,
                     imageWidth: 56,
                     imageHeight: 56,
-                    imageClipped: false
+                    imageClipped: false,
                 },
                 dataLabels: {
                     name: {
                         show: false,
-                        color: '#fff'
+                        color: '#fff',
                     },
                     value: {
                         show: true,
                         color: '#333',
                         offsetY: 65,
-                        fontSize: '22px'
-                    }
-                }
-            }
+                        fontSize: '22px',
+                    },
+                },
+            },
         },
         fill: {
             type: 'image',
             image: {
                 src: [Img4],
-            }
+            },
         },
         stroke: {
-            lineCap: 'round'
+            lineCap: 'round',
         },
         labels: ['Volatility'],
-    };
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
 const StrokedCircleRadial = ({ dataColors }) => {
-    var chartStorkeRadialbarColors = getChartColorsArray(dataColors);
-    const series = [67];
+    var chartStorkeRadialbarColors = getChartColorsArray(dataColors)
+    const series = [67]
     var options = {
-
         chart: {
             height: 326,
             type: 'radialBar',
-            offsetY: -10
+            offsetY: -10,
         },
         plotOptions: {
             radialBar: {
@@ -298,18 +303,18 @@ const StrokedCircleRadial = ({ dataColors }) => {
                     name: {
                         fontSize: '16px',
                         color: undefined,
-                        offsetY: 120
+                        offsetY: 120,
                     },
                     value: {
                         offsetY: 76,
                         fontSize: '22px',
                         color: undefined,
                         formatter: function (val) {
-                            return val + "%";
-                        }
-                    }
-                }
-            }
+                            return val + '%'
+                        },
+                    },
+                },
+            },
         },
         fill: {
             type: 'gradient',
@@ -319,44 +324,45 @@ const StrokedCircleRadial = ({ dataColors }) => {
                 inverseColors: false,
                 opacityFrom: 1,
                 opacityTo: 1,
-                stops: [0, 50, 65, 91]
+                stops: [0, 50, 65, 91],
             },
         },
         stroke: {
-            dashArray: 4
+            dashArray: 4,
         },
         labels: ['Median Ratio'],
-        colors: chartStorkeRadialbarColors
-    };
+        colors: chartStorkeRadialbarColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
 const SemiCircularRadial = ({ dataColors }) => {
-    var chartStorkeRadialbarColors = getChartColorsArray(dataColors);
-    const series = [76];
+    var chartStorkeRadialbarColors = getChartColorsArray(dataColors)
+    const series = [76]
     var options = {
         chart: {
             type: 'radialBar',
             height: 350,
             offsetY: -20,
             sparkline: {
-                enabled: true
-            }
+                enabled: true,
+            },
         },
         plotOptions: {
             radialBar: {
                 startAngle: -90,
                 endAngle: 90,
                 track: {
-                    background: "#e7e7e7",
+                    background: '#e7e7e7',
                     strokeWidth: '97%',
                     margin: 5, // margin is in pixels
                     dropShadow: {
@@ -365,24 +371,24 @@ const SemiCircularRadial = ({ dataColors }) => {
                         left: 0,
                         color: '#999',
                         opacity: 1,
-                        blur: 2
-                    }
+                        blur: 2,
+                    },
                 },
                 dataLabels: {
                     name: {
-                        show: false
+                        show: false,
                     },
                     value: {
                         offsetY: -2,
-                        fontSize: '22px'
-                    }
-                }
-            }
+                        fontSize: '22px',
+                    },
+                },
+            },
         },
         grid: {
             padding: {
-                top: -10
-            }
+                top: -10,
+            },
         },
         fill: {
             type: 'gradient',
@@ -392,21 +398,30 @@ const SemiCircularRadial = ({ dataColors }) => {
                 inverseColors: false,
                 opacityFrom: 1,
                 opacityTo: 1,
-                stops: [0, 50, 53, 91]
+                stops: [0, 50, 53, 91],
             },
         },
         labels: ['Average Results'],
-        colors: chartStorkeRadialbarColors
-    };
+        colors: chartStorkeRadialbarColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="radialBar"
+            type='radialBar'
             height={328.7}
-            className="apex-charts"
+            className='apex-charts'
         />
-    );
-};
+    )
+}
 
-export { SimpleRadialbar, MultipleRadialbar, CircleRadialbar, GradientCircleRadialbar, StrokedCircleRadial, SemiCircularRadial, ImageRadialbar };
+export {
+    SimpleRadialbar,
+    MultipleRadialbar,
+    CircleRadialbar,
+    GradientCircleRadialbar,
+    StrokedCircleRadial,
+    SemiCircularRadial,
+    ImageRadialbar,
+}

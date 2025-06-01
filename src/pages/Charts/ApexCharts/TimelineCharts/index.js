@@ -1,6 +1,6 @@
-import React from 'react';
-import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap';
-import BreadCrumb from '../../../../Components/Common/BreadCrumb';
+import React from 'react'
+import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap'
+import BreadCrumb from '../../../../Components/Common/BreadCrumb'
 
 import {
     Basic,
@@ -8,22 +8,27 @@ import {
     MultiSeries,
     Advanced,
     MultipleSeries,
-    DumbBell
-} from "./TimelineCharts";
-
+    DumbBell,
+} from './TimelineCharts'
 
 const TimelineCharts = () => {
-    document.title = "Apex TimeLine Charts | Velzon - React Admin & Dashboard Template";
+    document.title =
+        'Apex TimeLine Charts | Velzon - React Admin & Dashboard Template'
     return (
         <React.Fragment>
-            <div className="page-content">
+            <div className='page-content'>
                 <Container fluid>
-                    <BreadCrumb title="TimeLine Charts" pageTitle="Apexcharts" />
+                    <BreadCrumb
+                        title='TimeLine Charts'
+                        pageTitle='Apexcharts'
+                    />
                     <Row>
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Basic TimeLine Charts</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Basic TimeLine Charts
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <Basic dataColors='["--vz-primary"]' />
@@ -34,7 +39,9 @@ const TimelineCharts = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Different Color For Each Bar</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Different Color For Each Bar
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <DifferentColor dataColors='["--vz-primary", "--vz-danger", "--vz-success", "--vz-warning", "--vz-info"]' />
@@ -47,7 +54,9 @@ const TimelineCharts = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Multi Series Timeline</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Multi Series Timeline
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <MultiSeries dataColors='["--vz-primary","--vz-success"]' />
@@ -58,7 +67,9 @@ const TimelineCharts = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Advanced Timeline (Multiple Range)</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Advanced Timeline (Multiple Range)
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <Advanced dataColors='["--vz-primary", "--vz-success", "--vz-warning"]' />
@@ -70,7 +81,9 @@ const TimelineCharts = () => {
                         <Col xl={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Multiple series � Group rows</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Multiple series � Group rows
+                                    </h4>
                                 </CardHeader>
 
                                 <CardBody>
@@ -81,11 +94,13 @@ const TimelineCharts = () => {
                         <Col xl={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 class="card-title mb-0">Dumbbell Chart (Horizontal)</h4>
+                                    <h4 class='card-title mb-0'>
+                                        Dumbbell Chart (Horizontal)
+                                    </h4>
                                 </CardHeader>
 
                                 <CardBody>
-                                <DumbBell dataColors='["--vz-primary", "--vz-success"]' />
+                                    <DumbBell dataColors='["--vz-primary", "--vz-success"]' />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -93,7 +108,7 @@ const TimelineCharts = () => {
                 </Container>
             </div>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default TimelineCharts;
+export default TimelineCharts

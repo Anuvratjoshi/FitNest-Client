@@ -1,17 +1,15 @@
-import React from 'react';
-import { Col, Container, Row } from 'reactstrap';
+import React from 'react'
+import { Col, Container, Row } from 'reactstrap'
 
 const Footer = () => {
     return (
         <React.Fragment>
-            <footer className="footer border-top">
+            <footer className='footer border-top'>
                 <Container fluid>
                     <Row>
+                        <Col sm={6}>{new Date().getFullYear()} © Velzon.</Col>
                         <Col sm={6}>
-                            {new Date().getFullYear()} © Velzon.
-                        </Col>
-                        <Col sm={6}>
-                            <div className="text-sm-end d-none d-sm-block">
+                            <div className='text-sm-end d-none d-sm-block'>
                                 Design & Develop by Themesbrand
                             </div>
                         </Col>
@@ -19,7 +17,7 @@ const Footer = () => {
                 </Container>
             </footer>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default Footer;
+export default Footer

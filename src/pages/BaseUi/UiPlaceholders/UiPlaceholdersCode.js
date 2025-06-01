@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Default Placeholder
 
-const defaultPlaceholderCode =
-    `
+const defaultPlaceholderCode = `
 <!-- Base Examples -->
 <Card>
 <img src={img1} className="card-img-top" alt="card img" />
@@ -30,40 +29,38 @@ const defaultPlaceholderCode =
     </CardBody>
 </Card>
 
-`;
+`
 
 const DefaultPlaceholderExample = () => (
     <PrismCode
         code={defaultPlaceholderCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Width
 
-const widthCode =
-    `
+const widthCode = `
 <!-- Width Sizing-->
 <div className="live-preview">
     <span className="placeholder col-6"></span>
     <span className="placeholder w-75"></span>
     <span className="placeholder" style={{width: "25%"}}></span>
 </div>
-`;
+`
 
 const WidthExample = () => (
     <PrismCode
         code={widthCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Sizing
 
-const sizingCode =
-    `
+const sizingCode = `
 <!-- Sizing -->
 <span className="placeholder col-12 placeholder-lg"></span>
 
@@ -72,20 +69,19 @@ const sizingCode =
 <span className="placeholder col-12 placeholder-sm"></span>
 
 <span className="placeholder col-12 placeholder-xs"></span>
-`;
+`
 
 const SizingExample = () => (
     <PrismCode
         code={sizingCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Color
 
-const colorCode =
-    `
+const colorCode = `
 <!-- Color -->
 <span className="placeholder col-12 mb-3"></span>
 
@@ -104,14 +100,14 @@ const colorCode =
 <span className="placeholder col-12 mb-3 bg-light"></span>
 
 <span className="placeholder col-12 mb-3 bg-dark"></span>
-`;
+`
 
 const ColorExample = () => (
     <PrismCode
         code={colorCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { DefaultPlaceholderExample, WidthExample, SizingExample, ColorExample };
+export { DefaultPlaceholderExample, WidthExample, SizingExample, ColorExample }

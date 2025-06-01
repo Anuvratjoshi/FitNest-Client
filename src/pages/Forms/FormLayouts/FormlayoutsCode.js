@@ -1,10 +1,9 @@
-import React from 'react';
-import PrismCode from '../../../Components/Common/Prism';
+import React from 'react'
+import PrismCode from '../../../Components/Common/Prism'
 
 //FormGrid code
 const FormGrid = () => {
-const code =
-`<Col md={6}>
+    const code = `<Col md={6}>
 <div className="mb-3">
     <Label for="firstNameinput" className="form-label">First Name</Label>
     <Input type="text" className="form-control" placeholder="Enter your firstname" id="firstNameinput"/>
@@ -60,17 +59,14 @@ const code =
         <button type="submit" className="btn btn-primary">Submit</button>
     </div>
 </Col>
-`;
+`
 
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Gutters
 const Gutters = () => {
@@ -123,17 +119,14 @@ const Gutters = () => {
         <button type="submit" className="btn btn-primary">Sign in</button>
     </div>
 </Col>
-`;
+`
 
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Vertical Form
 const VerticalForm = () => {
@@ -171,17 +164,14 @@ const VerticalForm = () => {
 <div className="text-end">
     <button type="submit" className="btn btn-primary">Add Leave</button>
 </div>
-`;
+`
 
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Horizontal Form
 const HorizontalForm = () => {
@@ -256,16 +246,13 @@ const HorizontalForm = () => {
 <div className="text-end">
 <button type="submit" className="btn btn-primary">Add Leave</button>
 </div>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Horizontal Form Label Sizing
 const HorizontalFormLabelSizing = () => {
@@ -293,16 +280,13 @@ const HorizontalFormLabelSizing = () => {
     </div>
 </Row>
 </Col>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Column Sizing
 const ColumnSizing = () => {
@@ -330,20 +314,17 @@ const ColumnSizing = () => {
 <Col sm>
     <Input type="text" className="form-control" placeholder="Zip" aria-label="Zip"/>
 </Col>
-    `;
+    `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Auto Sizing
 const AutoSizing = () => {
-const code = `<Form action="#">
+    const code = `<Form action="#">
 <Row className="gy-2 gx-3 mb-3 align-items-center">
     <Col sm>
         <Label className="visually-hidden" htmlFor="autoSizingInput">Name</Label>
@@ -414,20 +395,17 @@ const code = `<Form action="#">
     </Col>
 </Row>
 </Form>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Inline Forms
 const InlineForms = () => {
-const code = `<Row className="row-cols-lg-auto g-3 align-items-center">
+    const code = `<Row className="row-cols-lg-auto g-3 align-items-center">
 <Col xs={12}>
     <Label className="visually-hidden" htmlFor="inlineFormInputGroupUsername">Username</Label>
     <div className="input-group">
@@ -456,16 +434,13 @@ const code = `<Row className="row-cols-lg-auto g-3 align-items-center">
     <button type="submit" className="btn btn-primary">Submit</button>
 </Col>
 </Row>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //Inline Forms
 const FloatingLabels = () => {
@@ -532,14 +507,21 @@ const FloatingLabels = () => {
     </Col>
 </Row>
 </Form>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
-export { FormGrid, Gutters, VerticalForm, HorizontalForm, HorizontalFormLabelSizing, ColumnSizing, AutoSizing, InlineForms, FloatingLabels };
+    )
+}
+export {
+    FormGrid,
+    Gutters,
+    VerticalForm,
+    HorizontalForm,
+    HorizontalFormLabelSizing,
+    ColumnSizing,
+    AutoSizing,
+    InlineForms,
+    FloatingLabels,
+}

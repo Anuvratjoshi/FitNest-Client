@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Default List
 
-const defaultListCode =
-    `
+const defaultListCode = `
 <!-- Default List -->
 <ListGroup>
     <ListGroupItem><i className="ri-bill-line align-middle me-2"></i> Send the billing agreement</ListGroupItem>
@@ -11,19 +10,18 @@ const defaultListCode =
     <ListGroupItem><i className="ri-question-answer-line align-middle me-2"></i>Meeting with daron to review the intake form</ListGroupItem>
     <ListGroupItem><i className="ri-secure-payment-line align-middle me-2"></i>Check uikings theme and give customer support</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const DefaultListExample = () => (
     <PrismCode
         code={defaultListCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Active Item
-const activeItemCode =
-    `
+const activeItemCode = `
 <!-- Active Item -->
 <ListGroup>
     <ListGroupItem active>Send the billing agreement</ListGroupItem>
@@ -32,19 +30,18 @@ const activeItemCode =
     <ListGroupItem>Check uikings theme and give customer support</ListGroupItem>
     <ListGroupItem>Start making a presentation</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ActiveItemExample = () => (
     <PrismCode
         code={activeItemCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Disabled Items
-const disabledItemCode =
-    `
+const disabledItemCode = `
 <!-- Disabled Items -->
 <ListGroup>
     <ListGroupItem disabled>
@@ -88,19 +85,18 @@ const disabledItemCode =
         </div>
     </ListGroupItem>
 </ListGroup>
-`;
+`
 
 const DisabledItemExample = () => (
     <PrismCode
         code={disabledItemCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Link
-const listlinkCode =
-    `
+const listlinkCode = `
 <!-- List with Link -->
 <ListGroup className="list-group-fill-success">
     <ListGroupItem tag="a" to="#" className="list-group-item-action active"><i className="ri-download-2-fill align-middle me-2"></i>Category Download</ListGroupItem>
@@ -109,19 +105,18 @@ const listlinkCode =
     <ListGroupItem tag="a" to="#" className="list-group-item-action"><i className="ri-notification-3-line align-middle me-2"></i>Push Notification</ListGroupItem>
     <ListGroupItem tag="a" to="#" className="list-group-item-action disabled" tabIndex="-1"><i className="ri-moon-fill align-middle me-2"></i>Dark Mode</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListlinkExample = () => (
     <PrismCode
         code={listlinkCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Button
-const listButtonCode =
-    `
+const listButtonCode = `
 <!-- List with Button -->
 <ListGroup>
     <ListGroupItem tag="button" className="list-group-item-action active"><i className="ri-reply-fill align-middle me-2"></i>Reply</ListGroupItem>
@@ -130,19 +125,18 @@ const listButtonCode =
     <ListGroupItem tag="button" className="list-group-item-action"><i className="ri-delete-bin-5-line align-middle me-2"></i>Delete Message</ListGroupItem>
     <ListGroupItem tag="button" className="list-group-item-action" disabled><i className="ri-forbid-line align-middle me-2"></i>Block "Mark Spencer</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListButtonExample = () => (
     <PrismCode
         code={listButtonCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Flush List
-const flushListCode =
-    `
+const flushListCode = `
 <!-- Flush List -->
 <ListGroup flush>
     <ListGroupItem>Send the billing agreement</ListGroupItem>
@@ -151,19 +145,18 @@ const flushListCode =
     <ListGroupItem>Check uikings theme and give customer support</ListGroupItem>
     <ListGroupItem>Start making a presentation</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const FlushListExample = () => (
     <PrismCode
         code={flushListCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Horizontal List
-const horizontalListCode =
-    `
+const horizontalListCode = `
 <!-- Start Alignment -->
 <ListGroup className="mb-3" horizontal>
     <ListGroupItem>Inbox</ListGroupItem>
@@ -180,19 +173,18 @@ const horizontalListCode =
     <ListGroupItem>Work</ListGroupItem>
     <ListGroupItem>Shopping</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const HorizontalListExample = () => (
     <PrismCode
         code={horizontalListCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Contextual Classes
-const contextualClassCode =
-    `
+const contextualClassCode = `
 <!-- Contextual Classes -->
 <ListGroup>
     <ListGroupItem >Dapibus ac facilisis in</ListGroupItem>
@@ -205,19 +197,18 @@ const contextualClassCode =
     <ListGroupItem color="light">A simple light list group item</ListGroupItem>
     <ListGroupItem color="dark">A simple dark list group item</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ContextualClassExample = () => (
     <PrismCode
         code={contextualClassCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Contextual Classes with Link
-const contextualLinkCode =
-    `
+const contextualLinkCode = `
 <!-- Contextual Classes with Link -->
 <ListGroup>
     <ListGroupItem color="" tag="a" to="#" className="list-group-item-action">A simple default list group item</ListGroupItem>
@@ -230,19 +221,18 @@ const contextualLinkCode =
     <ListGroupItem color="light" tag="a" to="#" className="list-group-item-action">A simple light list group item</ListGroupItem>
     <ListGroupItem color="dark" tag="a" to="#" className="list-group-item-action">A simple dark list group item</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ContextualLinkExample = () => (
     <PrismCode
         code={contextualLinkCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Colored Lists
-const coloredListCode =
-    `
+const coloredListCode = `
 <!-- Colored Lists -->
 <ListGroup>
     <ListGroupItem >Dapibus ac facilisis in</ListGroupItem>
@@ -255,19 +245,18 @@ const coloredListCode =
     <ListGroupItem className="list-group-fill-light">A simple light list group item</ListGroupItem>
     <ListGroupItem className="list-group-fill-dark">A simple dark list group item</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ColoredListExample = () => (
     <PrismCode
         code={coloredListCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Custom Content
-const customContentCode =
-    `
+const customContentCode = `
 <!-- Custom Content -->
 <ListGroup>
     <ListGroupItem tag="a" to="#" className="list-group-item-action active">
@@ -331,19 +320,18 @@ const customContentCode =
         <p className="list-text mb-0">Just like in the image where we talked about using multiple fonts, you can see that the background in this graphic design is blurred. Whenever you put text on top of an image, it’s important that your viewers can understand the text, and sometimes that means applying a gaussian readable.</p>
     </ListGroupItem>
 </ListGroup>
-`;
+`
 
 const CustomContentExample = () => (
     <PrismCode
         code={customContentCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Badges
-const listBadgeCode =
-    `
+const listBadgeCode = `
 <!-- List with Badges -->
 <ListGroup>
     <ListGroupItem className="d-flex justify-content-between align-items-center">
@@ -362,19 +350,18 @@ const listBadgeCode =
         Start making a presentation <span className="badge bg-success">High</span>
     </ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListBadgeExample = () => (
     <PrismCode
         code={listBadgeCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Checkboxs
-const listCheckboxCode =
-    `
+const listCheckboxCode = `
 <!-- List with Checkboxs -->
 <ListGroup>
     <ListGroupItem tag="label">
@@ -398,19 +385,18 @@ const listCheckboxCode =
         Wrong UX/UI Solution
     </ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListCheckboxExample = () => (
     <PrismCode
         code={listCheckboxCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Radios
-const listRadioCode =
-    `
+const listRadioCode = `
 <!-- List with Radios -->
 <ListGroup>
     <ListGroupItem tag="label">
@@ -434,19 +420,18 @@ const listRadioCode =
         Wrong UX/UI Solution
     </ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListRadioExample = () => (
     <PrismCode
         code={listRadioCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Icon
-const listIconCode =
-    `
+const listIconCode = `
 <!-- List with Icon -->
 <ListGroup>
     <ListGroupItem><i className="mdi mdi-check-bold align-middle lh-1 me-2"></i> Send the billing agreement</ListGroupItem>
@@ -455,19 +440,18 @@ const listIconCode =
     <ListGroupItem><i className="mdi mdi-check-bold align-middle lh-1 me-2"></i> Check uikings theme and give customer support</ListGroupItem>
     <ListGroupItem><i className="mdi mdi-check-bold align-middle lh-1 me-2"></i> Start making a presentation</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListIconExample = () => (
     <PrismCode
         code={listIconCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // List with Numbered
-const listNumberedCode =
-    `
+const listNumberedCode = `
 <!-- List with Numbered -->
 <ListGroup className="list-group-numbered">
     <ListGroupItem>Send the billing agreement</ListGroupItem>
@@ -476,19 +460,18 @@ const listNumberedCode =
     <ListGroupItem>Check uikings theme and give customer support</ListGroupItem>
     <ListGroupItem>Start making a presentation</ListGroupItem>
 </ListGroup>
-`;
+`
 
 const ListNumberedExample = () => (
     <PrismCode
         code={listNumberedCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Custom Content Lists
-const customListCode =
-    `
+const customListCode = `
 <!-- Custom Content Lists -->
 <SimpleBar style={{ maxHeight: "215px" }}>
     <ListGroup className="mb-1">
@@ -590,14 +573,32 @@ const customListCode =
         </ListGroupItem>
     </ListGroup>
 </SimpleBar>
-`;
+`
 
 const CustomListExample = () => (
     <PrismCode
         code={customListCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { DefaultListExample, ActiveItemExample, DisabledItemExample, ListlinkExample, ListButtonExample, FlushListExample, HorizontalListExample, ContextualClassExample, ContextualLinkExample, ColoredListExample, CustomContentExample, ListBadgeExample, ListCheckboxExample, ListRadioExample, ListIconExample, ListNumberedExample, CustomListExample };
+export {
+    DefaultListExample,
+    ActiveItemExample,
+    DisabledItemExample,
+    ListlinkExample,
+    ListButtonExample,
+    FlushListExample,
+    HorizontalListExample,
+    ContextualClassExample,
+    ContextualLinkExample,
+    ColoredListExample,
+    CustomContentExample,
+    ListBadgeExample,
+    ListCheckboxExample,
+    ListRadioExample,
+    ListIconExample,
+    ListNumberedExample,
+    CustomListExample,
+}

@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const FunnelChartCode = ({ dataColors }) => {
-    var funnelChartColors = getChartColorsArray(dataColors);
+    var funnelChartColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Funnel Series",
+            name: 'Funnel Series',
             data: [1380, 1100, 990, 880, 740, 548, 330, 200],
         },
-    ];
+    ]
     const options = {
         chart: {
             type: 'bar',
@@ -56,24 +56,25 @@ const FunnelChartCode = ({ dataColors }) => {
     }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="bar"
+            type='bar'
             height={350}
         />
-    );
-
+    )
 }
 
 const PyramidChartCode = ({ dataColors }) => {
-    var pyramidChartColors = getChartColorsArray(dataColors);
+    var pyramidChartColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "",
+            name: '',
             data: [200, 330, 548, 740, 880, 990, 1100, 1380],
         },
-    ];
+    ]
     const options = {
         chart: {
             type: 'bar',
@@ -103,7 +104,16 @@ const PyramidChartCode = ({ dataColors }) => {
             align: 'middle',
         },
         xaxis: {
-            categories: ['Sweets', 'Processed Foods', 'Healthy Fats', 'Meat', 'Beans & Legumes', 'Dairy', 'Fruits & Vegetables', 'Grains'],
+            categories: [
+                'Sweets',
+                'Processed Foods',
+                'Healthy Fats',
+                'Meat',
+                'Beans & Legumes',
+                'Dairy',
+                'Fruits & Vegetables',
+                'Grains',
+            ],
         },
         legend: {
             show: false,
@@ -111,15 +121,15 @@ const PyramidChartCode = ({ dataColors }) => {
     }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="bar"
+            type='bar'
             height={350}
         />
-    );
-
+    )
 }
-
 
 export { FunnelChartCode, PyramidChartCode }

@@ -1,37 +1,47 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const BasicPolar = ({ dataColors }) => {
-    var chartPolarareaBasicColors = getChartColorsArray(dataColors);
+    var chartPolarareaBasicColors = getChartColorsArray(dataColors)
     const series = [14, 23, 21, 17, 15, 10, 12, 17, 21]
     var options = {
-
         chart: {
             type: 'polarArea',
             width: 400,
         },
-        labels: ['Series A', 'Series B', 'Series C', 'Series D', 'Series E', 'Series F', 'Series G', 'Series H', 'Series I'],
+        labels: [
+            'Series A',
+            'Series B',
+            'Series C',
+            'Series D',
+            'Series E',
+            'Series F',
+            'Series G',
+            'Series H',
+            'Series I',
+        ],
         stroke: {
-            colors: ['#fff']
+            colors: ['#fff'],
         },
         fill: {
-            opacity: 0.8
+            opacity: 0.8,
         },
 
         legend: {
-            position: 'bottom'
+            position: 'bottom',
         },
-        colors: chartPolarareaBasicColors
-    };
+        colors: chartPolarareaBasicColors,
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="polarArea"
+            type='polarArea'
             height={310}
-            className="apex-charts"
+            className='apex-charts'
         />
     )
 }
@@ -41,31 +51,31 @@ const PolarMonochrome = () => {
     var options = {
         chart: {
             width: 400,
-            type: 'polarArea'
+            type: 'polarArea',
         },
         labels: ['Rose A', 'Rose B', 'Rose C', 'Rose D', 'Rose E'],
         fill: {
-            opacity: 1
+            opacity: 1,
         },
         stroke: {
             width: 1,
-            colors: undefined
+            colors: undefined,
         },
         yaxis: {
-            show: false
+            show: false,
         },
         legend: {
-            position: 'bottom'
+            position: 'bottom',
         },
         plotOptions: {
             polarArea: {
                 rings: {
-                    strokeWidth: 0
+                    strokeWidth: 0,
                 },
                 spokes: {
-                    strokeWidth: 0
+                    strokeWidth: 0,
                 },
-            }
+            },
         },
         theme: {
             mode: 'light',
@@ -74,17 +84,18 @@ const PolarMonochrome = () => {
                 enabled: true,
                 shadeTo: 'light',
                 color: '#405189',
-                shadeIntensity: 0.6
-            }
-        }
-    };
+                shadeIntensity: 0.6,
+            },
+        },
+    }
     return (
-        <ReactApexChart dir="ltr"
+        <ReactApexChart
+            dir='ltr'
             series={series}
             options={options}
-            type="polarArea"
+            type='polarArea'
             height={310}
-            className="apex-charts"
+            className='apex-charts'
         />
     )
 }

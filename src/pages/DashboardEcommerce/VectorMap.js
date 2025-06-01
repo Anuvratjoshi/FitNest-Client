@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from "react";
-import { VectorMap } from "react-jvectormap";
-import "../DashboardAnalytics/jquery-jvectormap.scss";
+import PropTypes from 'prop-types'
+import React from 'react'
+import { VectorMap } from 'react-jvectormap'
+import '../DashboardAnalytics/jquery-jvectormap.scss'
 
-const map = React.createRef(null);
+const map = React.createRef(null)
 const Vectormap = props => {
     return (
         <div style={{ width: props.width, height: 350 }}>
@@ -14,42 +14,42 @@ const Vectormap = props => {
                 markersSelectable={true}
                 markerStyle={{
                     initial: {
-                        fill: "#0ab39c",
+                        fill: '#0ab39c',
                     },
                     selected: {
-                        fill: "#405189",
+                        fill: '#405189',
                     },
                 }}
                 labels={{
                     markers: {
                         render: function (marker) {
-                            return marker.name;
+                            return marker.name
                         },
                     },
                 }}
-                backgroundColor="transparent"
+                backgroundColor='transparent'
                 ref={map}
                 containerStyle={{
-                    width: "100%",
-                    height: "80%",
+                    width: '100%',
+                    height: '80%',
                 }}
                 regionStyle={{
                     initial: {
-                        stroke: "#9599ad",
+                        stroke: '#9599ad',
                         strokeWidth: 0.25,
-                        fill: "#f3f6f9",
+                        fill: '#f3f6f9',
                         fillOpacity: 1,
                     },
                 }}
             />
         </div>
-    );
-};
+    )
+}
 
 Vectormap.propTypes = {
     color: PropTypes.string,
     value: PropTypes.any,
-    width: PropTypes.any
-};
+    width: PropTypes.any,
+}
 
-export default Vectormap;
+export default Vectormap

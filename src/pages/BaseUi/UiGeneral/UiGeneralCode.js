@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Popovers
 
-const popoversCode =
-    `
+const popoversCode = `
 <!-- Popovers -->
 <div className="hstack flex-wrap gap-2">
     <Button color="light" id="PopoverTop">
@@ -42,19 +41,18 @@ const popoversCode =
         <PopoverBody> And here's some amazing content. It's very engaging. Right? </PopoverBody>
     </UncontrolledPopover>
 </div>
-`;
+`
 
 const PopoversExample = () => (
     <PrismCode
         code={popoversCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Tooltips
-const tooltipsCode =
-    `
+const tooltipsCode = `
 <!-- Tooltips -->
 <div className="hstack flex-wrap gap-2">
     <Button color="light" id="tooltipTop">
@@ -82,19 +80,18 @@ const tooltipsCode =
     </Button>
     <UncontrolledTooltip placement="top" target="tooltipwithHtml" > <em>Tooltip</em> <u>with</u> <b>HTML</b> </UncontrolledTooltip>
 </div>
-`;
+`
 
 const TooltipsExample = () => (
     <PrismCode
         code={tooltipsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Breadcrumb
-const breadcrumbCode =
-    `
+const breadcrumbCode = `
 <Breadcrumb listClassName='p-3 py-2 bg-light'>
     <BreadcrumbItem active> Home </BreadcrumbItem>
 </Breadcrumb>
@@ -112,19 +109,18 @@ const breadcrumbCode =
     <BreadcrumbItem><Link to="#"> Base UI </Link> </BreadcrumbItem>
     <BreadcrumbItem active> General </BreadcrumbItem>
 </Breadcrumb>
-`;
+`
 
 const BreadcrumbExample = () => (
     <PrismCode
         code={breadcrumbCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Pagination
-const paginationCode =
-    `
+const paginationCode = `
 <Pagination>
     <PaginationItem> <PaginationLink to="#"> Previous </PaginationLink> </PaginationItem>
     <PaginationItem> <PaginationLink to="#"> 1 </PaginationLink> </PaginationItem>
@@ -212,19 +208,18 @@ const paginationCode =
     <PaginationItem> <PaginationLink to="#"> 5 </PaginationLink> </PaginationItem>
     <PaginationItem> <PaginationLink to="#"> → </PaginationLink> </PaginationItem>
 </Pagination>
-`;
+`
 
 const PaginationExample = () => (
     <PrismCode
         code={paginationCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Spinners
-const spinnersCode =
-    `
+const spinnersCode = `
 <!-- Border spinner -->
 
 <Spinner color="primary"> Loading... </Spinner>
@@ -261,14 +256,20 @@ const spinnersCode =
 <Spinner color="dark" type="grow" > Loading... </Spinner>
 
 <Spinner color="light" type="grow" > Loading... </Spinner>
-`;
+`
 
 const SpinnersExample = () => (
     <PrismCode
         code={spinnersCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { PopoversExample, TooltipsExample, BreadcrumbExample, PaginationExample, SpinnersExample };
+export {
+    PopoversExample,
+    TooltipsExample,
+    BreadcrumbExample,
+    PaginationExample,
+    SpinnersExample,
+}

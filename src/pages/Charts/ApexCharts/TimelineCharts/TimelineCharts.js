@@ -1,45 +1,45 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
-import * as moment from "moment";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
+import * as moment from 'moment'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const Basic = ({ dataColors }) => {
-    var chartTimelineBasicColors = getChartColorsArray(dataColors);
+    var chartTimelineBasicColors = getChartColorsArray(dataColors)
     const series = [
         {
             data: [
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-02").getTime(),
-                        new Date("2019-03-04").getTime(),
+                        new Date('2019-03-02').getTime(),
+                        new Date('2019-03-04').getTime(),
                     ],
                 },
                 {
-                    x: "Test",
+                    x: 'Test',
                     y: [
-                        new Date("2019-03-04").getTime(),
-                        new Date("2019-03-08").getTime(),
+                        new Date('2019-03-04').getTime(),
+                        new Date('2019-03-08').getTime(),
                     ],
                 },
                 {
-                    x: "Validation",
+                    x: 'Validation',
                     y: [
-                        new Date("2019-03-08").getTime(),
-                        new Date("2019-03-12").getTime(),
+                        new Date('2019-03-08').getTime(),
+                        new Date('2019-03-12').getTime(),
                     ],
                 },
                 {
-                    x: "Deployment",
+                    x: 'Deployment',
                     y: [
-                        new Date("2019-03-12").getTime(),
-                        new Date("2019-03-18").getTime(),
+                        new Date('2019-03-12').getTime(),
+                        new Date('2019-03-18').getTime(),
                     ],
                 },
             ],
         },
-    ];
+    ]
 
     const options = {
         chart: {
@@ -53,26 +53,27 @@ const Basic = ({ dataColors }) => {
             },
         },
         xaxis: {
-            type: "datetime",
+            type: 'datetime',
         },
         colors: chartTimelineBasicColors,
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="rangeBar"
+                type='rangeBar'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const DifferentColor = ({ dataColors }) => {
-    var chartTimelineColors = getChartColorsArray(dataColors);
+    var chartTimelineColors = getChartColorsArray(dataColors)
     const series = [
         {
             data: [
@@ -80,45 +81,45 @@ const DifferentColor = ({ dataColors }) => {
                     x: 'Analysis',
                     y: [
                         new Date('2019-02-27').getTime(),
-                        new Date('2019-03-04').getTime()
+                        new Date('2019-03-04').getTime(),
                     ],
-                    fillColor: chartTimelineColors[0]
+                    fillColor: chartTimelineColors[0],
                 },
                 {
                     x: 'Design',
                     y: [
                         new Date('2019-03-04').getTime(),
-                        new Date('2019-03-08').getTime()
+                        new Date('2019-03-08').getTime(),
                     ],
-                    fillColor: chartTimelineColors[1]
+                    fillColor: chartTimelineColors[1],
                 },
                 {
                     x: 'Coding',
                     y: [
                         new Date('2019-03-07').getTime(),
-                        new Date('2019-03-10').getTime()
+                        new Date('2019-03-10').getTime(),
                     ],
-                    fillColor: chartTimelineColors[2]
+                    fillColor: chartTimelineColors[2],
                 },
                 {
                     x: 'Testing',
                     y: [
                         new Date('2019-03-08').getTime(),
-                        new Date('2019-03-12').getTime()
+                        new Date('2019-03-12').getTime(),
                     ],
-                    fillColor: chartTimelineColors[3]
+                    fillColor: chartTimelineColors[3],
                 },
                 {
                     x: 'Deployment',
                     y: [
                         new Date('2019-03-12').getTime(),
-                        new Date('2019-03-17').getTime()
+                        new Date('2019-03-17').getTime(),
                     ],
-                    fillColor: chartTimelineColors[4]
+                    fillColor: chartTimelineColors[4],
                 },
             ],
         },
-    ];
+    ]
 
     const options = {
         chart: {
@@ -126,16 +127,16 @@ const DifferentColor = ({ dataColors }) => {
             type: 'rangeBar',
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
                 horizontal: true,
                 distributed: true,
                 dataLabels: {
-                    hideOverflowingLabels: false
-                }
-            }
+                    hideOverflowingLabels: false,
+                },
+            },
         },
         dataLabels: {
             enabled: true,
@@ -148,82 +149,83 @@ const DifferentColor = ({ dataColors }) => {
             },
         },
         xaxis: {
-            type: 'datetime'
+            type: 'datetime',
         },
         yaxis: {
-            show: true
+            show: true,
         },
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="rangeBar"
+                type='rangeBar'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const MultiSeries = ({ dataColors }) => {
-    var chartTimelineMultiSeriesColors = getChartColorsArray(dataColors);
+    var chartTimelineMultiSeriesColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Bob",
+            name: 'Bob',
             data: [
                 {
-                    x: "Design",
+                    x: 'Design',
                     y: [
-                        new Date("2019-03-05").getTime(),
-                        new Date("2019-03-08").getTime(),
+                        new Date('2019-03-05').getTime(),
+                        new Date('2019-03-08').getTime(),
                     ],
                 },
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-08").getTime(),
-                        new Date("2019-03-11").getTime(),
+                        new Date('2019-03-08').getTime(),
+                        new Date('2019-03-11').getTime(),
                     ],
                 },
                 {
-                    x: "Test",
+                    x: 'Test',
                     y: [
-                        new Date("2019-03-11").getTime(),
-                        new Date("2019-03-16").getTime(),
+                        new Date('2019-03-11').getTime(),
+                        new Date('2019-03-16').getTime(),
                     ],
                 },
             ],
         },
         {
-            name: "Joe",
+            name: 'Joe',
             data: [
                 {
-                    x: "Design",
+                    x: 'Design',
                     y: [
-                        new Date("2019-03-02").getTime(),
-                        new Date("2019-03-05").getTime(),
+                        new Date('2019-03-02').getTime(),
+                        new Date('2019-03-05').getTime(),
                     ],
                 },
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-06").getTime(),
-                        new Date("2019-03-09").getTime(),
+                        new Date('2019-03-06').getTime(),
+                        new Date('2019-03-09').getTime(),
                     ],
                 },
                 {
-                    x: "Test",
+                    x: 'Test',
                     y: [
-                        new Date("2019-03-10").getTime(),
-                        new Date("2019-03-19").getTime(),
+                        new Date('2019-03-10').getTime(),
+                        new Date('2019-03-19').getTime(),
                     ],
                 },
             ],
         },
-    ];
+    ]
 
     var options = {
         chart: {
@@ -239,17 +241,17 @@ const MultiSeries = ({ dataColors }) => {
         dataLabels: {
             enabled: true,
             formatter: function (val) {
-                var a = moment(val[0]);
-                var b = moment(val[1]);
-                var diff = b.diff(a, "days");
-                return diff + (diff > 1 ? " days" : " day");
+                var a = moment(val[0])
+                var b = moment(val[1])
+                var diff = b.diff(a, 'days')
+                return diff + (diff > 1 ? ' days' : ' day')
             },
         },
         fill: {
-            type: "gradient",
+            type: 'gradient',
             gradient: {
-                shade: "light",
-                type: "vertical",
+                shade: 'light',
+                type: 'vertical',
                 shadeIntensity: 0.25,
                 gradientToColors: undefined,
                 inverseColors: true,
@@ -259,144 +261,145 @@ const MultiSeries = ({ dataColors }) => {
             },
         },
         xaxis: {
-            type: "datetime",
+            type: 'datetime',
         },
         legend: {
-            position: "top",
+            position: 'top',
         },
         colors: chartTimelineMultiSeriesColors,
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="rangeBar"
+                type='rangeBar'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const Advanced = ({ dataColors }) => {
-    var chartTimelineAdvancedColors = getChartColorsArray(dataColors);
+    var chartTimelineAdvancedColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Bob",
+            name: 'Bob',
             data: [
                 {
-                    x: "Design",
+                    x: 'Design',
                     y: [
-                        new Date("2019-03-05").getTime(),
-                        new Date("2019-03-08").getTime(),
+                        new Date('2019-03-05').getTime(),
+                        new Date('2019-03-08').getTime(),
                     ],
                 },
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-02").getTime(),
-                        new Date("2019-03-05").getTime(),
+                        new Date('2019-03-02').getTime(),
+                        new Date('2019-03-05').getTime(),
                     ],
                 },
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-05").getTime(),
-                        new Date("2019-03-07").getTime(),
+                        new Date('2019-03-05').getTime(),
+                        new Date('2019-03-07').getTime(),
                     ],
                 },
                 {
-                    x: "Test",
+                    x: 'Test',
                     y: [
-                        new Date("2019-03-03").getTime(),
-                        new Date("2019-03-09").getTime(),
+                        new Date('2019-03-03').getTime(),
+                        new Date('2019-03-09').getTime(),
                     ],
                 },
                 {
-                    x: "Test",
+                    x: 'Test',
                     y: [
-                        new Date("2019-03-08").getTime(),
-                        new Date("2019-03-11").getTime(),
+                        new Date('2019-03-08').getTime(),
+                        new Date('2019-03-11').getTime(),
                     ],
                 },
                 {
-                    x: "Validation",
+                    x: 'Validation',
                     y: [
-                        new Date("2019-03-11").getTime(),
-                        new Date("2019-03-16").getTime(),
+                        new Date('2019-03-11').getTime(),
+                        new Date('2019-03-16').getTime(),
                     ],
                 },
                 {
-                    x: "Design",
+                    x: 'Design',
                     y: [
-                        new Date("2019-03-01").getTime(),
-                        new Date("2019-03-03").getTime(),
+                        new Date('2019-03-01').getTime(),
+                        new Date('2019-03-03').getTime(),
                     ],
                 },
             ],
         },
         {
-            name: "Joe",
+            name: 'Joe',
             data: [
                 {
-                    x: "Design",
+                    x: 'Design',
                     y: [
-                        new Date("2019-03-02").getTime(),
-                        new Date("2019-03-05").getTime(),
+                        new Date('2019-03-02').getTime(),
+                        new Date('2019-03-05').getTime(),
                     ],
                 },
                 {
-                    x: "Test",
+                    x: 'Test',
                     y: [
-                        new Date("2019-03-06").getTime(),
-                        new Date("2019-03-16").getTime(),
+                        new Date('2019-03-06').getTime(),
+                        new Date('2019-03-16').getTime(),
                     ],
                 },
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-03").getTime(),
-                        new Date("2019-03-07").getTime(),
+                        new Date('2019-03-03').getTime(),
+                        new Date('2019-03-07').getTime(),
                     ],
                 },
                 {
-                    x: "Deployment",
+                    x: 'Deployment',
                     y: [
-                        new Date("2019-03-20").getTime(),
-                        new Date("2019-03-22").getTime(),
+                        new Date('2019-03-20').getTime(),
+                        new Date('2019-03-22').getTime(),
                     ],
                 },
                 {
-                    x: "Design",
+                    x: 'Design',
                     y: [
-                        new Date("2019-03-10").getTime(),
-                        new Date("2019-03-16").getTime(),
+                        new Date('2019-03-10').getTime(),
+                        new Date('2019-03-16').getTime(),
                     ],
                 },
             ],
         },
         {
-            name: "Dan",
+            name: 'Dan',
             data: [
                 {
-                    x: "Code",
+                    x: 'Code',
                     y: [
-                        new Date("2019-03-10").getTime(),
-                        new Date("2019-03-17").getTime(),
+                        new Date('2019-03-10').getTime(),
+                        new Date('2019-03-17').getTime(),
                     ],
                 },
                 {
-                    x: "Validation",
+                    x: 'Validation',
                     y: [
-                        new Date("2019-03-05").getTime(),
-                        new Date("2019-03-09").getTime(),
+                        new Date('2019-03-05').getTime(),
+                        new Date('2019-03-09').getTime(),
                     ],
                 },
             ],
         },
-    ];
+    ]
 
     const options = {
         chart: {
@@ -407,44 +410,44 @@ const Advanced = ({ dataColors }) => {
         plotOptions: {
             bar: {
                 horizontal: !0,
-                barHeight: "80%",
+                barHeight: '80%',
             },
         },
         xaxis: {
-            type: "datetime",
+            type: 'datetime',
         },
         stroke: {
             width: 1,
         },
         fill: {
-            type: "solid",
+            type: 'solid',
             opacity: 0.6,
         },
         legend: {
-            position: "top",
-            horizontalAlign: "left",
+            position: 'top',
+            horizontalAlign: 'left',
         },
         colors: chartTimelineAdvancedColors,
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="rangeBar"
+                type='rangeBar'
                 height={350}
             />
         </React.Fragment>
-    );
-};
-
+    )
+}
 
 // Multiple series � Group rows
 
 const MultipleSeries = ({ dataColors }) => {
-    var chartMultiSeriesColors = getChartColorsArray(dataColors);
+    var chartMultiSeriesColors = getChartColorsArray(dataColors)
     const series = [
         // George Washington
         {
@@ -454,10 +457,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'President',
                     y: [
                         new Date(1789, 3, 30).getTime(),
-                        new Date(1797, 2, 4).getTime()
-                    ]
+                        new Date(1797, 2, 4).getTime(),
+                    ],
                 },
-            ]
+            ],
         },
         // John Adams
         {
@@ -467,17 +470,17 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'President',
                     y: [
                         new Date(1797, 2, 4).getTime(),
-                        new Date(1801, 2, 4).getTime()
-                    ]
+                        new Date(1801, 2, 4).getTime(),
+                    ],
                 },
                 {
                     x: 'Vice President',
                     y: [
                         new Date(1789, 3, 21).getTime(),
-                        new Date(1797, 2, 4).getTime()
-                    ]
-                }
-            ]
+                        new Date(1797, 2, 4).getTime(),
+                    ],
+                },
+            ],
         },
         // Thomas Jefferson
         {
@@ -487,24 +490,24 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'President',
                     y: [
                         new Date(1801, 2, 4).getTime(),
-                        new Date(1809, 2, 4).getTime()
-                    ]
+                        new Date(1809, 2, 4).getTime(),
+                    ],
                 },
                 {
                     x: 'Vice President',
                     y: [
                         new Date(1797, 2, 4).getTime(),
-                        new Date(1801, 2, 4).getTime()
-                    ]
+                        new Date(1801, 2, 4).getTime(),
+                    ],
                 },
                 {
                     x: 'Secretary of State',
                     y: [
                         new Date(1790, 2, 22).getTime(),
-                        new Date(1793, 11, 31).getTime()
-                    ]
-                }
-            ]
+                        new Date(1793, 11, 31).getTime(),
+                    ],
+                },
+            ],
         },
         // Aaron Burr
         {
@@ -514,10 +517,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Vice President',
                     y: [
                         new Date(1801, 2, 4).getTime(),
-                        new Date(1805, 2, 4).getTime()
-                    ]
-                }
-            ]
+                        new Date(1805, 2, 4).getTime(),
+                    ],
+                },
+            ],
         },
         // George Clinton
         {
@@ -527,10 +530,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Vice President',
                     y: [
                         new Date(1805, 2, 4).getTime(),
-                        new Date(1812, 3, 20).getTime()
-                    ]
-                }
-            ]
+                        new Date(1812, 3, 20).getTime(),
+                    ],
+                },
+            ],
         },
         // John Jay
         {
@@ -540,10 +543,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Secretary of State',
                     y: [
                         new Date(1789, 8, 25).getTime(),
-                        new Date(1790, 2, 22).getTime()
-                    ]
-                }
-            ]
+                        new Date(1790, 2, 22).getTime(),
+                    ],
+                },
+            ],
         },
         // Edmund Randolph
         {
@@ -553,10 +556,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Secretary of State',
                     y: [
                         new Date(1794, 0, 2).getTime(),
-                        new Date(1795, 7, 20).getTime()
-                    ]
-                }
-            ]
+                        new Date(1795, 7, 20).getTime(),
+                    ],
+                },
+            ],
         },
         // Timothy Pickering
         {
@@ -566,10 +569,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Secretary of State',
                     y: [
                         new Date(1795, 7, 20).getTime(),
-                        new Date(1800, 4, 12).getTime()
-                    ]
-                }
-            ]
+                        new Date(1800, 4, 12).getTime(),
+                    ],
+                },
+            ],
         },
         // Charles Lee
         {
@@ -579,10 +582,10 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Secretary of State',
                     y: [
                         new Date(1800, 4, 13).getTime(),
-                        new Date(1800, 5, 5).getTime()
-                    ]
-                }
-            ]
+                        new Date(1800, 5, 5).getTime(),
+                    ],
+                },
+            ],
         },
         // John Marshall
         {
@@ -592,12 +595,12 @@ const MultipleSeries = ({ dataColors }) => {
                     x: 'Secretary of State',
                     y: [
                         new Date(1800, 5, 13).getTime(),
-                        new Date(1801, 2, 4).getTime()
-                    ]
-                }
-            ]
-        }
-    ];
+                        new Date(1801, 2, 4).getTime(),
+                    ],
+                },
+            ],
+        },
+    ]
 
     const options = {
         chart: {
@@ -605,23 +608,23 @@ const MultipleSeries = ({ dataColors }) => {
             type: 'rangeBar',
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
                 horizontal: true,
                 barHeight: '35%',
-                rangeBarGroupRows: true
+                rangeBarGroupRows: true,
             },
         },
         fill: {
-            type: 'solid'
+            type: 'solid',
         },
         legend: {
-            position: 'right'
+            position: 'right',
         },
         xaxis: {
-            type: "datetime",
+            type: 'datetime',
         },
         tooltip: {
             custom: function (opts) {
@@ -645,124 +648,126 @@ const MultipleSeries = ({ dataColors }) => {
                     '</span></div>' +
                     '</div>'
                 )
-            }
+            },
         },
         colors: chartMultiSeriesColors,
-    };
+    }
 
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="rangeBar"
+                type='rangeBar'
                 height={350}
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const DumbBell = ({ dataColors }) => {
-    var dumbbellChartColors = getChartColorsArray(dataColors);
+    var dumbbellChartColors = getChartColorsArray(dataColors)
     const series = [
         {
             data: [
                 {
                     x: 'Operations',
-                    y: [2800, 4500]
+                    y: [2800, 4500],
                 },
                 {
                     x: 'Customer Success',
-                    y: [3200, 4100]
+                    y: [3200, 4100],
                 },
                 {
                     x: 'Engineering',
-                    y: [2950, 7800]
+                    y: [2950, 7800],
                 },
                 {
                     x: 'Marketing',
-                    y: [3000, 4600]
+                    y: [3000, 4600],
                 },
                 {
                     x: 'Product',
-                    y: [3500, 4100]
+                    y: [3500, 4100],
                 },
                 {
                     x: 'Data Science',
-                    y: [4500, 6500]
+                    y: [4500, 6500],
                 },
                 {
                     x: 'Sales',
-                    y: [4100, 5600]
-                }
-            ]
-        }
-    ];
+                    y: [4100, 5600],
+                },
+            ],
+        },
+    ]
     var options = {
         chart: {
             height: 350,
             type: 'rangeBar',
             zoom: {
-                enabled: false
-            }
+                enabled: false,
+            },
         },
         colors: ['#EC7D31', '#36BDCB'],
         plotOptions: {
             bar: {
                 horizontal: true,
                 isDumbbell: true,
-                dumbbellColors: dumbbellChartColors
-            }
+                dumbbellColors: dumbbellChartColors,
+            },
         },
         title: {
-            text: 'Paygap Disparity'
+            text: 'Paygap Disparity',
         },
         legend: {
             show: true,
             showForSingleSeries: true,
             position: 'top',
             horizontalAlign: 'left',
-            customLegendItems: ['Female', 'Male']
+            customLegendItems: ['Female', 'Male'],
         },
         fill: {
             type: 'gradient',
             gradient: {
                 gradientToColors: ['#36BDCB'],
                 inverseColors: false,
-                stops: [0, 100]
-            }
+                stops: [0, 100],
+            },
         },
         grid: {
             xaxis: {
                 lines: {
-                    show: true
-                }
+                    show: true,
+                },
             },
             yaxis: {
                 lines: {
-                    show: false
-                }
-            }
-        }
-    };
+                    show: false,
+                },
+            },
+        },
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
-                className="apex-charts"
+            <ReactApexChart
+                dir='ltr'
+                className='apex-charts'
                 options={options}
                 series={series}
-                type="rangeBar"
+                type='rangeBar'
                 height={350}
             />
         </React.Fragment>
-    );
-    }
+    )
+}
 export {
     Basic,
     DifferentColor,
     MultiSeries,
     Advanced,
     MultipleSeries,
-    DumbBell
-};
+    DumbBell,
+}

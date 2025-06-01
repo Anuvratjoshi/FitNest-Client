@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from "prop-types";
-import withRouter from '../Components/Common/withRouter';
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import withRouter from '../Components/Common/withRouter'
 
 //import Components
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
-import RightSidebar from '../Components/Common/RightSidebar';
+import Header from './Header'
+import Sidebar from './Sidebar'
+import Footer from './Footer'
+import RightSidebar from '../Components/Common/RightSidebar'
 
 //import actions
 import {
@@ -19,22 +19,21 @@ import {
     changeLeftsidebarSizeType,
     changeLeftsidebarViewType,
     changeBackgroundImageType,
-    changeSidebarVisibility
-} from "../slices/thunks";
+    changeSidebarVisibility,
+} from '../slices/thunks'
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
-import { createSelector } from 'reselect';
+import { useSelector, useDispatch } from 'react-redux'
+import { createSelector } from 'reselect'
 
+const Layout = props => {
+    const [headerClass, setHeaderClass] = useState('')
+    const dispatch = useDispatch()
 
-const Layout = (props) => {
-    const [headerClass, setHeaderClass] = useState("");
-    const dispatch = useDispatch();
-
-    const selectLayoutState = (state) => state.Layout;
+    const selectLayoutState = state => state.Layout
     const selectLayoutProperties = createSelector(
         selectLayoutState,
-        (layout) => ({
+        layout => ({
             layoutType: layout.layoutType,
             leftSidebarType: layout.leftSidebarType,
             layoutModeType: layout.layoutModeType,
@@ -47,8 +46,8 @@ const Layout = (props) => {
             backgroundImageType: layout.backgroundImageType,
             preloader: layout.preloader,
             sidebarVisibilitytype: layout.sidebarVisibilitytype,
-        })
-    );
+        }),
+    )
     // Inside your component
     const {
         layoutType,
@@ -62,8 +61,8 @@ const Layout = (props) => {
         backgroundImageType,
         leftSidebarImageType,
         preloader,
-        sidebarVisibilitytype
-    } = useSelector(selectLayoutProperties);
+        sidebarVisibilitytype,
+    } = useSelector(selectLayoutProperties)
 
     /*
     layout settings
@@ -81,19 +80,20 @@ const Layout = (props) => {
             backgroundImageType ||
             sidebarVisibilitytype
         ) {
-            window.dispatchEvent(new Event('resize'));
-            dispatch(changeLeftsidebarViewType(leftSidebarViewType));
-            dispatch(changeLeftsidebarSizeType(leftsidbarSizeType));
-            dispatch(changeSidebarTheme(leftSidebarType));
-            dispatch(changeLayoutMode(layoutModeType));
-            dispatch(changeLayoutWidth(layoutWidthType));
-            dispatch(changeLayoutPosition(layoutPositionType));
-            dispatch(changeTopbarTheme(topbarThemeType));
-            dispatch(changeLayout(layoutType));
-            dispatch(changeBackgroundImageType(backgroundImageType));
-            dispatch(changeSidebarVisibility(sidebarVisibilitytype));
+            window.dispatchEvent(new Event('resize'))
+            dispatch(changeLeftsidebarViewType(leftSidebarViewType))
+            dispatch(changeLeftsidebarSizeType(leftsidbarSizeType))
+            dispatch(changeSidebarTheme(leftSidebarType))
+            dispatch(changeLayoutMode(layoutModeType))
+            dispatch(changeLayoutWidth(layoutWidthType))
+            dispatch(changeLayoutPosition(layoutPositionType))
+            dispatch(changeTopbarTheme(topbarThemeType))
+            dispatch(changeLayout(layoutType))
+            dispatch(changeBackgroundImageType(backgroundImageType))
+            dispatch(changeSidebarVisibility(sidebarVisibilitytype))
         }
-    }, [layoutType,
+    }, [
+        layoutType,
         leftSidebarType,
         layoutModeType,
         layoutWidthType,
@@ -103,60 +103,68 @@ const Layout = (props) => {
         leftSidebarViewType,
         backgroundImageType,
         sidebarVisibilitytype,
-        dispatch]);
+        dispatch,
+    ])
     /*
     call dark/light mode
     */
-    const onChangeLayoutMode = (value) => {
+    const onChangeLayoutMode = value => {
         if (changeLayoutMode) {
-            dispatch(changeLayoutMode(value));
+            dispatch(changeLayoutMode(value))
         }
-    };
+    }
 
-    // class add remove in header 
+    // class add remove in header
     useEffect(() => {
-        window.addEventListener("scroll", scrollNavigation, true);
-    });
+        window.addEventListener('scroll', scrollNavigation, true)
+    })
 
     function scrollNavigation() {
-        var scrollup = document.documentElement.scrollTop;
+        var scrollup = document.documentElement.scrollTop
         if (scrollup > 50) {
-            setHeaderClass("topbar-shadow");
+            setHeaderClass('topbar-shadow')
         } else {
-            setHeaderClass("");
+            setHeaderClass('')
         }
     }
 
     useEffect(() => {
-        if (sidebarVisibilitytype === 'show' || layoutType === "vertical" || layoutType === "twocolumn") {
-            document && document.querySelector(".hamburger-icon")?.classList.remove('open');
+        if (
+            sidebarVisibilitytype === 'show' ||
+            layoutType === 'vertical' ||
+            layoutType === 'twocolumn'
+        ) {
+            document &&
+                document
+                    .querySelector('.hamburger-icon')
+                    ?.classList.remove('open')
         } else {
-            document && document.querySelector(".hamburger-icon")?.classList.add('open');
+            document &&
+                document.querySelector('.hamburger-icon')?.classList.add('open')
         }
-    }, [sidebarVisibilitytype, layoutType]);
+    }, [sidebarVisibilitytype, layoutType])
 
     return (
         <React.Fragment>
-            <div id="layout-wrapper">
+            <div id='layout-wrapper'>
                 <Header
                     headerClass={headerClass}
                     layoutModeType={layoutModeType}
-                    onChangeLayoutMode={onChangeLayoutMode} />
-                <Sidebar
-                    layoutType={layoutType}
+                    onChangeLayoutMode={onChangeLayoutMode}
                 />
-                <div className="main-content">{props.children}
+                <Sidebar layoutType={layoutType} />
+                <div className='main-content'>
+                    {props.children}
                     <Footer />
                 </div>
             </div>
             <RightSidebar />
         </React.Fragment>
-
-    );
-};
+    )
+}
 
 Layout.propTypes = {
     children: PropTypes.object,
-};
+}
 
-export default withRouter(Layout);
+export default withRouter(Layout)

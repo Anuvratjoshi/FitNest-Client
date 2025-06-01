@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
-import getChartColorsArray from "../../Components/Common/ChartsDynamicColor";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
+import getChartColorsArray from '../../Components/Common/ChartsDynamicColor'
 
 const PortfolioCharts = ({ dataColors, series }) => {
-    var donutchartportfolioColors = getChartColorsArray(dataColors);
+    var donutchartportfolioColors = getChartColorsArray(dataColors)
 
     var options = {
-        labels: ["Bitcoin", "Ethereum", "Litecoin", "Dash"],
+        labels: ['Bitcoin', 'Ethereum', 'Litecoin', 'Dash'],
         chart: {
-            type: "donut",
+            type: 'donut',
             height: 224,
         },
 
@@ -18,7 +18,7 @@ const PortfolioCharts = ({ dataColors, series }) => {
                 offsetX: 0,
                 offsetY: 0,
                 donut: {
-                    size: "70%",
+                    size: '70%',
                     labels: {
                         show: true,
                         name: {
@@ -33,8 +33,8 @@ const PortfolioCharts = ({ dataColors, series }) => {
                             fontWeight: 500,
                             offsetY: 5,
                             formatter: function (val) {
-                                return "$" + val;
-                            }
+                                return '$' + val
+                            },
                         },
                         total: {
                             show: true,
@@ -43,12 +43,18 @@ const PortfolioCharts = ({ dataColors, series }) => {
                             color: '#9599ad',
                             fontWeight: 500,
                             formatter: function (w) {
-                                return "$" + w.globals.seriesTotals.reduce(function (a, b) {
-                                    return a + b;
-                                }, 0);
-                            }
-                        }
-                    }
+                                return (
+                                    '$' +
+                                    w.globals.seriesTotals.reduce(function (
+                                        a,
+                                        b,
+                                    ) {
+                                        return a + b
+                                    }, 0)
+                                )
+                            },
+                        },
+                    },
                 },
             },
         },
@@ -61,110 +67,113 @@ const PortfolioCharts = ({ dataColors, series }) => {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return "$" + value;
-                }
-            }
+                    return '$' + value
+                },
+            },
         },
         stroke: {
-            lineCap: "round",
-            width: 2
+            lineCap: 'round',
+            width: 2,
         },
         colors: donutchartportfolioColors,
-    };
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="donut"
-                height="224"
-                className="apex-charts"
+                type='donut'
+                height='224'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const MarkerCharts = ({ dataColors, series }) => {
-    var MarketchartColors = getChartColorsArray(dataColors);
+    var MarketchartColors = getChartColorsArray(dataColors)
 
     var options = {
         chart: {
             type: 'candlestick',
             height: 294,
             toolbar: {
-                show: false
-            }
+                show: false,
+            },
         },
         plotOptions: {
             candlestick: {
                 colors: {
                     upward: MarketchartColors[0],
-                    downward: MarketchartColors[1]
-                }
-            }
+                    downward: MarketchartColors[1],
+                },
+            },
         },
         xaxis: {
-            type: 'datetime'
+            type: 'datetime',
         },
         yaxis: {
             tooltip: {
-                enabled: true
+                enabled: true,
             },
             labels: {
                 formatter: function (value) {
-                    return "$" + value;
-                }
-            }
+                    return '$' + value
+                },
+            },
         },
         tooltip: {
             shared: true,
-            y: [{
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0);
-                    }
-                    return y;
-
-                }
-            }, {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return "$" + y.toFixed(2) + "k";
-                    }
-                    return y;
-
-                }
-            }, {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0) + " Sales";
-                    }
-                    return y;
-
-                }
-            }]
-        }
-    };
+            y: [
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return y.toFixed(0)
+                        }
+                        return y
+                    },
+                },
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return '$' + y.toFixed(2) + 'k'
+                        }
+                        return y
+                    },
+                },
+                {
+                    formatter: function (y) {
+                        if (typeof y !== 'undefined') {
+                            return y.toFixed(0) + ' Sales'
+                        }
+                        return y
+                    },
+                },
+            ],
+        },
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={series}
-                type="candlestick"
-                height="294"
-                className="apex-charts"
+                type='candlestick'
+                height='294'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
 const WidgetsCharts = ({ seriesData, chartsColor }) => {
-    const areachartlitecoinColors = [chartsColor];
+    const areachartlitecoinColors = [chartsColor]
     var options = {
         chart: {
             width: 130,
             height: 46,
-            type: "area",
+            type: 'area',
             sparkline: {
                 enabled: true,
             },
@@ -176,11 +185,11 @@ const WidgetsCharts = ({ seriesData, chartsColor }) => {
             enabled: false,
         },
         stroke: {
-            curve: "smooth",
+            curve: 'smooth',
             width: 1.5,
         },
         fill: {
-            type: "gradient",
+            type: 'gradient',
             gradient: {
                 shadeIntensity: 1,
                 inverseColors: false,
@@ -189,20 +198,20 @@ const WidgetsCharts = ({ seriesData, chartsColor }) => {
                 stops: [50, 100, 100, 100],
             },
         },
-        colors: areachartlitecoinColors
-    };
+        colors: areachartlitecoinColors,
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={[...seriesData]}
-                type="area"
-                height="46"
-                className="apex-charts"
+                type='area'
+                height='46'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
-
-export { PortfolioCharts, MarkerCharts, WidgetsCharts };
+export { PortfolioCharts, MarkerCharts, WidgetsCharts }

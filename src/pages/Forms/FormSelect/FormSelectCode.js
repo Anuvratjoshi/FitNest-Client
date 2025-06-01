@@ -1,11 +1,9 @@
-import React from 'react';
-import PrismCode from '../../../Components/Common/Prism';
+import React from 'react'
+import PrismCode from '../../../Components/Common/Prism'
 
 //DefaultSelect code
 const DefaultSelect = () => {
-
-    const code =
-        `<Row>
+    const code = `<Row>
 <Col lg={6}>
     <select className="form-select mb-3" aria-label="Default select example">
         <option >Select your Status </option>
@@ -31,22 +29,17 @@ const DefaultSelect = () => {
     </select>
 </Col>
 </Row>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //MenuSize code
 const MenuSize = () => {
-
-    const code =
-        `<Row>
+    const code = `<Row>
     <Col lg={6}>
         <select className="form-select mb-3" aria-label="Default select example">
             <option >Select your Status </option>
@@ -72,22 +65,17 @@ const MenuSize = () => {
         </select>
     </Col>
     </Row>
-    `;
+    `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
 //SelectSize code
 const SelectSize = () => {
-
-    const code =
-        `<Row className="align-items-center g-3">
+    const code = `<Row className="align-items-center g-3">
 <Col lg={4}>
     <select className="form-select form-select-sm" aria-label=".form-select-sm example">
         <option selected>Open this select menu</option>
@@ -113,15 +101,12 @@ const SelectSize = () => {
     </select>
 </Col>
 </Row>
-`;
+`
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                 language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
-    );
-};
+    )
+}
 
-export { DefaultSelect, MenuSize, SelectSize };
+export { DefaultSelect, MenuSize, SelectSize }

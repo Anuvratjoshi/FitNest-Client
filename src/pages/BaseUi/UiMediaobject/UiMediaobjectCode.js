@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Examples
 
-const defultCode =
-    `
+const defultCode = `
 <div className="d-flex align-items-start text-muted mb-4">
     <div className="flex-shrink-0 me-3">
         <img src={avatar2} className="avatar-sm rounded" alt="...">
@@ -34,20 +33,19 @@ const defultCode =
         This is some content from a media component. You can replace this with any content and adjust it as needed.
     </div>
 </div>
-`;
+`
 
 const DefultExample = () => (
     <PrismCode
         code={defultCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Nesting Example
 
-const nestingCode =
-    `
+const nestingCode = `
 <!-- Nesting Example -->
 <div className="d-flex align-items-start text-muted mb-4">
     <div className="flex-shrink-0 me-3">
@@ -78,20 +76,19 @@ const nestingCode =
     </div>
 </div>
 
-`;
+`
 
 const NestingExample = () => (
     <PrismCode
         code={nestingCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Media Alignment
 
-const mediaCode =
-    `
+const mediaCode = `
 <!-- Media Alignment -->
 <div className="d-flex align-items-start text-muted mb-4">
     <div className="flex-shrink-0 me-3">
@@ -125,14 +122,14 @@ const mediaCode =
     <p className="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
     </div>
 </div>
-`;
+`
 
 const MediaExample = () => (
     <PrismCode
         code={mediaCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { DefultExample, NestingExample, MediaExample };
+export { DefultExample, NestingExample, MediaExample }

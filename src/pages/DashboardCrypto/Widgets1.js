@@ -1,14 +1,23 @@
-import React from 'react';
-import { Card, CardBody, Col, DropdownItem, DropdownMenu, DropdownToggle, Row, UncontrolledDropdown } from 'reactstrap';
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from 'react'
+import {
+    Card,
+    CardBody,
+    Col,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
+    Row,
+    UncontrolledDropdown,
+} from 'reactstrap'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import "swiper/css";
-import "swiper/css/pagination";
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 // import required modules
-import { Autoplay, Mousewheel } from "swiper/modules";
-import { cryptoSlider } from '../../common/data';
-import { WidgetsCharts } from './DashboardCryptoCharts';
+import { Autoplay, Mousewheel } from 'swiper/modules'
+import { cryptoSlider } from '../../common/data'
+import { WidgetsCharts } from './DashboardCryptoCharts'
 
 const Widgets1 = () => {
     return (
@@ -37,35 +46,73 @@ const Widgets1 = () => {
                         },
                     }}
                     modules={[Autoplay, Mousewheel]}
-                    className="cryptoSlider">
-
+                    className='cryptoSlider'
+                >
                     {(cryptoSlider || []).map((item, key) => (
                         <SwiperSlide key={key}>
                             <Card>
                                 <CardBody>
-                                    <div className="float-end">
+                                    <div className='float-end'>
                                         <UncontrolledDropdown direction='start'>
-                                            <DropdownToggle className="text-reset" tag="a" role="button">
-                                                <span className="text-muted fs-18"><i className="mdi mdi-dots-horizontal"></i></span>
+                                            <DropdownToggle
+                                                className='text-reset'
+                                                tag='a'
+                                                role='button'
+                                            >
+                                                <span className='text-muted fs-18'>
+                                                    <i className='mdi mdi-dots-horizontal'></i>
+                                                </span>
                                             </DropdownToggle>
-                                            <DropdownMenu className="dropdown-menu dropdown-menu-end">
-                                                <DropdownItem href="#"> Details </DropdownItem>
-                                                <DropdownItem href="#"> Cancel </DropdownItem>
+                                            <DropdownMenu className='dropdown-menu dropdown-menu-end'>
+                                                <DropdownItem href='#'>
+                                                    {' '}
+                                                    Details{' '}
+                                                </DropdownItem>
+                                                <DropdownItem href='#'>
+                                                    {' '}
+                                                    Cancel{' '}
+                                                </DropdownItem>
                                             </DropdownMenu>
                                         </UncontrolledDropdown>
                                     </div>
-                                    <div className="d-flex align-items-center">
-                                        <img src={item.img} className="bg-light rounded-circle p-1 avatar-xs img-fluid" alt="" />
-                                        <h6 className="ms-2 mb-0 fs-14">{item.label}</h6>
+                                    <div className='d-flex align-items-center'>
+                                        <img
+                                            src={item.img}
+                                            className='bg-light rounded-circle p-1 avatar-xs img-fluid'
+                                            alt=''
+                                        />
+                                        <h6 className='ms-2 mb-0 fs-14'>
+                                            {item.label}
+                                        </h6>
                                     </div>
-                                    <Row className="align-items-end g-0">
+                                    <Row className='align-items-end g-0'>
                                         <Col xs={6}>
-                                            <h5 className="mb-1 mt-4">{item.price}</h5>
-                                            <p className={"fs-13 fw-medium mb-0 text-" + item.changeClass}>{item.change}<span className="text-muted ms-2 fs-10 text-uppercase">({item.coinName})</span></p>
+                                            <h5 className='mb-1 mt-4'>
+                                                {item.price}
+                                            </h5>
+                                            <p
+                                                className={
+                                                    'fs-13 fw-medium mb-0 text-' +
+                                                    item.changeClass
+                                                }
+                                            >
+                                                {item.change}
+                                                <span className='text-muted ms-2 fs-10 text-uppercase'>
+                                                    ({item.coinName})
+                                                </span>
+                                            </p>
                                         </Col>
                                         <Col xs={6}>
-                                            <div className="apex-charts crypto-widget" dir="ltr">
-                                                <WidgetsCharts seriesData={item.series} chartsColor={item.chartsColor} />
+                                            <div
+                                                className='apex-charts crypto-widget'
+                                                dir='ltr'
+                                            >
+                                                <WidgetsCharts
+                                                    seriesData={item.series}
+                                                    chartsColor={
+                                                        item.chartsColor
+                                                    }
+                                                />
                                             </div>
                                         </Col>
                                     </Row>
@@ -76,7 +123,7 @@ const Widgets1 = () => {
                 </Swiper>
             </Col>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default Widgets1;
+export default Widgets1

@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Default Accordion
 
-const defaultAccordionCode =
-`<!-- Base Example -->
+const defaultAccordionCode = `<!-- Base Example -->
     const [col1, setcol1] = useState(true);
     const [col2, setcol2] = useState(false);
     const [col3, setcol3] = useState(false);
@@ -67,19 +66,18 @@ const defaultAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const DefaultAccordionExample = () => (
     <PrismCode
         code={defaultAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Accordion Flush
-const flushAccordionCode =
-    `
+const flushAccordionCode = `
 <!-- Accordion Flush Example -->
 
     const [col4, setcol4] = useState(true);
@@ -145,20 +143,18 @@ const flushAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const FlushAccordionExample = () => (
     <PrismCode
         code={flushAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Accordions with Icons
-const iconAccordionCode =
-    `
+const iconAccordionCode = `
 <!-- Accordions with Icons -->
 
     const [iconCol1, seticonCol1] = useState(true);
@@ -224,20 +220,18 @@ const iconAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const IconAccordionExample = () => (
     <PrismCode
         code={iconAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Accordions without Icons
-const withIconAccordionCode =
-    `
+const withIconAccordionCode = `
 <!-- Accordions without Icons -->
 
     const [iconCol4, seticonCol4] = useState(true);
@@ -305,20 +299,18 @@ const withIconAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const WithIconAccordionExample = () => (
     <PrismCode
         code={withIconAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Accordions with Plus Icon
-const plusIconAccordionCode =
-    `
+const plusIconAccordionCode = `
 <!-- Accordions with Plus Icon -->
 
     const [iconCol4, seticonCol4] = useState(true);
@@ -384,20 +376,18 @@ const plusIconAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const PlusIconAccordionExample = () => (
     <PrismCode
         code={plusIconAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Left Icon Accordions
-const leftIconAccordionCode =
-    `
+const leftIconAccordionCode = `
 <!-- Left Icon Accordions -->
 
     const [lefticonCol1, setlefticonCol1] = useState(true);
@@ -466,20 +456,18 @@ const leftIconAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const LeftIconAccordionExample = () => (
     <PrismCode
         code={leftIconAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Accordions Bordered
-const borderedAccordionCode =
-    `
+const borderedAccordionCode = `
 <!-- Accordions Bordered -->
 
     const [borderCol1, setborderCol1] = useState(true);
@@ -545,20 +533,18 @@ const borderedAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const BorderedAccordionExample = () => (
     <PrismCode
         code={borderedAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Nesting Accordions
-const nestingAccordionCode =
-    `
+const nestingAccordionCode = `
 <!-- Nesting Accordions -->
 
     // Nesting Accordions
@@ -712,20 +698,18 @@ const nestingAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const NestingAccordionExample = () => (
     <PrismCode
         code={nestingAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Accordions Fill Colored
-const fillColoredAccordionCode =
-    `
+const fillColoredAccordionCode = `
 <!-- Accordions Fill Colored -->
 
     const [fillCol1, setfillCol1] = useState(true);
@@ -857,20 +841,18 @@ const fillColoredAccordionCode =
         </Collapse>
     </AccordionItem>
 </Accordion>
-`;
+`
 
 const FillColoredAccordionExample = () => (
     <PrismCode
         code={fillColoredAccordionCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Collapse Example
-const collapseCode =
-    `
+const collapseCode = `
 <!-- Collapse Example -->
 
     const [coll1, setcoll1] = useState(true);
@@ -898,20 +880,18 @@ const collapseCode =
         </CardBody>
     </div>
 </Collapse>
-`;
+`
 
 const CollapseExample = () => (
     <PrismCode
         code={collapseCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Horizontal Collapse
-const horizontalCollapseCode =
-    `
+const horizontalCollapseCode = `
 <!-- Horizontal Collapse -->
 
     const [coll2, setcoll2] = useState(true);
@@ -930,20 +910,18 @@ const horizontalCollapseCode =
         </div>
     </Collapse>
 </div>
-`;
+`
 
 const HorizontalCollapseExample = () => (
     <PrismCode
         code={horizontalCollapseCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Collapse with Icon
-const iconCollapseCode =
-    `
+const iconCollapseCode = `
 <!-- Collapse with Icon -->
 
     const [coll6, setcoll6] = useState(true);
@@ -979,20 +957,18 @@ const iconCollapseCode =
         </CardBody>
     </div>
 </Collapse>
-`;
+`
 
 const IconCollapseExample = () => (
     <PrismCode
         code={iconCollapseCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Inline & Block Element Collapse
-const inlineBLockCollapseCode =
-    `
+const inlineBLockCollapseCode = `
 <!-- Inline & Block Element Collapse -->
 
     const [coll8, setcoll8] = useState(true);
@@ -1030,20 +1006,18 @@ const inlineBLockCollapseCode =
         </Collapse>
     </Col>
 </Row>
-`;
+`
 
 const InlineBLockCollapseExample = () => (
     <PrismCode
         code={inlineBLockCollapseCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
-
+)
 
 // Multiple Targets Collapse
-const multipleTargetCollapseCode =
-    `
+const multipleTargetCollapseCode = `
 <!-- Multiple Targets Collapse -->
 
     const [coll3, setcoll3] = useState(true);
@@ -1087,14 +1061,29 @@ const multipleTargetCollapseCode =
         </Collapse>
     </div>
 </Row>
-`;
+`
 
 const MultipleTargetCollapseExample = () => (
     <PrismCode
         code={multipleTargetCollapseCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { DefaultAccordionExample, FlushAccordionExample, IconAccordionExample, WithIconAccordionExample, PlusIconAccordionExample, LeftIconAccordionExample, BorderedAccordionExample, NestingAccordionExample, FillColoredAccordionExample, CollapseExample, HorizontalCollapseExample, IconCollapseExample, InlineBLockCollapseExample, MultipleTargetCollapseExample };
+export {
+    DefaultAccordionExample,
+    FlushAccordionExample,
+    IconAccordionExample,
+    WithIconAccordionExample,
+    PlusIconAccordionExample,
+    LeftIconAccordionExample,
+    BorderedAccordionExample,
+    NestingAccordionExample,
+    FillColoredAccordionExample,
+    CollapseExample,
+    HorizontalCollapseExample,
+    IconCollapseExample,
+    InlineBLockCollapseExample,
+    MultipleTargetCollapseExample,
+}

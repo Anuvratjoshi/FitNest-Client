@@ -1,24 +1,24 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
-import getChartColorsArray from "../../../../Components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../../../Components/Common/ChartsDynamicColor'
 
 const BasicColumn = ({ dataColors }) => {
-    var chartColumnColors = getChartColorsArray(dataColors);
+    var chartColumnColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Net Profit",
+            name: 'Net Profit',
             data: [46, 57, 59, 54, 62, 58, 64, 60, 66],
         },
         {
-            name: "Revenue",
+            name: 'Revenue',
             data: [74, 83, 102, 97, 86, 106, 93, 114, 94],
         },
         {
-            name: "Free Cash Flow",
+            name: 'Free Cash Flow',
             data: [37, 42, 38, 26, 47, 50, 54, 55, 43],
         },
-    ];
+    ]
 
     var options = {
         chart: {
@@ -26,67 +26,77 @@ const BasicColumn = ({ dataColors }) => {
             type: 'bar',
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
                 horizontal: false,
                 columnWidth: '45%',
-                endingShape: 'rounded'
+                endingShape: 'rounded',
             },
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         stroke: {
             show: true,
             width: 2,
-            colors: ['transparent']
+            colors: ['transparent'],
         },
         colors: chartColumnColors,
         xaxis: {
-            categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+            categories: [
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+            ],
         },
         yaxis: {
             title: {
-                text: '$ (thousands)'
-            }
+                text: '$ (thousands)',
+            },
         },
         grid: {
             borderColor: '#f1f1f1',
         },
         fill: {
-            opacity: 1
-
+            opacity: 1,
         },
         tooltip: {
             y: {
                 formatter: function (val) {
-                    return "$ " + val + " thousands";
-                }
-            }
-        }
-    };
-
+                    return '$ ' + val + ' thousands'
+                },
+            },
+        },
+    }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={options}
-            type="bar"
+            type='bar'
             height={350}
         />
-    );
-};
+    )
+}
 
 const ColumnWithLable = ({ dataColors }) => {
-    var chartColumnDatatalabelColors = getChartColorsArray(dataColors);
+    var chartColumnDatatalabelColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Inflation",
+            name: 'Inflation',
             data: [2.5, 3.2, 5.0, 10.1, 4.2, 3.8, 3, 2.4, 4.0, 1.2, 3.5, 0.8],
         },
-    ];
+    ]
 
     const options = {
         chart: {
@@ -97,41 +107,41 @@ const ColumnWithLable = ({ dataColors }) => {
         plotOptions: {
             bar: {
                 dataLabels: {
-                    position: "top", // top, center, bottom
+                    position: 'top', // top, center, bottom
                 },
             },
         },
         dataLabels: {
             enabled: !0,
             formatter: function (val) {
-                return val + "%";
+                return val + '%'
             },
             offsetY: -20,
             style: {
-                fontSize: "12px",
-                colors: ["#adb5bd"],
+                fontSize: '12px',
+                colors: ['#adb5bd'],
             },
         },
         colors: chartColumnDatatalabelColors,
         grid: {
-            borderColor: "#f1f1f1",
+            borderColor: '#f1f1f1',
         },
         xaxis: {
             categories: [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec",
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec',
             ],
-            position: "top",
+            position: 'top',
             labels: {
                 offsetY: -18,
             },
@@ -143,10 +153,10 @@ const ColumnWithLable = ({ dataColors }) => {
             },
             crosshairs: {
                 fill: {
-                    type: "gradient",
+                    type: 'gradient',
                     gradient: {
-                        colorFrom: "#D8E3F0",
-                        colorTo: "#BED1E6",
+                        colorFrom: '#D8E3F0',
+                        colorTo: '#BED1E6',
                         stops: [0, 100],
                         opacityFrom: 0.4,
                         opacityTo: 0.5,
@@ -160,8 +170,8 @@ const ColumnWithLable = ({ dataColors }) => {
         },
         fill: {
             gradient: {
-                shade: "light",
-                type: "horizontal",
+                shade: 'light',
+                type: 'horizontal',
                 shadeIntensity: 0.25,
                 gradientToColors: undefined,
                 inverseColors: !0,
@@ -180,47 +190,54 @@ const ColumnWithLable = ({ dataColors }) => {
             labels: {
                 show: !1,
                 formatter: function (val) {
-                    return val + "%";
+                    return val + '%'
                 },
             },
         },
         title: {
-            text: "Monthly Inflation in Argentina, 2002",
+            text: 'Monthly Inflation in Argentina, 2002',
             floating: !0,
             offsetY: 320,
-            align: "center",
+            align: 'center',
             style: {
-                color: "#444",
+                color: '#444',
                 fontWeight: 500,
             },
         },
-    };
+    }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={350} />
-    );
-};
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const StackedColumn = ({ dataColors }) => {
-    var chartColumnStackedColors = getChartColorsArray(dataColors);
+    var chartColumnStackedColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "PRODUCT A",
+            name: 'PRODUCT A',
             data: [44, 55, 41, 67, 22, 43],
         },
         {
-            name: "PRODUCT B",
+            name: 'PRODUCT B',
             data: [13, 23, 20, 8, 13, 27],
         },
         {
-            name: "PRODUCT C",
+            name: 'PRODUCT C',
             data: [11, 17, 15, 15, 21, 14],
         },
         {
-            name: "PRODUCT D",
+            name: 'PRODUCT D',
             data: [21, 7, 25, 13, 22, 8],
         },
-    ];
+    ]
 
     const options = {
         chart: {
@@ -237,7 +254,7 @@ const StackedColumn = ({ dataColors }) => {
                 breakpoint: 480,
                 options: {
                     legend: {
-                        position: "bottom",
+                        position: 'bottom',
                         offsetX: -10,
                         offsetY: 0,
                     },
@@ -251,50 +268,58 @@ const StackedColumn = ({ dataColors }) => {
             },
         },
         xaxis: {
-            type: "datetime",
+            type: 'datetime',
             categories: [
-                "01/01/2011 GMT",
-                "01/02/2011 GMT",
-                "01/03/2011 GMT",
-                "01/04/2011 GMT",
-                "01/05/2011 GMT",
-                "01/06/2011 GMT",
+                '01/01/2011 GMT',
+                '01/02/2011 GMT',
+                '01/03/2011 GMT',
+                '01/04/2011 GMT',
+                '01/05/2011 GMT',
+                '01/06/2011 GMT',
             ],
         },
         legend: {
-            position: "right",
+            position: 'right',
             offsetY: 40,
         },
         fill: {
             opacity: 1,
         },
         colors: chartColumnStackedColors,
-    };
-    return <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={350} />;
-};
+    }
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const StackedColumn2 = ({ dataColors }) => {
-    var chartColumnStacked100Colors = getChartColorsArray(dataColors);
+    var chartColumnStacked100Colors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "PRODUCT A",
+            name: 'PRODUCT A',
             data: [44, 55, 41, 67, 22, 43, 21, 49],
         },
         {
-            name: "PRODUCT B",
+            name: 'PRODUCT B',
             data: [13, 23, 20, 8, 13, 27, 33, 12],
         },
         {
-            name: "PRODUCT C",
+            name: 'PRODUCT C',
             data: [11, 17, 15, 15, 21, 14, 15, 13],
         },
-    ];
+    ]
 
     const options = {
-
         chart: {
             stacked: !0,
-            stackType: "100%",
+            stackType: '100%',
             toolbar: {
                 show: !1,
             },
@@ -304,7 +329,7 @@ const StackedColumn2 = ({ dataColors }) => {
                 breakpoint: 480,
                 options: {
                     legend: {
-                        position: "bottom",
+                        position: 'bottom',
                         offsetX: -10,
                         offsetY: 0,
                     },
@@ -313,135 +338,144 @@ const StackedColumn2 = ({ dataColors }) => {
         ],
         xaxis: {
             categories: [
-                "2011 Q1",
-                "2011 Q2",
-                "2011 Q3",
-                "2011 Q4",
-                "2012 Q1",
-                "2012 Q2",
-                "2012 Q3",
-                "2012 Q4",
+                '2011 Q1',
+                '2011 Q2',
+                '2011 Q3',
+                '2011 Q4',
+                '2012 Q1',
+                '2012 Q2',
+                '2012 Q3',
+                '2012 Q4',
             ],
         },
         fill: {
             opacity: 1,
         },
         legend: {
-            position: "right",
+            position: 'right',
             offsetX: 0,
             offsetY: 50,
         },
         colors: chartColumnStacked100Colors,
-    };
+    }
 
-    return <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={350} />;
-};
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const ColumnMarker = ({ dataColors }) => {
-    var chartColumnMarkersColors = getChartColorsArray(dataColors);
+    var chartColumnMarkersColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Actual",
+            name: 'Actual',
             data: [
                 {
-                    x: "2011",
+                    x: '2011',
                     y: 1292,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 1400,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2012",
+                    x: '2012',
                     y: 4432,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 5400,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2013",
+                    x: '2013',
                     y: 5423,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 5200,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2014",
+                    x: '2014',
                     y: 6653,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 6500,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2015",
+                    x: '2015',
                     y: 8133,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 6600,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2016",
+                    x: '2016',
                     y: 7132,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 7500,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2017",
+                    x: '2017',
                     y: 7332,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 8700,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
                 {
-                    x: "2018",
+                    x: '2018',
                     y: 6553,
                     goals: [
                         {
-                            name: "Expected",
+                            name: 'Expected',
                             value: 7300,
                             strokeWidth: 5,
-                            strokeColor: "#775DD0",
+                            strokeColor: '#775DD0',
                         },
                     ],
                 },
             ],
         },
-    ];
+    ]
     const options = {
         chart: {
             toolbar: {
@@ -450,7 +484,7 @@ const ColumnMarker = ({ dataColors }) => {
         },
         plotOptions: {
             bar: {
-                columnWidth: "30%",
+                columnWidth: '30%',
             },
         },
         colors: chartColumnMarkersColors,
@@ -460,67 +494,90 @@ const ColumnMarker = ({ dataColors }) => {
         legend: {
             show: !0,
             showForSingleSeries: !0,
-            customLegendItems: ["Actual", "Expected"],
+            customLegendItems: ['Actual', 'Expected'],
             markers: {
-                fillColors: ["#51d28c", "#564ab1"],
+                fillColors: ['#51d28c', '#564ab1'],
             },
         },
-    };
+    }
     return (
-        <ReactApexChart dir="ltr" className="apex-charts" options={options} series={series} type="bar" height={350} />
-    );
-};
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            options={options}
+            series={series}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const RotateLable = ({ dataColors }) => {
-    var chartColumnRotateLabelsColors = getChartColorsArray(dataColors);
-    const series = [{
-        name: 'Servings',
-        data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35]
-    }];
+    var chartColumnRotateLabelsColors = getChartColorsArray(dataColors)
+    const series = [
+        {
+            name: 'Servings',
+            data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35],
+        },
+    ]
     var options = {
         annotations: {
-            points: [{
-                x: 'Bananas',
-                seriesIndex: 0,
-                label: {
-                    borderColor: '#775DD0',
-                    offsetY: 0,
-                    style: {
-                        color: '#fff',
-                        background: '#775DD0',
+            points: [
+                {
+                    x: 'Bananas',
+                    seriesIndex: 0,
+                    label: {
+                        borderColor: '#775DD0',
+                        offsetY: 0,
+                        style: {
+                            color: '#fff',
+                            background: '#775DD0',
+                        },
+                        text: 'Bananas are good',
                     },
-                    text: 'Bananas are good',
-                }
-            }]
+                },
+            ],
         },
         chart: {
             height: 350,
             type: 'bar',
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
                 borderRadius: 10,
                 columnWidth: '50%',
-            }
+            },
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         stroke: {
-            width: 2
+            width: 2,
         },
         colors: chartColumnRotateLabelsColors,
         xaxis: {
             labels: {
-                rotate: -45
+                rotate: -45,
             },
-            categories: ['Apples', 'Oranges', 'Strawberries', 'Pineapples', 'Mangoes', 'Bananas',
-                'Blackberries', 'Pears', 'Watermelons', 'Cherries', 'Pomegranates', 'Tangerines', 'Papayas'
+            categories: [
+                'Apples',
+                'Oranges',
+                'Strawberries',
+                'Pineapples',
+                'Mangoes',
+                'Bananas',
+                'Blackberries',
+                'Pears',
+                'Watermelons',
+                'Cherries',
+                'Pomegranates',
+                'Tangerines',
+                'Papayas',
             ],
-            tickPlacement: 'on'
+            tickPlacement: 'on',
         },
         yaxis: {
             title: {
@@ -531,57 +588,68 @@ const RotateLable = ({ dataColors }) => {
             type: 'gradient',
             gradient: {
                 shade: 'light',
-                type: "horizontal",
+                type: 'horizontal',
                 shadeIntensity: 0.25,
                 gradientToColors: undefined,
                 inverseColors: true,
                 opacityFrom: 0.85,
                 opacityTo: 0.85,
-                stops: [50, 0, 100]
+                stops: [50, 0, 100],
             },
-        }
-    };
+        },
+    }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts" options={options} series={series} type="bar" height={350} />
-    );
-};
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            options={options}
+            series={series}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const NagetiveLable = ({ dataColors }) => {
-    var chartNagetiveValuesColors = getChartColorsArray(dataColors);
+    var chartNagetiveValuesColors = getChartColorsArray(dataColors)
     const series = [
         {
-            name: "Cash Flow",
+            name: 'Cash Flow',
             data: [
-                1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1, -6.09, 0.34,
-                3.88, 13.07, 5.8, 2, 7.37, 8.1, 13.57, 15.75, 17.1, 19.8, -27.03, -54.4,
-                -47.2, -43.3, -18.6, -48.6, -41.1, -39.6, -37.6, -29.4, -21.4, -2.4,
+                1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1,
+                -6.09, 0.34, 3.88, 13.07, 5.8, 2, 7.37, 8.1, 13.57, 15.75, 17.1,
+                19.8, -27.03, -54.4, -47.2, -43.3, -18.6, -48.6, -41.1, -39.6,
+                -37.6, -29.4, -21.4, -2.4,
             ],
         },
-    ];
+    ]
     var options = {
         chart: {
             type: 'bar',
             height: 350,
             toolbar: {
                 show: false,
-            }
+            },
         },
         plotOptions: {
             bar: {
                 colors: {
-                    ranges: [{
-                        from: -100,
-                        to: -46,
-                        color: chartNagetiveValuesColors[1]
-                    }, {
-                        from: -45,
-                        to: 0,
-                        color: chartNagetiveValuesColors[2]
-                    }]
+                    ranges: [
+                        {
+                            from: -100,
+                            to: -46,
+                            color: chartNagetiveValuesColors[1],
+                        },
+                        {
+                            from: -45,
+                            to: 0,
+                            color: chartNagetiveValuesColors[2],
+                        },
+                    ],
                 },
                 columnWidth: '80%',
-            }
+            },
         },
         dataLabels: {
             enabled: false,
@@ -593,50 +661,84 @@ const NagetiveLable = ({ dataColors }) => {
             },
             labels: {
                 formatter: function (y) {
-                    return y.toFixed(0) + "%";
-                }
-            }
+                    return y.toFixed(0) + '%'
+                },
+            },
         },
         xaxis: {
             type: 'datetime',
             categories: [
-                '2011-01-01', '2011-02-01', '2011-03-01', '2011-04-01', '2011-05-01', '2011-06-01',
-                '2011-07-01', '2011-08-01', '2011-09-01', '2011-10-01', '2011-11-01', '2011-12-01',
-                '2012-01-01', '2012-02-01', '2012-03-01', '2012-04-01', '2012-05-01', '2012-06-01',
-                '2012-07-01', '2012-08-01', '2012-09-01', '2012-10-01', '2012-11-01', '2012-12-01',
-                '2013-01-01', '2013-02-01', '2013-03-01', '2013-04-01', '2013-05-01', '2013-06-01',
-                '2013-07-01', '2013-08-01', '2013-09-01'
+                '2011-01-01',
+                '2011-02-01',
+                '2011-03-01',
+                '2011-04-01',
+                '2011-05-01',
+                '2011-06-01',
+                '2011-07-01',
+                '2011-08-01',
+                '2011-09-01',
+                '2011-10-01',
+                '2011-11-01',
+                '2011-12-01',
+                '2012-01-01',
+                '2012-02-01',
+                '2012-03-01',
+                '2012-04-01',
+                '2012-05-01',
+                '2012-06-01',
+                '2012-07-01',
+                '2012-08-01',
+                '2012-09-01',
+                '2012-10-01',
+                '2012-11-01',
+                '2012-12-01',
+                '2013-01-01',
+                '2013-02-01',
+                '2013-03-01',
+                '2013-04-01',
+                '2013-05-01',
+                '2013-06-01',
+                '2013-07-01',
+                '2013-08-01',
+                '2013-09-01',
             ],
             labels: {
-                rotate: -90
+                rotate: -90,
             },
         },
-    };
+    }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={350} />
-    );
-};
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const RangeColumn = ({ dataColors }) => {
-    var chartRangeColors = getChartColorsArray(dataColors);
+    var chartRangeColors = getChartColorsArray(dataColors)
     const series = [
         {
             data: [
                 {
-                    x: "Team A",
+                    x: 'Team A',
                     y: [1, 5],
                 },
                 {
-                    x: "Team B",
+                    x: 'Team B',
                     y: [4, 6],
                 },
                 {
-                    x: "Team C",
+                    x: 'Team C',
                     y: [5, 8],
                 },
                 {
-                    x: "Team D",
+                    x: 'Team D',
                     y: [3, 11],
                 },
             ],
@@ -644,27 +746,27 @@ const RangeColumn = ({ dataColors }) => {
         {
             data: [
                 {
-                    x: "Team A",
+                    x: 'Team A',
                     y: [2, 6],
                 },
                 {
-                    x: "Team B",
+                    x: 'Team B',
                     y: [1, 3],
                 },
                 {
-                    x: "Team C",
+                    x: 'Team C',
                     y: [7, 8],
                 },
                 {
-                    x: "Team D",
+                    x: 'Team D',
                     y: [5, 9],
                 },
             ],
         },
-    ];
+    ]
     var options = {
         chart: {
-            type: "rangeBar",
+            type: 'rangeBar',
             height: 335,
             toolbar: {
                 show: false,
@@ -682,49 +784,51 @@ const RangeColumn = ({ dataColors }) => {
             show: !1,
         },
         colors: chartRangeColors,
-    };
+    }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             options={options}
             series={series}
-            type="rangeBar"
+            type='rangeBar'
             height={335}
         />
-    );
-};
+    )
+}
 
 const DynamicColumn = ({ dataColors }) => {
-    var chartColumnColors = getChartColorsArray(dataColors);
-    const colors = chartColumnColors;
-    const shuffleArray = (array1) => {
+    var chartColumnColors = getChartColorsArray(dataColors)
+    const colors = chartColumnColors
+    const shuffleArray = array1 => {
         for (var i = array1.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array1[i];
-            array1[i] = array1[j];
-            array1[j] = temp;
+            var j = Math.floor(Math.random() * (i + 1))
+            var temp = array1[i]
+            array1[i] = array1[j]
+            array1[j] = temp
         }
-        return array1;
-    };
+        return array1
+    }
 
     const arrayData = [
         {
             y: 400,
             quarters: [
                 {
-                    x: "Q1",
+                    x: 'Q1',
                     y: 120,
                 },
                 {
-                    x: "Q2",
+                    x: 'Q2',
                     y: 90,
                 },
                 {
-                    x: "Q3",
+                    x: 'Q3',
                     y: 100,
                 },
                 {
-                    x: "Q4",
+                    x: 'Q4',
                     y: 90,
                 },
             ],
@@ -733,19 +837,19 @@ const DynamicColumn = ({ dataColors }) => {
             y: 430,
             quarters: [
                 {
-                    x: "Q1",
+                    x: 'Q1',
                     y: 120,
                 },
                 {
-                    x: "Q2",
+                    x: 'Q2',
                     y: 110,
                 },
                 {
-                    x: "Q3",
+                    x: 'Q3',
                     y: 90,
                 },
                 {
-                    x: "Q4",
+                    x: 'Q4',
                     y: 110,
                 },
             ],
@@ -754,19 +858,19 @@ const DynamicColumn = ({ dataColors }) => {
             y: 448,
             quarters: [
                 {
-                    x: "Q1",
+                    x: 'Q1',
                     y: 70,
                 },
                 {
-                    x: "Q2",
+                    x: 'Q2',
                     y: 100,
                 },
                 {
-                    x: "Q3",
+                    x: 'Q3',
                     y: 140,
                 },
                 {
-                    x: "Q4",
+                    x: 'Q4',
                     y: 138,
                 },
             ],
@@ -775,19 +879,19 @@ const DynamicColumn = ({ dataColors }) => {
             y: 470,
             quarters: [
                 {
-                    x: "Q1",
+                    x: 'Q1',
                     y: 150,
                 },
                 {
-                    x: "Q2",
+                    x: 'Q2',
                     y: 60,
                 },
                 {
-                    x: "Q3",
+                    x: 'Q3',
                     y: 190,
                 },
                 {
-                    x: "Q4",
+                    x: 'Q4',
                     y: 70,
                 },
             ],
@@ -796,19 +900,19 @@ const DynamicColumn = ({ dataColors }) => {
             y: 540,
             quarters: [
                 {
-                    x: "Q1",
+                    x: 'Q1',
                     y: 120,
                 },
                 {
-                    x: "Q2",
+                    x: 'Q2',
                     y: 120,
                 },
                 {
-                    x: "Q3",
+                    x: 'Q3',
                     y: 130,
                 },
                 {
-                    x: "Q4",
+                    x: 'Q4',
                     y: 170,
                 },
             ],
@@ -817,85 +921,85 @@ const DynamicColumn = ({ dataColors }) => {
             y: 580,
             quarters: [
                 {
-                    x: "Q1",
+                    x: 'Q1',
                     y: 170,
                 },
                 {
-                    x: "Q2",
+                    x: 'Q2',
                     y: 130,
                 },
                 {
-                    x: "Q3",
+                    x: 'Q3',
                     y: 120,
                 },
                 {
-                    x: "Q4",
+                    x: 'Q4',
                     y: 160,
                 },
             ],
         },
-    ];
+    ]
 
     const makeData = () => {
-        var dataSet = shuffleArray(arrayData);
+        var dataSet = shuffleArray(arrayData)
 
         var dataYearSeries = [
             {
-                x: "2011",
+                x: '2011',
                 y: dataSet[0].y,
                 color: colors[0],
                 quarters: dataSet[0].quarters,
             },
             {
-                x: "2012",
+                x: '2012',
                 y: dataSet[1].y,
                 color: colors[1],
                 quarters: dataSet[1].quarters,
             },
             {
-                x: "2013",
+                x: '2013',
                 y: dataSet[2].y,
                 color: colors[2],
                 quarters: dataSet[2].quarters,
             },
             {
-                x: "2014",
+                x: '2014',
                 y: dataSet[3].y,
                 color: colors[3],
                 quarters: dataSet[3].quarters,
             },
             {
-                x: "2015",
+                x: '2015',
                 y: dataSet[4].y,
                 color: colors[4],
                 quarters: dataSet[4].quarters,
             },
             {
-                x: "2016",
+                x: '2016',
                 y: dataSet[5].y,
                 color: colors[5],
                 quarters: dataSet[5].quarters,
             },
-        ];
+        ]
 
-        return dataYearSeries;
-    };
+        return dataYearSeries
+    }
 
     const updateQuarterChart = (sourceChart, destChartIDToUpdate) => {
-        var series = [];
-        var seriesIndex = 0;
-        var colors = [];
+        var series = []
+        var seriesIndex = 0
+        var colors = []
 
         if (sourceChart.w.globals.selectedDataPoints[0]) {
-            var selectedPoints = sourceChart.w.globals.selectedDataPoints;
+            var selectedPoints = sourceChart.w.globals.selectedDataPoints
             for (var i = 0; i < selectedPoints[seriesIndex].length; i++) {
-                var selectedIndex = selectedPoints[seriesIndex][i];
-                var yearSeries = sourceChart.w.config.series[seriesIndex];
+                var selectedIndex = selectedPoints[seriesIndex][i]
+                var yearSeries = sourceChart.w.config.series[seriesIndex]
                 series.push({
                     name: yearSeries.data[selectedIndex].x,
                     data: yearSeries.data[selectedIndex].quarters,
-                });
-                colors.push(yearSeries.data[selectedIndex].color);
+                })
+                colors.push(yearSeries.data[selectedIndex].color)
             }
 
             if (series.length === 0)
@@ -903,62 +1007,70 @@ const DynamicColumn = ({ dataColors }) => {
                     {
                         data: [],
                     },
-                ];
+                ]
 
-            return window.ApexCharts.exec(destChartIDToUpdate, "updateOptions", {
-                series: series,
-                colors: colors,
-                fill: {
+            return window.ApexCharts.exec(
+                destChartIDToUpdate,
+                'updateOptions',
+                {
+                    series: series,
                     colors: colors,
+                    fill: {
+                        colors: colors,
+                    },
                 },
-            });
+            )
         }
-    };
+    }
 
     const series = [
         {
             data: makeData(),
         },
-    ];
+    ]
 
     const options = {
-
         chart: {
-            id: "barYear",
+            id: 'barYear',
             height: 330,
-            width: "100%",
+            width: '100%',
             events: {
                 dataPointSelection: function (e, chart, opts) {
-                    const quarterChartEl = document.querySelector("#chart-quarter");
-                    const yearChartEl = document.querySelector("#chart-year");
+                    const quarterChartEl =
+                        document.querySelector('#chart-quarter')
+                    const yearChartEl = document.querySelector('#chart-year')
 
                     if (opts.selectedDataPoints[0].length === 1) {
                         if (quarterChartEl) {
-                            if (quarterChartEl.classList.contains("active")) {
-                                updateQuarterChart(chart, "barQuarter");
+                            if (quarterChartEl.classList.contains('active')) {
+                                updateQuarterChart(chart, 'barQuarter')
                             } else {
                                 if (yearChartEl) {
-                                    yearChartEl.classList.add("chart-quarter-activated");
+                                    yearChartEl.classList.add(
+                                        'chart-quarter-activated',
+                                    )
                                 }
-                                quarterChartEl.classList.add("active");
-                                updateQuarterChart(chart, "barQuarter");
+                                quarterChartEl.classList.add('active')
+                                updateQuarterChart(chart, 'barQuarter')
                             }
                         }
                     } else {
-                        updateQuarterChart(chart, "barQuarter");
+                        updateQuarterChart(chart, 'barQuarter')
                     }
 
                     if (opts.selectedDataPoints[0].length === 0) {
                         if (yearChartEl) {
-                            yearChartEl.classList.remove("chart-quarter-activated");
+                            yearChartEl.classList.remove(
+                                'chart-quarter-activated',
+                            )
                         }
                         if (quarterChartEl) {
-                            quarterChartEl.classList.remove("active");
+                            quarterChartEl.classList.remove('active')
                         }
                     }
                 },
                 updated: function (chart) {
-                    updateQuarterChart(chart, "barQuarter");
+                    updateQuarterChart(chart, 'barQuarter')
                 },
             },
         },
@@ -966,20 +1078,20 @@ const DynamicColumn = ({ dataColors }) => {
             bar: {
                 distributed: !0,
                 horizontal: !0,
-                barHeight: "75%",
+                barHeight: '75%',
                 dataLabels: {
-                    position: "bottom",
+                    position: 'bottom',
                 },
             },
         },
         dataLabels: {
             enabled: !0,
-            textAnchor: "start",
+            textAnchor: 'start',
             style: {
-                colors: ["#fff"],
+                colors: ['#fff'],
             },
             formatter: function (val, opt) {
-                return opt.w.globals.labels[opt.dataPointIndex];
+                return opt.w.globals.labels[opt.dataPointIndex]
             },
             offsetX: 0,
             dropShadow: {
@@ -992,13 +1104,13 @@ const DynamicColumn = ({ dataColors }) => {
         states: {
             normal: {
                 filter: {
-                    type: "desaturate",
+                    type: 'desaturate',
                 },
             },
             active: {
                 allowMultipleDataPointsSelection: !0,
                 filter: {
-                    type: "darken",
+                    type: 'darken',
                     value: 1,
                 },
             },
@@ -1010,20 +1122,20 @@ const DynamicColumn = ({ dataColors }) => {
             y: {
                 title: {
                     formatter: function (val, opts) {
-                        return opts.w.globals.labels[opts.dataPointIndex];
+                        return opts.w.globals.labels[opts.dataPointIndex]
                     },
                 },
             },
         },
         title: {
-            text: "Yearly Results",
+            text: 'Yearly Results',
             offsetX: 15,
             style: {
                 fontWeight: 600,
             },
         },
         subtitle: {
-            text: "(Click on bar to see details)",
+            text: '(Click on bar to see details)',
             offsetX: 15,
         },
         yaxis: {
@@ -1031,18 +1143,26 @@ const DynamicColumn = ({ dataColors }) => {
                 show: !1,
             },
         },
-    };
+    }
 
-    return <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={330} />;
-};
-
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={330}
+        />
+    )
+}
 
 const Quarter = () => {
     const series = [
         {
             data: [],
         },
-    ];
+    ]
 
     var optionsQuarter = {
         chart: {
@@ -1050,33 +1170,33 @@ const Quarter = () => {
             height: 330,
             width: '100%',
             type: 'bar',
-            stacked: true
+            stacked: true,
         },
         plotOptions: {
             bar: {
                 columnWidth: '50%',
-                horizontal: false
-            }
+                horizontal: false,
+            },
         },
         legend: {
-            show: false
+            show: false,
         },
         grid: {
             yaxis: {
                 lines: {
                     show: false,
-                }
+                },
             },
             xaxis: {
                 lines: {
                     show: true,
-                }
-            }
+                },
+            },
         },
         yaxis: {
             labels: {
-                show: false
-            }
+                show: false,
+            },
         },
         title: {
             text: 'Quarterly Results',
@@ -1088,55 +1208,58 @@ const Quarter = () => {
         tooltip: {
             x: {
                 formatter: function (val, opts) {
-                    return opts.w.globals.seriesNames[opts.seriesIndex];
-                }
+                    return opts.w.globals.seriesNames[opts.seriesIndex]
+                },
             },
             y: {
                 title: {
                     formatter: function (val, opts) {
-                        return opts.w.globals.labels[opts.dataPointIndex];
-                    }
-                }
-            }
-        }
-    };
+                        return opts.w.globals.labels[opts.dataPointIndex]
+                    },
+                },
+            },
+        },
+    }
 
     return (
-        <ReactApexChart dir="ltr" className="apex-charts"
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
             series={series}
             options={optionsQuarter}
-            type="bar"
+            type='bar'
             height={330}
         />
-    );
-};
+    )
+}
 
 const DistributedColumn = ({ dataColors }) => {
-    var chartColumnDistributedColors = getChartColorsArray(dataColors);
-    const series = [{
-        data: [21, 22, 10, 28, 16, 21, 13, 30]
-    }];
+    var chartColumnDistributedColors = getChartColorsArray(dataColors)
+    const series = [
+        {
+            data: [21, 22, 10, 28, 16, 21, 13, 30],
+        },
+    ]
     var options = {
         chart: {
             height: 350,
             type: 'bar',
             events: {
-                click: function (chart, w, e) {
-                }
-            }
+                click: function (chart, w, e) {},
+            },
         },
         colors: chartColumnDistributedColors,
         plotOptions: {
             bar: {
                 columnWidth: '45%',
                 distributed: true,
-            }
+            },
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         legend: {
-            show: false
+            show: false,
         },
         xaxis: {
             categories: [
@@ -1159,68 +1282,86 @@ const DistributedColumn = ({ dataColors }) => {
                         '#564ab1',
                         '#5fd0f3',
                     ],
-                    fontSize: '12px'
-                }
-            }
-        }
-    };
+                    fontSize: '12px',
+                },
+            },
+        },
+    }
 
-    return <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={350} />;
-};
-
-
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const ColumnGroupLabels = ({ dataColors }) => {
-    var chartColumnDistributedColors = getChartColorsArray(dataColors);
+    var chartColumnDistributedColors = getChartColorsArray(dataColors)
     // dayjs.extend(window.dayjs_plugin_quarterOfYear)
-    const series = [{
-        name: "sales",
-        data: [{
-            x: '2020/01/01',
-            y: 400
-        }, {
-            x: '2020/04/01',
-            y: 430
-        }, {
-            x: '2020/07/01',
-            y: 448
-        }, {
-            x: '2020/10/01',
-            y: 470
-        }, {
-            x: '2021/01/01',
-            y: 540
-        }, {
-            x: '2021/04/01',
-            y: 580
-        }, {
-            x: '2021/07/01',
-            y: 690
-        }, {
-            x: '2021/10/01',
-            y: 690
-        }]
-    }];
+    const series = [
+        {
+            name: 'sales',
+            data: [
+                {
+                    x: '2020/01/01',
+                    y: 400,
+                },
+                {
+                    x: '2020/04/01',
+                    y: 430,
+                },
+                {
+                    x: '2020/07/01',
+                    y: 448,
+                },
+                {
+                    x: '2020/10/01',
+                    y: 470,
+                },
+                {
+                    x: '2021/01/01',
+                    y: 540,
+                },
+                {
+                    x: '2021/04/01',
+                    y: 580,
+                },
+                {
+                    x: '2021/07/01',
+                    y: 690,
+                },
+                {
+                    x: '2021/10/01',
+                    y: 690,
+                },
+            ],
+        },
+    ]
     var options = {
         chart: {
             height: 350,
             type: 'bar',
             toolbar: {
                 show: false,
-            }
+            },
         },
         colors: chartColumnDistributedColors,
         plotOptions: {
             bar: {
                 horizontal: false,
                 columnWidth: '45%',
-            }
+            },
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
         },
         legend: {
-            show: false
+            show: false,
         },
         xaxis: {
             type: 'category',
@@ -1232,13 +1373,13 @@ const ColumnGroupLabels = ({ dataColors }) => {
             group: {
                 style: {
                     fontSize: '10px',
-                    fontWeight: 700
+                    fontWeight: 700,
                 },
                 groups: [
                     { title: '2020', cols: 4 },
-                    { title: '2021', cols: 4 }
-                ]
-            }
+                    { title: '2021', cols: 4 },
+                ],
+            },
         },
         title: {
             text: 'Grouped Labels on the X-axis',
@@ -1253,33 +1394,44 @@ const ColumnGroupLabels = ({ dataColors }) => {
             //     }
             // }
         },
-    };
+    }
 
-    return <ReactApexChart dir="ltr" className="apex-charts" series={series} options={options} type="bar" height={350} />;
-};
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const StackedColumnColors = ({ dataColors }) => {
-    var groupedStackedColors = getChartColorsArray(dataColors);
-    const series = [{
-        name: 'Q1 Budget',
-                group: 'budget',
-                data: [44000, 55000, 41000, 67000, 22000, 43000]
-            },
-            {
-                name: 'Q1 Actual',
-                group: 'actual',
-                data: [48000, 50000, 40000, 65000, 25000, 40000]
-            },
-            {
-                name: 'Q2 Budget',
-                group: 'budget',
-                data: [13000, 36000, 20000, 8000, 13000, 27000]
-            },
-            {
-                name: 'Q2 Actual',
-                group: 'actual',
-                data: [20000, 40000, 25000, 10000, 12000, 28000]
-    }];
+    var groupedStackedColors = getChartColorsArray(dataColors)
+    const series = [
+        {
+            name: 'Q1 Budget',
+            group: 'budget',
+            data: [44000, 55000, 41000, 67000, 22000, 43000],
+        },
+        {
+            name: 'Q1 Actual',
+            group: 'actual',
+            data: [48000, 50000, 40000, 65000, 25000, 40000],
+        },
+        {
+            name: 'Q2 Budget',
+            group: 'budget',
+            data: [13000, 36000, 20000, 8000, 13000, 27000],
+        },
+        {
+            name: 'Q2 Actual',
+            group: 'actual',
+            data: [20000, 40000, 25000, 10000, 12000, 28000],
+        },
+    ]
     var options = {
         chart: {
             type: 'bar',
@@ -1288,17 +1440,17 @@ const StackedColumnColors = ({ dataColors }) => {
         },
         stroke: {
             width: 1,
-            colors: ['#fff']
+            colors: ['#fff'],
         },
         dataLabels: {
-            formatter: (val) => {
+            formatter: val => {
                 return val / 1000 + 'K'
-            }
+            },
         },
         plotOptions: {
             bar: {
-                horizontal: false
-            }
+                horizontal: false,
+            },
         },
         xaxis: {
             categories: [
@@ -1307,111 +1459,130 @@ const StackedColumnColors = ({ dataColors }) => {
                 'Print advertising',
                 'Catalogs',
                 'Meetings',
-                'Public relations'
-            ]
+                'Public relations',
+            ],
         },
         fill: {
-            opacity: 1
+            opacity: 1,
         },
         colors: groupedStackedColors,
         yaxis: {
             labels: {
-                formatter: (val) => {
+                formatter: val => {
                     return val / 1000 + 'K'
-                }
-            }
+                },
+            },
         },
         legend: {
             position: 'top',
-            horizontalAlign: 'left'
-        }
+            horizontalAlign: 'left',
+        },
     }
-    return <ReactApexChart dir="ltr" className="apex-charts"  series={series} options={options} type="bar" height={350} />;
-};
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='bar'
+            height={350}
+        />
+    )
+}
 
 const DumbBell = ({ dataColors }) => {
-    var dumbbellChartColors = getChartColorsArray(dataColors);
-    const series = [{
-        data: [
-            {
-                x: '2008',
-                y: [2800, 4500]
-            },
-            {
-                x: '2009',
-                y: [3200, 4100]
-            },
-            {
-                x: '2010',
-                y: [2950, 7800]
-            },
-            {
-                x: '2011',
-                y: [3000, 4600]
-            },
-            {
-                x: '2012',
-                y: [3500, 4100]
-            },
-            {
-                x: '2013',
-                y: [4500, 6500]
-            },
-            {
-                x: '2014',
-                y: [4100, 5600]
-            }
-        ]
-    }
-];
-var options = {
-    chart: {
-        height: 350,
-        type: 'rangeBar',
-        zoom: {
-            enabled: false
-        }
-    },
-    plotOptions: {
-        bar: {
-            isDumbbell: true,
-            columnWidth: 3,
-            dumbbellColors: dumbbellChartColors
-        }
-    },
-    legend: {
-        show: true,
-        showForSingleSeries: true,
-        position: 'top',
-        horizontalAlign: 'left',
-        customLegendItems: ['Product A', 'Product B']
-    },
-    fill: {
-        type: 'gradient',
-        gradient: {
-            type: 'vertical',
-            gradientToColors: ['#00E396'],
-            inverseColors: true,
-            stops: [0, 100]
-        }
-    },
-    grid: {
-        xaxis: {
-            lines: {
-                show: true
-            }
+    var dumbbellChartColors = getChartColorsArray(dataColors)
+    const series = [
+        {
+            data: [
+                {
+                    x: '2008',
+                    y: [2800, 4500],
+                },
+                {
+                    x: '2009',
+                    y: [3200, 4100],
+                },
+                {
+                    x: '2010',
+                    y: [2950, 7800],
+                },
+                {
+                    x: '2011',
+                    y: [3000, 4600],
+                },
+                {
+                    x: '2012',
+                    y: [3500, 4100],
+                },
+                {
+                    x: '2013',
+                    y: [4500, 6500],
+                },
+                {
+                    x: '2014',
+                    y: [4100, 5600],
+                },
+            ],
         },
-        yaxis: {
-            lines: {
-                show: false
-            }
-        }
-    },
-    xaxis: {
-        tickPlacement: 'on'
+    ]
+    var options = {
+        chart: {
+            height: 350,
+            type: 'rangeBar',
+            zoom: {
+                enabled: false,
+            },
+        },
+        plotOptions: {
+            bar: {
+                isDumbbell: true,
+                columnWidth: 3,
+                dumbbellColors: dumbbellChartColors,
+            },
+        },
+        legend: {
+            show: true,
+            showForSingleSeries: true,
+            position: 'top',
+            horizontalAlign: 'left',
+            customLegendItems: ['Product A', 'Product B'],
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                type: 'vertical',
+                gradientToColors: ['#00E396'],
+                inverseColors: true,
+                stops: [0, 100],
+            },
+        },
+        grid: {
+            xaxis: {
+                lines: {
+                    show: true,
+                },
+            },
+            yaxis: {
+                lines: {
+                    show: false,
+                },
+            },
+        },
+        xaxis: {
+            tickPlacement: 'on',
+        },
     }
-}
-return <ReactApexChart dir="ltr" className="apex-charts"  series={series} options={options} type="rangeBar" height={350} />;
+    return (
+        <ReactApexChart
+            dir='ltr'
+            className='apex-charts'
+            series={series}
+            options={options}
+            type='rangeBar'
+            height={350}
+        />
+    )
 }
 
 export {
@@ -1428,5 +1599,5 @@ export {
     DistributedColumn,
     ColumnGroupLabels,
     StackedColumnColors,
-    DumbBell
-};
+    DumbBell,
+}

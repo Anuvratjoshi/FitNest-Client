@@ -1,9 +1,8 @@
 import React from 'react'
-import PrismCode from '../../../Components/Common/Prism';
+import PrismCode from '../../../Components/Common/Prism'
 //InputExample code
 const InputExample = () => {
-    const code =
-`<!-- Basic Input -->
+    const code = `<!-- Basic Input -->
 <Col xxl={3} md={6}>
     <div>
         <Label htmlFor="basiInput" className="form-label">Basic Input</Label>
@@ -148,18 +147,14 @@ const InputExample = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
     )
 }
 
 //InputSizing code
 const InputSizing = () => {
-    const code =
-`<Col lg={4}>
+    const code = `<Col lg={4}>
 <Input className="form-control form-control-sm" type="text" placeholder=".form-control-sm" />
 </Col>
 
@@ -173,18 +168,14 @@ const InputSizing = () => {
 `
     return (
         <React.Fragment>
-            <PrismCode
-                code={code}
-                language={"react"}
-            />
+            <PrismCode code={code} language={'react'} />
         </React.Fragment>
     )
 }
 
 //FileInput code
 const FileInput = () => {
-    const code =
-`<!-- Default File Input Example -->
+    const code = `<!-- Default File Input Example -->
 <Row className="align-items-center g-3">
 <Col lg={4}>
     <div>
@@ -238,20 +229,16 @@ const FileInput = () => {
 
 </Row>
 `
-return (
-    <React.Fragment>
-        <PrismCode
-            code={code}
-            language={"react"}
-        />
-    </React.Fragment>
-)
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
 //Input Group code
 const InputGroup = () => {
-const code =
-`<div>
+    const code = `<div>
 <h5 className="fs-15">Basic example</h5>
 <p className="text-muted">Use <code>input-group</code> class to div element which contains input attribute to wrap a default input in the group.</p>
 <Row className="g-3">
@@ -308,20 +295,16 @@ const code =
 </div>
 </div>
 `
-return (
-    <React.Fragment>
-        <PrismCode
-            code={code}
-            language={"react"}
-        />
-    </React.Fragment>
-)
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
 //Input Group Sizing
 const InputGroupSizing = () => {
-    const code =
-`<!-- Input Group Sizing -->
+    const code = `<!-- Input Group Sizing -->
 <Row className="align-items-center g-3">
     <Col lg={4} >
         <div className="input-group input-group-sm">
@@ -343,20 +326,16 @@ const InputGroupSizing = () => {
     </Col>
 </Row>
 `
-return (
-    <React.Fragment>
-        <PrismCode
-            code={code}
-            language={"react"}
-        />
-    </React.Fragment>
-)
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
 //Multiple Inputs code
 const MultipleInputs = () => {
-    const code =
-`<!-- Multiple Inputs -->
+    const code = `<!-- Multiple Inputs -->
 <div className="input-group mb-3">
 <span className="input-group-text">First and last name</span>
 <Input type="text" aria-label="First name" className="form-control" />
@@ -375,20 +354,16 @@ const MultipleInputs = () => {
     <span className="input-group-text">0.00</span>
 </div>
 `
-return (
-    <React.Fragment>
-        <PrismCode
-            code={code}
-            language={"react"}
-        />
-    </React.Fragment>
-)
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
 //ButtonsCheckboxesRadiosGroup code
 const ButtonsCheckboxesRadiosGroup = () => {
-const code =
-`<!-- Checkbox Input -->
+    const code = `<!-- Checkbox Input -->
 <div className="input-group">
     <div className="input-group-text">
         <input className="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
@@ -424,21 +399,16 @@ const code =
     <button className="btn btn-success" type="button">Button</button>
 </div>
 `
-        return (
-            <React.Fragment>
-                <PrismCode
-                    code={code}
-                    language={"react"}
-                />
-            </React.Fragment>
-        )
-
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
 //Buttons with dropdowns code
 const ButtonsWithDropdowns = () => {
-    const code =
-` 
+    const code = ` 
 <!-- Buttons with dropdowns -->
 <div className="input-group">
     <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
@@ -484,20 +454,16 @@ const ButtonsWithDropdowns = () => {
     </ul>
 </div>
 `
-        return (
-            <React.Fragment>
-                <PrismCode
-                    code={code}
-                    language={"react"}
-                />
-            </React.Fragment>
-        )
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
-//Custom Forms code    
+//Custom Forms code
 const CustomForms = () => {
-    const code =
-`<!-- Select -->
+    const code = `<!-- Select -->
 <div className="input-group">
     <label className="input-group-text" for="inputGroupSelect01">Options</label>
     <select className="form-select" id="inputGroupSelect01">
@@ -553,15 +519,21 @@ const CustomForms = () => {
     <button className="btn btn-outline-success" type="button" id="inputGroupFileAddon04">Button</button>
 </div>
 `
-        return (
-            <React.Fragment>
-                <PrismCode
-                    code={code}
-                    language={"react"}
-                />
-            </React.Fragment>
-        )
+    return (
+        <React.Fragment>
+            <PrismCode code={code} language={'react'} />
+        </React.Fragment>
+    )
 }
 
-
-export { InputExample, InputSizing, FileInput, InputGroup, InputGroupSizing, MultipleInputs, ButtonsCheckboxesRadiosGroup, ButtonsWithDropdowns, CustomForms }
+export {
+    InputExample,
+    InputSizing,
+    FileInput,
+    InputGroup,
+    InputGroupSizing,
+    MultipleInputs,
+    ButtonsCheckboxesRadiosGroup,
+    ButtonsWithDropdowns,
+    CustomForms,
+}

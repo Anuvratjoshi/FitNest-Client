@@ -1,9 +1,8 @@
-import PrismCode from "../../../Components/Common/Prism";
+import PrismCode from '../../../Components/Common/Prism'
 
 // Rounded Ribbon
 
-const roundedRibbonCode =
-    `
+const roundedRibbonCode = `
 <!-- Rounded Ribbon -->
 <Card className="ribbon-box border shadow-none mb-lg-0">
     <CardBody>
@@ -38,20 +37,19 @@ const roundedRibbonCode =
         </div>
     </CardBody>
 </Card>
-`;
+`
 
 const RoundedRibbonExample = () => (
     <PrismCode
         code={roundedRibbonCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Ribbon Shape
 
-const ribbonShapeCode =
-    `
+const ribbonShapeCode = `
 <!-- Ribbon Shape -->
 <Card className="ribbon-box border shadow-none mb-lg-0">
     <CardBody>
@@ -85,20 +83,19 @@ const ribbonShapeCode =
         </div>
     </CardBody>
 </Card>
-`;
+`
 
 const RibbonShapeExample = () => (
     <PrismCode
         code={ribbonShapeCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Filled Ribbons
 
-const filledRibbonsCode =
-    `
+const filledRibbonsCode = `
 <!-- Filled Ribbons -->
 <Card className="ribbon-box border ribbon-fill shadow-none mb-lg-0">
     <CardBody>
@@ -133,20 +130,19 @@ const filledRibbonsCode =
         </div>
     </CardBody>
 </div>
-`;
+`
 
 const FilledRibbonsExample = () => (
     <PrismCode
         code={filledRibbonsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Boxed Ribbons
 
-const boxedRibbonsCode =
-    `
+const boxedRibbonsCode = `
 <!-- Boxed Ribbons -->
 <Card className="ribbon-box border shadow-none mb-lg-0">
     <CardBody className="text-muted">
@@ -168,20 +164,19 @@ const boxedRibbonsCode =
         <p className="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
     </CardBody>
 </Card>
-`;
+`
 
 const BoxedRibbonsExample = () => (
     <PrismCode
         code={boxedRibbonsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Ribbons
 
-const ribbonsCode =
-    `
+const ribbonsCode = `
 <!-- Ribbons -->
 <Card className="ribbon-box border shadow-none mb-lg-0">
     <CardBody className="text-muted">
@@ -203,20 +198,19 @@ const ribbonsCode =
         <p className="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
     </CardBody>
 </Card>
-`;
+`
 
 const RibbonsExample = () => (
     <PrismCode
         code={ribbonsCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
 // Ribbons Hover
 
-const ribbonsHoverCode =
-    `
+const ribbonsHoverCode = `
 <!-- Ribbons Hover -->
 <Card className="ribbon-box border shadow-none overflow-hidden">
     <CardBody className="text-muted">
@@ -247,14 +241,21 @@ const ribbonsHoverCode =
         <p className="mb-0">Quisque nec turpis at urna dictum luctus. Suspendisse convallis dignissim eros at volutpat. In egestas mattis dui. Aliquam mattis dictum aliquet. Nulla sapien mauris, eleifend et sem ac, commodo dapibus odio. Vivamus pretium nec odio cursus.</p>
     </div>
 </Card>
-`;
+`
 
 const RibbonsHoverExample = () => (
     <PrismCode
         code={ribbonsHoverCode}
-        language={("js", "css", "html")}
-        plugins={["line-numbers"]}
+        language={('js', 'css', 'html')}
+        plugins={['line-numbers']}
     />
-);
+)
 
-export { RoundedRibbonExample, RibbonShapeExample, FilledRibbonsExample, BoxedRibbonsExample, RibbonsExample, RibbonsHoverExample };
+export {
+    RoundedRibbonExample,
+    RibbonShapeExample,
+    FilledRibbonsExample,
+    BoxedRibbonsExample,
+    RibbonsExample,
+    RibbonsHoverExample,
+}

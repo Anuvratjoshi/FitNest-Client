@@ -1,12 +1,12 @@
-import React from 'react';
-import { Alert, Card, CardBody, Col, Row } from 'reactstrap';
+import React from 'react'
+import { Alert, Card, CardBody, Col, Row } from 'reactstrap'
 
 //Import Icons
-import FeatherIcon from "feather-icons-react";
+import FeatherIcon from 'feather-icons-react'
 
 //import images
-import illustarator from "../../assets/images/user-illustarator-2.png";
-import { Link } from 'react-router-dom';
+import illustarator from '../../assets/images/user-illustarator-2.png'
+import { Link } from 'react-router-dom'
 
 const UpgradeAccountNotise = () => {
     return (
@@ -14,33 +14,57 @@ const UpgradeAccountNotise = () => {
             <Row>
                 <Col xs={12}>
                     <Card>
-                        <CardBody className="p-0">
-                            <Alert color='primary' className="border-0 rounded-0 rounded-top m-0 d-flex align-items-center" role="alert">
+                        <CardBody className='p-0'>
+                            <Alert
+                                color='primary'
+                                className='border-0 rounded-0 rounded-top m-0 d-flex align-items-center'
+                                role='alert'
+                            >
                                 <FeatherIcon
-                                    icon="alert-triangle"
-                                    className="text-primary me-2 icon-sm"
+                                    icon='alert-triangle'
+                                    className='text-primary me-2 icon-sm'
                                 />
-                                <div className="flex-grow-1 text-truncate">
+                                <div className='flex-grow-1 text-truncate'>
                                     Your free trial expired in <b>17</b> days.
                                 </div>
-                                <div className="flex-shrink-0">
-                                    <Link to="/pages-pricing" className="text-reset text-decoration-underline"><b>Upgrade</b></Link>
+                                <div className='flex-shrink-0'>
+                                    <Link
+                                        to='/pages-pricing'
+                                        className='text-reset text-decoration-underline'
+                                    >
+                                        <b>Upgrade</b>
+                                    </Link>
                                 </div>
                             </Alert>
 
-                            <Row className="align-items-end">
+                            <Row className='align-items-end'>
                                 <Col sm={8}>
-                                    <div className="p-3">
-                                        <p className="fs-16 lh-base">Upgrade your plan from a <span className="fw-semibold">Free
-                                            trial</span>, to ‘Premium Plan’ <i className="mdi mdi-arrow-right"></i></p>
-                                        <div className="mt-3">
-                                            <Link to="/pages-pricing" className="btn btn-primary">Upgrade Account!</Link>
+                                    <div className='p-3'>
+                                        <p className='fs-16 lh-base'>
+                                            Upgrade your plan from a{' '}
+                                            <span className='fw-semibold'>
+                                                Free trial
+                                            </span>
+                                            , to ‘Premium Plan’{' '}
+                                            <i className='mdi mdi-arrow-right'></i>
+                                        </p>
+                                        <div className='mt-3'>
+                                            <Link
+                                                to='/pages-pricing'
+                                                className='btn btn-primary'
+                                            >
+                                                Upgrade Account!
+                                            </Link>
                                         </div>
                                     </div>
                                 </Col>
                                 <Col sm={4}>
-                                    <div className="px-3">
-                                        <img src={illustarator} className="img-fluid" alt="" />
+                                    <div className='px-3'>
+                                        <img
+                                            src={illustarator}
+                                            className='img-fluid'
+                                            alt=''
+                                        />
                                     </div>
                                 </Col>
                             </Row>
@@ -49,7 +73,7 @@ const UpgradeAccountNotise = () => {
                 </Col>
             </Row>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default UpgradeAccountNotise;
+export default UpgradeAccountNotise

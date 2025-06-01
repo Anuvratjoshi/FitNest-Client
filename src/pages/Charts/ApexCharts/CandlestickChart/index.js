@@ -1,28 +1,33 @@
-import React from 'react';
-import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap';
-import BreadCrumb from '../../../../Components/Common/BreadCrumb';
+import React from 'react'
+import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap'
+import BreadCrumb from '../../../../Components/Common/BreadCrumb'
 
 import {
     Basic,
     ComboCandlestick,
     ComboCandlestick1,
     Category,
-    CandlestickLine
-} from "./CandlestickChart";
-
+    CandlestickLine,
+} from './CandlestickChart'
 
 const CandlestickChart = () => {
-    document.title = "Apex Candlestick Charts | Velzon - React Admin & Dashboard Template";
+    document.title =
+        'Apex Candlestick Charts | Velzon - React Admin & Dashboard Template'
     return (
         <React.Fragment>
-            <div className="page-content">
+            <div className='page-content'>
                 <Container fluid>
-                    <BreadCrumb title="Candlestick Charts" pageTitle="Apexcharts" />
+                    <BreadCrumb
+                        title='Candlestick Charts'
+                        pageTitle='Apexcharts'
+                    />
                     <Row>
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Basic Candlestick Chart</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Basic Candlestick Chart
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <Basic dataColors='["--vz-success", "--vz-danger"]' />
@@ -33,14 +38,17 @@ const CandlestickChart = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Candlestick Synced with Brush Chart (Combo)</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Candlestick Synced with Brush Chart
+                                        (Combo)
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <div>
-                                        <div id="combo_candlestick">
+                                        <div id='combo_candlestick'>
                                             <ComboCandlestick dataColors='["--vz-info", "--vz-danger"]' />
                                         </div>
-                                        <div id="combo_candlestick_chart">
+                                        <div id='combo_candlestick_chart'>
                                             <ComboCandlestick1 dataColors='["--vz-warning", "--vz-danger"]' />
                                         </div>
                                     </div>
@@ -53,7 +61,9 @@ const CandlestickChart = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Category X-Axis</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Category X-Axis
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
                                     <Category dataColors='["--vz-success", "--vz-danger"]' />
@@ -63,11 +73,13 @@ const CandlestickChart = () => {
                         <Col xl={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Candlestick with line</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Candlestick with line
+                                    </h4>
                                 </CardHeader>
 
                                 <CardBody>
-                                    <CandlestickLine dataColors='["--vz-success", "--vz-danger", "--vz-info", "--vz-warning"]'/>
+                                    <CandlestickLine dataColors='["--vz-success", "--vz-danger", "--vz-info", "--vz-warning"]' />
                                 </CardBody>
                             </Card>
                         </Col>
@@ -75,7 +87,7 @@ const CandlestickChart = () => {
                 </Container>
             </div>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default CandlestickChart;
+export default CandlestickChart

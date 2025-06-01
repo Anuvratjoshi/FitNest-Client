@@ -1,50 +1,52 @@
-import React, { useEffect } from 'react';
-import Navbar from "./Navbar";
-import Home from "./Home";
-import Connect from './Connect';
-import Products from "./Products";
-import Features from './Features';
-import Trending from "./Trending ";
-import DiscoverItems from "./DiscoverItems";
-import TopCreator from "./TopCreator ";
-import CTA from './CTA';
-import Footer from "./footer";
-import { useDispatch } from "react-redux";
-import { changeBackgroundImageType } from "../../../slices/thunks";
-
+import React, { useEffect } from 'react'
+import Navbar from './Navbar'
+import Home from './Home'
+import Connect from './Connect'
+import Products from './Products'
+import Features from './Features'
+import Trending from './Trending '
+import DiscoverItems from './DiscoverItems'
+import TopCreator from './TopCreator '
+import CTA from './CTA'
+import Footer from './footer'
+import { useDispatch } from 'react-redux'
+import { changeBackgroundImageType } from '../../../slices/thunks'
 
 const Index = () => {
-    document.title = " Landing | Velzon - React Admin & Dashboard Template";
+    document.title = ' Landing | Velzon - React Admin & Dashboard Template'
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     window.onscroll = function () {
-        scrollFunction();
-    };
+        scrollFunction()
+    }
 
     const scrollFunction = () => {
-        const element = document.getElementById("back-to-top");
+        const element = document.getElementById('back-to-top')
         if (element) {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                element.style.display = "block";
+            if (
+                document.body.scrollTop > 100 ||
+                document.documentElement.scrollTop > 100
+            ) {
+                element.style.display = 'block'
             } else {
-                element.style.display = "none";
+                element.style.display = 'none'
             }
         }
-    };
+    }
 
     const toTop = () => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    };
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
 
     useEffect(() => {
-        dispatch(changeBackgroundImageType("none"));
-    });
+        dispatch(changeBackgroundImageType('none'))
+    })
 
     return (
         <React.Fragment>
-            <div className="layout-wrapper landing">
+            <div className='layout-wrapper landing'>
                 <Navbar />
                 <Home />
                 <Connect />
@@ -55,12 +57,16 @@ const Index = () => {
                 <TopCreator />
                 <CTA />
                 <Footer />
-                <button onClick={() => toTop()} className="btn btn-primary btn-icon landing-back-top" id="back-to-top">
-                    <i className="ri-arrow-up-line"></i>
+                <button
+                    onClick={() => toTop()}
+                    className='btn btn-primary btn-icon landing-back-top'
+                    id='back-to-top'
+                >
+                    <i className='ri-arrow-up-line'></i>
                 </button>
             </div>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default Index;
+export default Index

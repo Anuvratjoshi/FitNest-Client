@@ -1,37 +1,36 @@
-import React from "react";
-import { Col, Container, Row } from "reactstrap";
-import BreadCrumb from "../../../../Components/Common/BreadCrumb";
-import Header from "./Header";
-import JobDescription from "./JobDescription";
-import RelatedJobs from "./RelatedJobs";
-import RightSection from "./RightSection";
+import React from 'react'
+import { Col, Container, Row } from 'reactstrap'
+import BreadCrumb from '../../../../Components/Common/BreadCrumb'
+import Header from './Header'
+import JobDescription from './JobDescription'
+import RelatedJobs from './RelatedJobs'
+import RightSection from './RightSection'
 
 const JobOverview = () => {
-  document.title = "Job Overview | Velzon -  Admin & Dashboard Template";
+    document.title = 'Job Overview | Velzon -  Admin & Dashboard Template'
 
-  return (
-    <React.Fragment>
-      <div className="page-content">
-        <Container fluid>
+    return (
+        <React.Fragment>
+            <div className='page-content'>
+                <Container fluid>
+                    <Row>
+                        <Header />
+                    </Row>
 
-          <Row>
-            <Header />
-          </Row>
+                    <Row>
+                        <Col xxl={9}>
+                            <JobDescription />
 
-          <Row>
-            <Col xxl={9}>
-              <JobDescription />
+                            <RelatedJobs />
+                        </Col>
+                        <Col xxl={3}>
+                            <RightSection />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </React.Fragment>
+    )
+}
 
-              <RelatedJobs />
-            </Col>
-            <Col xxl={3}>
-              <RightSection />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    </React.Fragment>
-  );
-};
-
-export default JobOverview;
+export default JobOverview

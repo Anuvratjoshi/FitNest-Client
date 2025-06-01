@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React from 'react'
+import ReactApexChart from 'react-apexcharts'
 
 const WatchListChart = ({ seriesData, chartsColor }) => {
-    const areachartlitecoinColors = [chartsColor];
+    const areachartlitecoinColors = [chartsColor]
     var options = {
         chart: {
             width: 130,
             height: 46,
-            type: "area",
+            type: 'area',
             sparkline: {
                 enabled: true,
             },
@@ -19,11 +19,11 @@ const WatchListChart = ({ seriesData, chartsColor }) => {
             enabled: false,
         },
         stroke: {
-            curve: "smooth",
+            curve: 'smooth',
             width: 1.5,
         },
         fill: {
-            type: "gradient",
+            type: 'gradient',
             gradient: {
                 shadeIntensity: 1,
                 inverseColors: false,
@@ -32,19 +32,20 @@ const WatchListChart = ({ seriesData, chartsColor }) => {
                 stops: [50, 100, 100, 100],
             },
         },
-        colors: areachartlitecoinColors
-    };
+        colors: areachartlitecoinColors,
+    }
     return (
         <React.Fragment>
-            <ReactApexChart dir="ltr"
+            <ReactApexChart
+                dir='ltr'
                 options={options}
                 series={[...seriesData]}
-                type="area"
-                height="46"
-                className="apex-charts"
+                type='area'
+                height='46'
+                className='apex-charts'
             />
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default WatchListChart;
+export default WatchListChart

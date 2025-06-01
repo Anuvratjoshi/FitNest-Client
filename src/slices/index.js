@@ -1,73 +1,73 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
 // Front
-import LayoutReducer from "./layouts/reducer";
+import LayoutReducer from './layouts/reducer'
 
 // Authentication
-import LoginReducer from "./auth/login/reducer";
-import AccountReducer from "./auth/register/reducer";
-import ForgetPasswordReducer from "./auth/forgetpwd/reducer";
-import ProfileReducer from "./auth/profile/reducer";
+import LoginReducer from './auth/login/reducer'
+import AccountReducer from './auth/register/reducer'
+import ForgetPasswordReducer from './auth/forgetpwd/reducer'
+import ProfileReducer from './auth/profile/reducer'
 
 //Calendar
-import CalendarReducer from "./calendar/reducer";
+import CalendarReducer from './calendar/reducer'
 //Chat
-import chatReducer from "./chat/reducer";
+import chatReducer from './chat/reducer'
 //Ecommerce
-import EcommerceReducer from "./ecommerce/reducer";
+import EcommerceReducer from './ecommerce/reducer'
 
 //Project
-import ProjectsReducer from "./projects/reducer";
+import ProjectsReducer from './projects/reducer'
 
 // Tasks
-import TasksReducer from "./tasks/reducer";
+import TasksReducer from './tasks/reducer'
 
 //Crypto
-import CryptoReducer from "./crypto/reducer";
+import CryptoReducer from './crypto/reducer'
 
 //TicketsList
-import TicketsReducer from "./tickets/reducer";
+import TicketsReducer from './tickets/reducer'
 //Crm
-import CrmReducer from "./crm/reducer";
+import CrmReducer from './crm/reducer'
 
 //Invoice
-import InvoiceReducer from "./invoice/reducer";
+import InvoiceReducer from './invoice/reducer'
 
 //Mailbox
-import MailboxReducer from "./mailbox/reducer";
+import MailboxReducer from './mailbox/reducer'
 
 // Dashboard Analytics
-import DashboardAnalyticsReducer from "./dashboardAnalytics/reducer";
+import DashboardAnalyticsReducer from './dashboardAnalytics/reducer'
 
 // Dashboard CRM
-import DashboardCRMReducer from "./dashboardCRM/reducer";
+import DashboardCRMReducer from './dashboardCRM/reducer'
 
 // Dashboard Ecommerce
-import DashboardEcommerceReducer from "./dashboardEcommerce/reducer";
+import DashboardEcommerceReducer from './dashboardEcommerce/reducer'
 
 // Dashboard Cryto
-import DashboardCryptoReducer from "./dashboardCrypto/reducer";
+import DashboardCryptoReducer from './dashboardCrypto/reducer'
 
 // Dashboard Cryto
-import DashboardProjectReducer from "./dashboardProject/reducer";
+import DashboardProjectReducer from './dashboardProject/reducer'
 
 // Dashboard NFT
-import DashboardNFTReducer from "./dashboardNFT/reducer";
+import DashboardNFTReducer from './dashboardNFT/reducer'
 
 // Pages > Team
-import TeamDataReducer from "./team/reducer";
+import TeamDataReducer from './team/reducer'
 
 // File Manager
-import FileManagerReducer from "./fileManager/reducer";
+import FileManagerReducer from './fileManager/reducer'
 
 // To do
-import TodosReducer from "./todos/reducer";
+import TodosReducer from './todos/reducer'
 
 // Job
-import JobReducer from "./jobs/reducer";
+import JobReducer from './jobs/reducer'
 
 // API Key
-import APIKeyReducer from "./apiKey/reducer";
+import APIKeyReducer from './apiKey/reducer'
 
 const rootReducer = combineReducers({
     Layout: LayoutReducer,
@@ -95,7 +95,7 @@ const rootReducer = combineReducers({
     FileManager: FileManagerReducer,
     Todos: TodosReducer,
     Jobs: JobReducer,
-    APIKey: APIKeyReducer
-});
+    APIKey: APIKeyReducer,
+})
 
-export default rootReducer;
+export default rootReducer

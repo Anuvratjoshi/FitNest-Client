@@ -1,34 +1,39 @@
-import React from 'react';
-import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap';
+import React from 'react'
+import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap'
 // Import Vector Map
-import Vector from './MapVector';
+import Vector from './MapVector'
 
 //Import Breadcrumb
-import BreadCrumb from '../../../Components/Common/BreadCrumb';
-
+import BreadCrumb from '../../../Components/Common/BreadCrumb'
 
 const VectorMaps = () => {
-    document.title="Vector Maps | Velzon - React Admin & Dashboard Template";
+    document.title = 'Vector Maps | Velzon - React Admin & Dashboard Template'
     return (
         <React.Fragment>
-            <div className="page-content">
+            <div className='page-content'>
                 <Container fluid>
-                    <BreadCrumb title="Vector" pageTitle="Maps" />
+                    <BreadCrumb title='Vector' pageTitle='Maps' />
                     <Row>
                         <Col lg={12}>
                             <Card>
-                                <CardHeader >
-                                    <h4 className="card-title mb-0">Markers</h4>
+                                <CardHeader>
+                                    <h4 className='card-title mb-0'>Markers</h4>
                                 </CardHeader>
                                 <CardBody>
-                                    <div id="world-map-line-markers" data-colors='["--vz-light"]' style={{ "height": "420px", position: "relative" }}>
+                                    <div
+                                        id='world-map-line-markers'
+                                        data-colors='["--vz-light"]'
+                                        style={{
+                                            height: '420px',
+                                            position: 'relative',
+                                        }}
+                                    >
                                         <Vector
-                                            value="world_mill"
-                                            width="500"
-                                            color="#f3f6f9"
+                                            value='world_mill'
+                                            width='500'
+                                            color='#f3f6f9'
                                         />
                                     </div>
-
                                 </CardBody>
                             </Card>
                         </Col>
@@ -38,14 +43,19 @@ const VectorMaps = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">USA Vector Map</h4>
+                                    <h4 className='card-title mb-0'>
+                                        USA Vector Map
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
-                                    <div id="usa-vectormap" style={{ "height": "350px" }}>
+                                    <div
+                                        id='usa-vectormap'
+                                        style={{ height: '350px' }}
+                                    >
                                         <Vector
-                                            value="us_aea"
-                                            width="724"
-                                            color="#8c68cd"
+                                            value='us_aea'
+                                            width='724'
+                                            color='#8c68cd'
                                         />
                                     </div>
                                 </CardBody>
@@ -55,67 +65,70 @@ const VectorMaps = () => {
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Canada Vector Map</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Canada Vector Map
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
-                                    <div id="canada-vectormap" style={{ "height": "350px" }}>
+                                    <div
+                                        id='canada-vectormap'
+                                        style={{ height: '350px' }}
+                                    >
                                         <Vector
-                                            value="ca_lcc"
-                                            width="500"
-                                            color="#3fa7d6"
+                                            value='ca_lcc'
+                                            width='500'
+                                            color='#3fa7d6'
                                         />
                                     </div>
                                 </CardBody>
                             </Card>
                         </Col>
                     </Row>
-
 
                     <Row>
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Russia Vector Map</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Russia Vector Map
+                                    </h4>
                                 </CardHeader>
                                 <CardBody>
-                                    <div id="russia-vectormap" >
+                                    <div id='russia-vectormap'>
                                         <Vector
-                                            value="ru_mill"
-                                            width="500"
-                                            color="#40bb82"
+                                            value='ru_mill'
+                                            width='500'
+                                            color='#40bb82'
                                         />
                                     </div>
                                 </CardBody>
                             </Card>
                         </Col>
-
 
                         <Col lg={6}>
                             <Card>
                                 <CardHeader>
-                                    <h4 className="card-title mb-0">Spain Vector Map</h4>
+                                    <h4 className='card-title mb-0'>
+                                        Spain Vector Map
+                                    </h4>
                                 </CardHeader>
 
                                 <CardBody>
-                                    <div id="spain-vectormap" >
+                                    <div id='spain-vectormap'>
                                         <Vector
-                                            value="es_mill"
-                                            width="500"
-                                            color="#4788ff"
+                                            value='es_mill'
+                                            width='500'
+                                            color='#4788ff'
                                         />
                                     </div>
                                 </CardBody>
                             </Card>
                         </Col>
-
                     </Row>
-
-
                 </Container>
-
             </div>
         </React.Fragment>
-    );
-};
+    )
+}
 
-export default VectorMaps;
+export default VectorMaps
