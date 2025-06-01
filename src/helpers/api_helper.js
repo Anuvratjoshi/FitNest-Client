@@ -96,7 +96,9 @@ class APIClient {
   };
 }
 const getLoggedinUser = () => {
-  const user = sessionStorage.getItem("authUser");
+  const sessionData = sessionStorage.getItem("authUser");
+  const localData = localStorage.getItem("authUser");
+  const user = sessionData || localData;
   if (!user) {
     return null;
   } else {

@@ -22,7 +22,7 @@ const AuthProtected = (props) => {
     redirect is un-auth access protected routes via url
     */
 
-  if (!userProfile && loading && !token) {
+  if (!userProfile && !loading && !token) {
     return (
       <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
     );
@@ -35,8 +35,12 @@ const AccessRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={props => {
-        return (<> <Component {...props} /> </>);
+      render={(props) => {
+        return (
+          <>
+            <Component {...props} />
+          </>
+        );
       }}
     />
   );
