@@ -39,7 +39,7 @@ const Navdata = () => {
             label: 'Manage Users',
             icon: 'ri-dashboard-2-line',
             link: '/#',
-            allowedRoles: ['admin', 'superadmin'],
+            allowedRoles: ['admin'],
             stateVariables: isDashboard1,
             click: function (e) {
                 e.preventDefault()
@@ -51,7 +51,7 @@ const Navdata = () => {
                 {
                     id: 'users',
                     label: 'Users',
-                    link: '/dashboard-analytics',
+                    link: '/admin-dashboard',
                     parentId: 'manage-user',
                 },
                 {

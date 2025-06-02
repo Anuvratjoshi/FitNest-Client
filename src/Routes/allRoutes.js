@@ -5,12 +5,19 @@ import Login from '../pages/Authentication/Login'
 import ForgetPasswordPage from '../pages/Authentication/ForgetPassword'
 import Logout from '../pages/Authentication/Logout'
 import Register from '../pages/Authentication/Register'
+import Users from '../pages/FitNest/Admin/Users'
 
 const sessionData = sessionStorage.getItem('authUser')
 const localData = localStorage.getItem('authUser')
 const role =
     JSON.parse(sessionData)?.data?.role || JSON.parse(localData)?.data?.role
 const authProtectedRoutes = [
+    // ***** Gym/Admin *****
+    {
+        path: '/admin-dashboard',
+        component: <Users />,
+        allowedRoles: ['admin'],
+    },
     {
         path: '/',
         exact: true,
@@ -18,10 +25,10 @@ const authProtectedRoutes = [
             <Navigate
                 to={
                     role === 'admin'
-                        ? '/dashboard'
-                        : role === 'admin'
-                          ? '/superadmin-dashboard'
-                          : null
+                        ? '/admin-dashboard'
+                        : role === 'superadmin'
+                        ? '/superadmin-dashboard'
+                        : null
                 }
             />
         ),
@@ -33,10 +40,10 @@ const authProtectedRoutes = [
             <Navigate
                 to={
                     role === 'admin'
-                        ? '/dashboard'
-                        : role === 'admin'
-                          ? '/superadmin-dashboard'
-                          : null
+                        ? '/admin-dashboard'
+                        : role === 'superadmin'
+                        ? '/superadmin-dashboard'
+                        : null
                 }
             />
         ),

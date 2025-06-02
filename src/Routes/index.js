@@ -11,8 +11,7 @@ import { AuthProtected } from './AuthProtected'
 import { useProfile } from '../Components/Hooks/UserHooks'
 
 const Index = () => {
-    const { loading, token, userProfile } = useProfile()
-    console.log(loading, token, userProfile)
+    const { token } = useProfile()
     return (
         <React.Fragment>
             <Routes>

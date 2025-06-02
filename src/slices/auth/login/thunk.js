@@ -48,7 +48,7 @@ export const loginUser = (user, history) => async dispatch => {
                 data = finallogin.data
                 if (finallogin.success) {
                     dispatch(loginSuccess(data))
-                    history('/dashboard')
+                    history('/admin-dashboard')
                 } else {
                     dispatch(apiError(finallogin))
                 }
