@@ -6,11 +6,24 @@ axios.defaults.baseURL = api.BACKEND_URL
 // content type
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
-// content type
-const token = JSON.parse(sessionStorage.getItem('authUser'))
-    ? JSON.parse(sessionStorage.getItem('authUser')).token
-    : null
-if (token) axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+// #### ADDED: Request interceptor to dynamically attach latest token ####
+axios.interceptors.request.use(
+    function (config) {
+        const authUser = getLoggedinUser()
+        let token = authUser?.data?.token
+
+        if (token?.startsWith('Bearer ')) {
+            token = token.replace('Bearer ', '')
+        }
+        if (token) {
+            config.headers.Authorization = 'Bearer ' + token
+        }
+        return config
+    },
+    function (error) {
+        return Promise.reject(error)
+    },
+)
 
 // intercepting to capture errors
 axios.interceptors.response.use(
@@ -26,6 +39,19 @@ axios.interceptors.response.use(
                 break
             case 401:
                 message = 'Invalid credentials'
+                const authUser = getLoggedinUser()
+                const role = authUser?.data?.role
+                let token = authUser?.data?.token
+
+                if (token && role) {
+                    // #### Clear storage if we get 401 & Redirect to login ####
+                    localStorage.removeItem('authUser')
+                    sessionStorage.removeItem('authUser')
+
+                    window.location.href =
+                        role === 'admin' ? '/login' : 'superadmin-login'
+                }
+
                 break
             case 404:
                 message =
@@ -71,7 +97,6 @@ class APIClient {
         } else {
             response = axios.get(`${url}`, params)
         }
-
         return response
     }
     /**

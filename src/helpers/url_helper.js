@@ -1,8 +1,11 @@
 // --------------------------------------------fitNest routes----------------------------------------------
 
-//#### FITNEST REGISTER ####
+//#### FITNEST REGISTER/SIGNIN ####
 export const GYM_REGISTER = '/auth/gymRegisration'
 export const GYM_SIGNIN = '/auth/ownerSignin'
+
+//#### ADMIN MANAGE USERS ####
+export const GET_ALL_USERS = 'gym/users/getAllUsers'
 
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER

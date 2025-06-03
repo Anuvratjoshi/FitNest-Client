@@ -309,3 +309,17 @@ input:-webkit-autofill:active {
     color: var(--#{$prefix}body-color) !important;
     -webkit-text-fill-color: var(--#{$prefix}body-color) !important;
 }
+
+.shaking-animation {
+    animation: shake 0.8s infinite;
+    transform-origin: center;
+  }
+  
+  @keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+  }
+  

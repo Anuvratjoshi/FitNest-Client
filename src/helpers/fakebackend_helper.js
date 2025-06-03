@@ -16,9 +16,12 @@ export const isUserAuthenticated = () => {
     return getLoggedInUser() !== null
 }
 // --------------------------------------------fitNest Methods----------------------------------------------
-/* Register Method */
+/* Admin Register/Signin Method */
 export const gymRegister = data => api.create(url.GYM_REGISTER, data)
 export const gymSignin = data => api.create(url.GYM_SIGNIN, data)
+
+/* Admin Manage User Methods */
+export const getAllUsers = data => api.get(url.GET_ALL_USERS, null)
 
 // --------------------------------------------Theme Methods----------------------------------------------
 

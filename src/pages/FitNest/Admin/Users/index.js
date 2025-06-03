@@ -1,135 +1,101 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Card, CardBody, CardHeader, Container, Row } from 'reactstrap'
 import TableContainer from '../../../../Components/Common/TableContainerReactTable'
 import Timer from '../../../../Components/Common/Timer'
+import { getAllUsers } from '../../../../helpers/fakebackend_helper'
 
 const Users = () => {
-    const data = [
-        {
-            id: '10',
-            name: 'Tyrone',
-            email: 'tyrone@example.com',
-            designation: 'Senior Response Liaison',
-            company: 'Raynor, Rolfson and Daugherty',
-            location: 'Qatar',
-        },
-        {
-            id: '09',
-            name: 'Cathy',
-            email: 'cathy@example.com',
-            designation: 'Customer Data Director',
-            company: 'Ebert, Schamberger and Johnston',
-            location: 'Mexico',
-        },
-        {
-            id: '08',
-            name: 'Patsy',
-            email: 'patsy@example.com',
-            designation: 'Dynamic Assurance Director',
-            company: 'Streich Group',
-            location: 'Niue',
-        },
-        {
-            id: '07',
-            name: 'Kerry',
-            email: 'kerry@example.com',
-            designation: 'Lead Applications Associate',
-            company: 'Feeney, Langworth and Tremblay',
-            location: 'Niger',
-        },
-        {
-            id: '06',
-            name: 'Traci',
-            email: 'traci@example.com',
-            designation: 'Corporate Identity Director',
-            company: 'Koelpin - Goldner',
-            location: 'Vanuatu',
-        },
-        {
-            id: '05',
-            name: 'Noel',
-            email: 'noel@example.com',
-            designation: 'Customer Data Director',
-            company: 'Howell - Rippin',
-            location: 'Germany',
-        },
-        {
-            id: '04',
-            name: 'Robert',
-            email: 'robert@example.com',
-            designation: 'Product Accounts Technician',
-            company: 'Hoeger',
-            location: 'San Marino',
-        },
-        {
-            id: '03',
-            name: 'Shannon',
-            email: 'shannon@example.com',
-            designation: 'Legacy Functionality Associate',
-            company: 'Zemlak Group',
-            location: 'South Georgia',
-        },
-        {
-            id: '02',
-            name: 'Harold',
-            email: 'harold@example.com',
-            designation: 'Forward Creative Coordinator',
-            company: 'Metz Inc',
-            location: 'Iran',
-        },
-        {
-            id: '01',
-            name: 'Jonathan',
-            email: 'jonathan@example.com',
-            designation: 'Senior Implementation Architect',
-            company: 'Hauck Inc',
-            location: 'Holy See',
-        },
-    ]
+    // #### Fetching users associated with a gym ####
+    const [allUsers, setAllUsers] = useState([])
+    const [a_u_flag, set_a_u_flag] = useState(true)
+    const fetchAllUser = async () => {
+        try {
+            const res = await getAllUsers()
+            setAllUsers(res.data)
+        } catch (error) {
+            console.log('!!! fetchAllUser Error !!!', error)
+        } finally {
+            set_a_u_flag(false)
+        }
+    }
+
+    const fetchData = async () => {
+        try {
+            await fetchAllUser()
+        } catch (error) {
+            console.log('fetchData Error', error)
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    // Table Columns
     const columns = useMemo(
         () => [
             {
                 Header: 'ID',
-                accessor: cellProps => {
-                    return <span className='fw-semibold'>{cellProps.id}</span>
-                },
+                accessor: cellProps => (
+                    <span className='fw-semibold'>{cellProps.userId}</span>
+                ),
                 disableFilters: true,
                 filterable: false,
             },
-
             {
                 Header: 'Name',
-                accessor: 'name',
+                accessor: cellProps =>
+                    `${cellProps.firstName} ${cellProps.lastName}`,
                 disableFilters: true,
                 filterable: false,
             },
             {
                 Header: 'Email',
-                accessor: 'email',
+                accessor: cellProps => (
+                    <span className='text-primary'>{cellProps.email}</span>
+                ),
                 disableFilters: true,
                 filterable: false,
             },
             {
-                Header: 'Designation',
-                accessor: 'designation',
+                Header: 'Phone',
+                accessor: 'phone',
                 disableFilters: true,
                 filterable: false,
             },
             {
-                Header: 'Company',
-                accessor: 'company',
+                Header: 'Gender',
+                accessor: 'gender',
                 disableFilters: true,
                 filterable: false,
             },
             {
-                Header: 'Location',
-                accessor: 'location',
+                Header: 'Membership Active',
+                accessor: cellProps =>
+                    cellProps.membership?.isActive ? 'Yes' : 'No',
+                disableFilters: true,
+                filterable: false,
+            },
+            {
+                Header: 'Action',
+                accessor: cellProps => (
+                    <>
+                        <span
+                            className='mx-1 fs-18 bx bx-edit-alt text-warning bg-warning-subtle rounded btn btn-sm'
+                            onClick={() => console.log(cellProps)}
+                        ></span>
+                        <span className='mx-1 fs-18 bx bx-trash text-danger bg-danger-subtle rounded btn btn-sm'></span>
+                        <span className='mx-1 fs-18 mdi mdi-eye text-info bg-info-subtle rounded btn btn-sm'></span>
+                    </>
+                ),
+
                 disableFilters: true,
                 filterable: false,
             },
         ],
         [],
     )
+
     return (
         <React.Fragment>
             <div className='page-content'>
@@ -148,15 +114,19 @@ const Users = () => {
                             </h4>
                         </CardHeader>
                         <CardBody>
+                            <div className='d-flex justify-content-end mb-2'>
+                                {/* Search bar alignment handled inside TableContainer */}
+                            </div>
                             <div style={{ overflowX: 'auto' }}>
                                 <TableContainer
                                     columns={columns || []}
-                                    data={data || []}
+                                    data={allUsers || []}
                                     isPagination={true}
                                     isGlobalFilter={true}
                                     iscustomPageSize={false}
                                     isBordered={false}
                                     customPageSize={5}
+                                    loading={a_u_flag}
                                     className='custom-header-css table align-middle table-nowrap'
                                     tableClassName='table-centered align-middle table-nowrap mb-0'
                                     theadClassName='text-muted table-light'
