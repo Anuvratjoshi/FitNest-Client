@@ -1,3 +1,4 @@
+// #### IMPORTS #####
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -12,10 +13,13 @@ import {
 } from 'react-table'
 import { Table, Row, Col, Button, Input, CardBody } from 'reactstrap'
 import { DefaultColumnFilter } from './filters'
+import { Link } from 'react-router-dom'
 
-// Define a default UI for filtering
+// #### GLOBAL FILTER COMPONENT #####
 function GlobalFilter({ globalFilter, setGlobalFilter, SearchPlaceholder }) {
     const [value, setValue] = React.useState(globalFilter)
+
+    // Debounced handler for better performance on user input
     const onChange = useAsyncDebounce(value => {
         setGlobalFilter(value || undefined)
     }, 200)
@@ -48,6 +52,7 @@ function GlobalFilter({ globalFilter, setGlobalFilter, SearchPlaceholder }) {
     )
 }
 
+// #### MAIN TABLE CONTAINER COMPONENT #####
 const TableContainer = ({
     columns,
     data,
@@ -62,6 +67,7 @@ const TableContainer = ({
     divClass,
     SearchPlaceholder,
 }) => {
+    // ##### HOOK: Initializes react-table with features #####
     const {
         getTableProps,
         getTableBodyProps,
@@ -88,11 +94,7 @@ const TableContainer = ({
                 pageIndex: 0,
                 pageSize: customPageSize,
                 selectedRowIds: 0,
-                sortBy: [
-                    {
-                        desc: true,
-                    },
-                ],
+                sortBy: [{ desc: true }], // Default sorting
             },
         },
         useGlobalFilter,
@@ -103,6 +105,7 @@ const TableContainer = ({
         useRowSelect,
     )
 
+    // ##### Renders up/down arrows for sorting #####
     const generateSortingIndicator = column => {
         return column.isSorted ? (
             column.isSortedDesc ? (
@@ -115,9 +118,12 @@ const TableContainer = ({
         )
     }
 
+    // ##### Change handler for "Show X" select #####
     const onChangeInSelect = event => {
         setPageSize(Number(event.target.value))
     }
+
+    // ##### Change handler for page number input (if needed) #####
     const onChangeInInput = event => {
         const page = event.target.value ? Number(event.target.value) - 1 : 0
         gotoPage(page)
@@ -125,8 +131,9 @@ const TableContainer = ({
 
     return (
         <Fragment>
+            {/* ##### Search / Filter Row ##### */}
             {(isGlobalSearch || isGlobalFilter) && (
-                <Row className='mb-3'>
+                <Row className='mb-3 align-items-center'>
                     {isGlobalSearch && (
                         <Col md={1}>
                             <select
@@ -143,67 +150,71 @@ const TableContainer = ({
                         </Col>
                     )}
                     {isGlobalFilter && (
-                        <GlobalFilter
-                            preGlobalFilteredRows={preGlobalFilteredRows}
-                            globalFilter={state.globalFilter}
-                            setGlobalFilter={setGlobalFilter}
-                            SearchPlaceholder={SearchPlaceholder}
-                        />
+                        <Col xs='12' md='3' className='ms-auto text-end'>
+                            <GlobalFilter
+                                preGlobalFilteredRows={preGlobalFilteredRows}
+                                globalFilter={state.globalFilter}
+                                setGlobalFilter={setGlobalFilter}
+                                SearchPlaceholder={SearchPlaceholder}
+                            />
+                        </Col>
                     )}
                 </Row>
             )}
 
-            <div className={divClass}>
+            {/* ##### Table Rendering ##### */}
+            <div className={`table-responsive ${divClass || ''}`}>
                 <Table hover {...getTableProps()} className={tableClass}>
                     <thead className={theadClass}>
-                        {headerGroups.map(headerGroup => (
-                            <tr
-                                className={trClass}
-                                key={headerGroup.id}
-                                {...headerGroup.getHeaderGroupProps()}
-                            >
-                                {headerGroup.headers.map(column => (
-                                    <th
-                                        key={column.id}
-                                        className={thClass}
-                                        {...column.getSortByToggleProps()}
-                                    >
-                                        {column.render('Header')}
-                                        {generateSortingIndicator(column)}
-                                        {/* <Filter column={column} /> */}
-                                    </th>
-                                ))}
-                            </tr>
-                        ))}
+                        {headerGroups.map(headerGroup => {
+                            const headerGroupProps =
+                                headerGroup.getHeaderGroupProps()
+                            const { key, ...rest } = headerGroupProps
+                            return (
+                                <tr className={trClass} key={key} {...rest}>
+                                    {headerGroup.headers.map(column => (
+                                        <th
+                                            key={column.id}
+                                            className={thClass}
+                                            {...column.getSortByToggleProps()}
+                                        >
+                                            {column.render('Header')}
+                                            {generateSortingIndicator(column)}
+                                        </th>
+                                    ))}
+                                </tr>
+                            )
+                        })}
                     </thead>
 
                     <tbody {...getTableBodyProps()}>
                         {page.map(row => {
                             prepareRow(row)
+                            const rowProps = row.getRowProps()
+                            const { key, ...rest } = rowProps
                             return (
-                                <Fragment key={row.getRowProps().key}>
-                                    <tr>
-                                        {row.cells.map(cell => {
-                                            return (
-                                                <td
-                                                    key={cell.id}
-                                                    {...cell.getCellProps()}
-                                                >
-                                                    {cell.render('Cell')}
-                                                </td>
-                                            )
-                                        })}
-                                    </tr>
-                                </Fragment>
+                                <tr key={key} {...rest}>
+                                    {row.cells.map(cell => {
+                                        const cellProps = cell.getCellProps()
+                                        const { key: cellKey, ...cellRest } =
+                                            cellProps
+                                        return (
+                                            <td key={cellKey} {...cellRest}>
+                                                {cell.render('Cell')}
+                                            </td>
+                                        )
+                                    })}
+                                </tr>
                             )
                         })}
                     </tbody>
                 </Table>
             </div>
 
+            {/* ##### Pagination Section ##### */}
             {isPagination && (
-                <Row className='align-items-center g-3 text-center text-sm-start mb-3'>
-                    <div className='col-sm'>
+                <Row className='align-items-center g-3 mb-3'>
+                    <Col xs='12' sm='6' className='text-start text-sm-start'>
                         <div className='text-muted'>
                             Showing
                             <span className='fw-semibold ms-1'>
@@ -213,9 +224,10 @@ const TableContainer = ({
                             <span className='fw-semibold'>{data.length}</span>{' '}
                             Results
                         </div>
-                    </div>
-                    <div className='col-sm-auto'>
-                        <ul className='pagination pagination-separated pagination-md justify-content-center justify-content-sm-start mb-0'>
+                    </Col>
+                    <Col xs='12' sm='6' className='text-end'>
+                        <ul className='pagination pagination-separated pagination-md justify-content-end mb-0'>
+                            {/* Previous Button */}
                             <li
                                 className={
                                     !canPreviousPage
@@ -231,6 +243,8 @@ const TableContainer = ({
                                     Previous
                                 </Link>
                             </li>
+
+                            {/* Page Buttons */}
                             {pageOptions.map((item, key) => (
                                 <React.Fragment key={key}>
                                     <li className='page-item'>
@@ -248,6 +262,8 @@ const TableContainer = ({
                                     </li>
                                 </React.Fragment>
                             ))}
+
+                            {/* Next Button */}
                             <li
                                 className={
                                     !canNextPage
@@ -264,15 +280,17 @@ const TableContainer = ({
                                 </Link>
                             </li>
                         </ul>
-                    </div>
+                    </Col>
                 </Row>
             )}
         </Fragment>
     )
 }
 
+// #### PROPTYPES FOR VALIDATION #####
 TableContainer.propTypes = {
     preGlobalFilteredRows: PropTypes.any,
 }
 
+// #### EXPORT TABLE COMPONENT #####
 export default TableContainer
