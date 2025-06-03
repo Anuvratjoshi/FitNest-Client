@@ -133,7 +133,7 @@ const TableContainer = ({
         <Fragment>
             {/* ##### Search / Filter Row ##### */}
             {(isGlobalSearch || isGlobalFilter) && (
-                <Row className='mb-3 align-items-center'>
+                <Row className='mb-1 align-items-center'>
                     {isGlobalSearch && (
                         <Col md={1}>
                             <select

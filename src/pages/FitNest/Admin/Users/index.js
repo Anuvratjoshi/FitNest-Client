@@ -1,6 +1,14 @@
 import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ButtonGroup, Col, Container, Row } from 'reactstrap'
+import {
+    ButtonGroup,
+    Card,
+    CardBody,
+    CardHeader,
+    Col,
+    Container,
+    Row,
+} from 'reactstrap'
 import TableContainer from '../../../../Components/Common/TableContainerReactTable'
 
 const Users = () => {
@@ -168,23 +176,30 @@ const Users = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <div style={{ overflowX: 'auto' }}>
-                            <TableContainer
-                                columns={columns || []}
-                                data={data || []}
-                                isPagination={true}
-                                isGlobalFilter={true}
-                                iscustomPageSize={false}
-                                isBordered={false}
-                                customPageSize={5}
-                                className='custom-header-css table align-middle table-nowrap'
-                                tableClassName='table-centered align-middle table-nowrap mb-0'
-                                theadClassName='text-muted table-light'
-                                SearchPlaceholder='Search...'
-                            />
-                        </div>
-                    </Row>
+                    <Card>
+                        <CardHeader>
+                            <h4 className='card-title mb-0 flex-grow-1'>
+                                USER TABLE
+                            </h4>
+                        </CardHeader>
+                        <CardBody>
+                            <div style={{ overflowX: 'auto' }}>
+                                <TableContainer
+                                    columns={columns || []}
+                                    data={data || []}
+                                    isPagination={true}
+                                    isGlobalFilter={true}
+                                    iscustomPageSize={false}
+                                    isBordered={false}
+                                    customPageSize={5}
+                                    className='custom-header-css table align-middle table-nowrap'
+                                    tableClassName='table-centered align-middle table-nowrap mb-0'
+                                    theadClassName='text-muted table-light'
+                                    SearchPlaceholder='Search...'
+                                />
+                            </div>
+                        </CardBody>
+                    </Card>
                 </Container>
             </div>
         </React.Fragment>
