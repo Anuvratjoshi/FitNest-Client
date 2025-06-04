@@ -12,7 +12,7 @@ import {
     addNewFile as addNewFileApi,
     updateFile as updateFileApi,
     deleteFile as deleteFileApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getFolders = createAsyncThunk(
     'fileManager/getFolders',

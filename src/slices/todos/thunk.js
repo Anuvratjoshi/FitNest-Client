@@ -10,7 +10,7 @@ import {
     deleteTodo as deleteTodoApi,
     getProjects as getProjectsApi,
     addNewProject as addNewProjectApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getTodos = createAsyncThunk('todos/getTodos', async () => {
     try {

@@ -5,7 +5,7 @@ import {
     getMonthMarketplaceData as getMonthMarketplaceDataApi,
     gethalfYearMarketplaceData as gethalfYearMarketplaceDataApi,
     getYearMarketplaceData as getYearMarketplaceDataApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getMarketChartsDatas = createAsyncThunk(
     'dashboardNFT/getMarketChartsDatas',

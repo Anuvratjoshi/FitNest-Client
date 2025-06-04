@@ -17,7 +17,7 @@ import {
     deleteCustomer as deleteCustomerApi,
     addNewProduct as addNewProductApi,
     updateProduct as updateProductApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getProducts = createAsyncThunk(
     'ecommerce/getProducts',

@@ -4,7 +4,7 @@ import {
     gymRegister,
     postFakeRegister,
     postJwtRegister,
-} from '../../../helpers/fakebackend_helper'
+} from '../../../helpers/apiservice_helper'
 
 // action
 import {

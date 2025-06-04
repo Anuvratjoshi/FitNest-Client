@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {
     getMailDetails as getMailDetailsApi,
     deleteMail as deleteMailApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getMailDetails = createAsyncThunk(
     'mailbox/getMailDetails',

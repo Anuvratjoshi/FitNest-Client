@@ -8,7 +8,7 @@ import {
     addNewTicket as addNewTicketApi,
     updateTicket as updateTicketApi,
     deleteTicket as deleteTicketApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getTicketsList = createAsyncThunk(
     'tickets/getTicketsList',

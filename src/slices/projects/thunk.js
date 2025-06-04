@@ -8,7 +8,7 @@ import {
     addProjectList as addProjectListApi,
     updateProjectList as updateProjectListApi,
     deleteProjectList as deleteProjectListApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getProjectList = createAsyncThunk(
     'projects/getProjectList',

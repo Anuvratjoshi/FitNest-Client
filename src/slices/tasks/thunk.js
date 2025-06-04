@@ -8,7 +8,7 @@ import {
     addNewTask as addNewTaskApi,
     updateTask as updateTaskApi,
     deleteTask as deleteTaskApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getTaskList = createAsyncThunk('tasks/getTaskList', async () => {
     try {

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Card, CardBody, CardHeader, Container, Row } from 'reactstrap'
 import TableContainer from '../../../../Components/Common/TableContainerReactTable'
 import Timer from '../../../../Components/Common/Timer'
-import { getAllUsers } from '../../../../helpers/fakebackend_helper'
+import { getAllUsers } from '../../../../helpers/apiservice_helper'
 import AdminEditUser from './Modals/AdminEditUser'
 
 const Users = () => {

@@ -13,7 +13,7 @@ import {
     getNovSalesData as getNovSalesDataApi,
     getDecSalesData as getDecSalesDataApi,
     getJanSalesData as getJanSalesDataApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getBalanceChartsData = createAsyncThunk(
     'dashboardCrm/getBalanceChartsData',

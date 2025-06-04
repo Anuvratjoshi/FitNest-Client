@@ -8,7 +8,7 @@ import {
     addTeamData as addTeamDataApi,
     updateTeamData as updateTeamDataApi,
     deleteTeamData as deleteTeamDataApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getTeamData = createAsyncThunk('team/getTeamData', async () => {
     try {

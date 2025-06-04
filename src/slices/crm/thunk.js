@@ -17,7 +17,7 @@ import {
     addNewLead as addNewLeadApi,
     updateLead as updateLeadApi,
     deleteLead as deleteLeadApi,
-} from '../../helpers/fakebackend_helper'
+} from '../../helpers/apiservice_helper'
 
 export const getContacts = createAsyncThunk('crm/getContacts', async () => {
     try {

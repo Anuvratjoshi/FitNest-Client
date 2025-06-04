@@ -4,7 +4,7 @@ import {
     gymSignin,
     postFakeLogin,
     postJwtLogin,
-} from '../../../helpers/fakebackend_helper'
+} from '../../../helpers/apiservice_helper'
 
 import {
     loginSuccess,
