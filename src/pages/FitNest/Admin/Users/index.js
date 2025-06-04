@@ -3,6 +3,7 @@ import { Card, CardBody, CardHeader, Container, Row } from 'reactstrap'
 import TableContainer from '../../../../Components/Common/TableContainerReactTable'
 import Timer from '../../../../Components/Common/Timer'
 import { getAllUsers } from '../../../../helpers/fakebackend_helper'
+import AdminEditUser from './Modals/AdminEditUser'
 
 const Users = () => {
     // #### Fetching users associated with a gym ####
@@ -10,6 +11,7 @@ const Users = () => {
     const [a_u_flag, set_a_u_flag] = useState(true)
     const fetchAllUser = async () => {
         try {
+            set_a_u_flag(true)
             const res = await getAllUsers()
             setAllUsers(res.data)
         } catch (error) {
@@ -23,21 +25,52 @@ const Users = () => {
         try {
             await fetchAllUser()
         } catch (error) {
-            console.log('fetchData Error', error)
+            console.log('!!! fetchData Error !!!', error)
         }
     }
 
+    // #### initial side effect to fetch data ####
     useEffect(() => {
         fetchData()
     }, [])
 
-    // Table Columns
+    // #### mask user id ####
+    const maskMongoId = id => {
+        return id.replace(/^(.{3}).{3}(.{5}).{10}(.{3})$/, '$1***$2***$3')
+    }
+
+    // #### Edit User ####
+    const [editModalFlag, setEditModalFlag] = useState({
+        isOpen: false,
+        type: '',
+    })
+    const [clickedUserData, setClickedUserData] = useState({})
+
+    // #### action click handlers ####
+    const actionClickHandler = (data, type) => {
+        if (type === 'edit') {
+            setClickedUserData(data)
+            setEditModalFlag({ isOpen: true, type })
+            return
+        } else if (type === 'view') {
+            setClickedUserData(data)
+            setEditModalFlag({ isOpen: true, type })
+        }
+    }
+
+    // #### Table Columns ####
     const columns = useMemo(
         () => [
             {
                 Header: 'ID',
                 accessor: cellProps => (
-                    <span className='fw-semibold'>{cellProps.userId}</span>
+                    <span
+                        onClick={() => actionClickHandler(cellProps, 'view')}
+                        className='fw-semibold text-primary'
+                        style={{ cursor: 'pointer' }}
+                    >
+                        {maskMongoId(cellProps.userId)}
+                    </span>
                 ),
                 disableFilters: true,
                 filterable: false,
@@ -79,14 +112,15 @@ const Users = () => {
             {
                 Header: 'Action',
                 accessor: cellProps => (
-                    <>
+                    <div className='d-flex'>
                         <span
                             className='mx-1 fs-18 bx bx-edit-alt text-warning bg-warning-subtle rounded btn btn-sm'
-                            onClick={() => console.log(cellProps)}
+                            onClick={() =>
+                                actionClickHandler(cellProps, 'edit')
+                            }
                         ></span>
                         <span className='mx-1 fs-18 bx bx-trash text-danger bg-danger-subtle rounded btn btn-sm'></span>
-                        <span className='mx-1 fs-18 mdi mdi-eye text-info bg-info-subtle rounded btn btn-sm'></span>
-                    </>
+                    </div>
                 ),
 
                 disableFilters: true,
@@ -114,9 +148,6 @@ const Users = () => {
                             </h4>
                         </CardHeader>
                         <CardBody>
-                            <div className='d-flex justify-content-end mb-2'>
-                                {/* Search bar alignment handled inside TableContainer */}
-                            </div>
                             <div style={{ overflowX: 'auto' }}>
                                 <TableContainer
                                     columns={columns || []}
@@ -137,6 +168,14 @@ const Users = () => {
                     </Card>
                 </Container>
             </div>
+            {editModalFlag?.isOpen && (
+                <AdminEditUser
+                    editModalFlag={editModalFlag}
+                    setEditModalFlag={setEditModalFlag}
+                    userData={clickedUserData}
+                    fetchAllUser={fetchAllUser}
+                />
+            )}
         </React.Fragment>
     )
 }
