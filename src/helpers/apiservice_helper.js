@@ -23,6 +23,8 @@ export const gymSignin = data => api.create(url.GYM_SIGNIN, data)
 /* Admin Manage User Methods */
 export const getAllUsers = () => api.get(url.GET_ALL_USERS, null)
 export const adminUpdateUser = data => api.put(url.ADMIN_UPDATE_USER, data)
+export const adminDeleteUser = data =>
+    api.delete(`${url.ADMIN_DELETE_USER}/${data}`)
 
 // --------------------------------------------Theme Methods----------------------------------------------
 

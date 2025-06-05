@@ -7,6 +7,7 @@ export const GYM_SIGNIN = '/auth/ownerSignin'
 //#### ADMIN MANAGE USERS ####
 export const GET_ALL_USERS = 'gym/users/getAllUsers'
 export const ADMIN_UPDATE_USER = 'gym/users/updateUser'
+export const ADMIN_DELETE_USER = 'gym/users/deleteUser'
 
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER

@@ -2,22 +2,29 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Card, CardBody, CardHeader, Container, Row } from 'reactstrap'
 import TableContainer from '../../../../Components/Common/TableContainerReactTable'
 import Timer from '../../../../Components/Common/Timer'
-import { getAllUsers } from '../../../../helpers/apiservice_helper'
+import {
+    adminDeleteUser,
+    getAllUsers,
+} from '../../../../helpers/apiservice_helper'
 import AdminEditUser from './Modals/AdminEditUser'
+import { maskMongoId } from '../../../../helpers/general_helper'
+import DeleteModal from '../../../../Components/Common/DeleteModal'
+import { toast } from 'react-toastify'
 
 const Users = () => {
     // #### Fetching users associated with a gym ####
     const [allUsers, setAllUsers] = useState([])
-    const [a_u_flag, set_a_u_flag] = useState(true)
+    const [a_u_loading, set_a_u_loading] = useState(true)
     const fetchAllUser = async () => {
         try {
-            set_a_u_flag(true)
+            set_a_u_loading(true)
             const res = await getAllUsers()
             setAllUsers(res.data)
         } catch (error) {
             console.log('!!! fetchAllUser Error !!!', error)
+            toast.error(error?.message, { autoClose: 1500 })
         } finally {
-            set_a_u_flag(false)
+            set_a_u_loading(false)
         }
     }
 
@@ -34,17 +41,37 @@ const Users = () => {
         fetchData()
     }, [])
 
-    // #### mask user id ####
-    const maskMongoId = id => {
-        return id.replace(/^(.{3}).{3}(.{5}).{10}(.{3})$/, '$1***$2***$3')
-    }
-
     // #### Edit User ####
     const [editModalFlag, setEditModalFlag] = useState({
         isOpen: false,
         type: '',
     })
     const [clickedUserData, setClickedUserData] = useState({})
+
+    // #### delete user ####
+    const [d_m_flag, set_d_m_flag] = useState(false)
+    const [d_m_loading, set_d_m_loading] = useState()
+    const onDeleteClick = async () => {
+        if (clickedUserData?.userId) {
+            set_d_m_loading(true)
+            try {
+                const res = await adminDeleteUser(clickedUserData?.userId)
+                toast.success(res?.message, { autoClose: 1500 })
+                set_d_m_flag(false)
+                setClickedUserData({})
+                fetchAllUser()
+            } catch (error) {
+                console.log('!!! Error While Deleting User!!!', error)
+                toast.error(error?.message, { autoClose: 1500 })
+            } finally {
+                set_d_m_loading(false)
+            }
+        }
+    }
+    const onCloseClick = () => {
+        set_d_m_flag(false)
+        setClickedUserData({})
+    }
 
     // #### action click handlers ####
     const actionClickHandler = (data, type) => {
@@ -55,9 +82,12 @@ const Users = () => {
         } else if (type === 'view') {
             setClickedUserData(data)
             setEditModalFlag({ isOpen: true, type })
+            return
+        } else if (type === 'delete') {
+            setClickedUserData(data)
+            set_d_m_flag(true)
         }
     }
-
     // #### Table Columns ####
     const columns = useMemo(
         () => [
@@ -119,7 +149,12 @@ const Users = () => {
                                 actionClickHandler(cellProps, 'edit')
                             }
                         ></span>
-                        <span className='mx-1 fs-18 bx bx-trash text-danger bg-danger-subtle rounded btn btn-sm'></span>
+                        <span
+                            className='mx-1 fs-18 bx bx-trash text-danger bg-danger-subtle rounded btn btn-sm'
+                            onClick={() =>
+                                actionClickHandler(cellProps, 'delete')
+                            }
+                        ></span>
                     </div>
                 ),
 
@@ -157,7 +192,7 @@ const Users = () => {
                                     iscustomPageSize={false}
                                     isBordered={false}
                                     customPageSize={5}
-                                    loading={a_u_flag}
+                                    loading={a_u_loading}
                                     className='custom-header-css table align-middle table-nowrap'
                                     tableClassName='table-centered align-middle table-nowrap mb-0'
                                     theadClassName='text-muted table-light'
@@ -176,6 +211,13 @@ const Users = () => {
                     fetchAllUser={fetchAllUser}
                 />
             )}
+            <DeleteModal
+                show={d_m_flag}
+                message='Are you sure you want to remove this record ?'
+                onCloseClick={onCloseClick}
+                onDeleteClick={onDeleteClick}
+                loading={d_m_loading}
+            />
         </React.Fragment>
     )
 }
