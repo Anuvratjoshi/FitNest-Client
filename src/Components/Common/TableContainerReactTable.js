@@ -14,6 +14,7 @@ import {
 import { Table, Row, Col, Button, Input, CardBody } from 'reactstrap'
 import { DefaultColumnFilter } from './filters'
 import { Link } from 'react-router-dom'
+import { CSVLink } from 'react-csv'
 
 // #### GLOBAL FILTER COMPONENT #####
 function GlobalFilter({ globalFilter, setGlobalFilter, SearchPlaceholder }) {
@@ -67,6 +68,8 @@ const TableContainer = ({
     divClass,
     SearchPlaceholder,
     loading = false,
+    downloadCSV = false,
+    csv,
 }) => {
     // ##### HOOK: Initializes react-table with features #####
     const {
@@ -150,8 +153,31 @@ const TableContainer = ({
                             </select>
                         </Col>
                     )}
+
+                    {downloadCSV && (
+                        <Col
+                            xs='12'
+                            md='4'
+                            lg='3'
+                            xl='2'
+                            className='mb-2 mb-md-0'
+                            style={{ padding: '0px 28px' }}
+                        >
+                            <CSVLink {...csv}>
+                                <Button
+                                    disabled={loading}
+                                    color='info'
+                                    className='btn-label w-100'
+                                >
+                                    <i className='ri-download-2-fill label-icon align-middle fs-16 '></i>
+                                    Export CSV
+                                </Button>
+                            </CSVLink>
+                        </Col>
+                    )}
+
                     {isGlobalFilter && (
-                        <Col xs='12' md='3' className='ms-auto text-end'>
+                        <Col xs='12' md='4' className='ms-md-auto'>
                             <GlobalFilter
                                 preGlobalFilteredRows={preGlobalFilteredRows}
                                 globalFilter={state.globalFilter}

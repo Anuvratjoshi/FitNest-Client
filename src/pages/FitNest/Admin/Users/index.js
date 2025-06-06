@@ -10,6 +10,7 @@ import AdminEditUser from './Modals/AdminEditUser'
 import { maskMongoId } from '../../../../helpers/general_helper'
 import DeleteModal from '../../../../Components/Common/DeleteModal'
 import { toast } from 'react-toastify'
+import { ADMIN_USER_HEADERS } from '../../../../Components/constants/csv_headers'
 
 const Users = () => {
     // #### Fetching users associated with a gym ####
@@ -197,6 +198,12 @@ const Users = () => {
                                     tableClassName='table-centered align-middle table-nowrap mb-0'
                                     theadClassName='text-muted table-light'
                                     SearchPlaceholder='Search...'
+                                    downloadCSV={true}
+                                    csv={{
+                                        data: allUsers || [],
+                                        headers: ADMIN_USER_HEADERS,
+                                        filename: 'Users.csv',
+                                    }}
                                 />
                             </div>
                         </CardBody>
