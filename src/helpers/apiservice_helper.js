@@ -27,6 +27,8 @@ export const adminDeleteUser = data =>
     api.delete(`${url.ADMIN_DELETE_USER}/${data}`)
 export const usersMembershipStatus = data =>
     api.get(url.USER_MEMBERSHIP_STATUS, data)
+export const usersByLastLoginTime = data =>
+    api.get(url.USER_BY_LAST_LOGIN, data)
 
 // --------------------------------------------Theme Methods----------------------------------------------
 
