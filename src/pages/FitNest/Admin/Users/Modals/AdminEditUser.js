@@ -44,7 +44,9 @@ const AdminEditUser = ({
             firstName: Yup.string().required("Please enter user's first name"),
             lastName: Yup.string().required("Please enter user's last name"),
             gender: Yup.string().required('Please select gender'),
-            isActive: Yup.string().required('Please select active status'),
+            isActive: Yup.string().required(
+                'Please select membership active status',
+            ),
             autoRenew: Yup.string().required('Please select auto-renew status'),
         }),
         onSubmit: async values => {
@@ -245,7 +247,8 @@ const AdminEditUser = ({
                     {/* Membership Active */}
                     <FormGroup className='mb-3'>
                         <Label htmlFor='isActive'>
-                            Is Active <sup className='text-danger'>*</sup>
+                            Membership Active
+                            <sup className='text-danger'>*</sup>
                         </Label>
                         <Input
                             type='select'

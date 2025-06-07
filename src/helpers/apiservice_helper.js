@@ -21,10 +21,12 @@ export const gymRegister = data => api.create(url.GYM_REGISTER, data)
 export const gymSignin = data => api.create(url.GYM_SIGNIN, data)
 
 /* Admin Manage User Methods */
-export const getAllUsers = () => api.get(url.GET_ALL_USERS, null)
+export const getAllUsers = data => api.get(url.GET_ALL_USERS, data)
 export const adminUpdateUser = data => api.put(url.ADMIN_UPDATE_USER, data)
 export const adminDeleteUser = data =>
     api.delete(`${url.ADMIN_DELETE_USER}/${data}`)
+export const usersMembershipStatus = data =>
+    api.get(url.USER_MEMBERSHIP_STATUS, data)
 
 // --------------------------------------------Theme Methods----------------------------------------------
 
