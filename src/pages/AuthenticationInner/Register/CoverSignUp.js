@@ -323,7 +323,7 @@ const CoverSignUp = () => {
                                         {new Date().getFullYear()} Velzon.
                                         Crafted with{' '}
                                         <i className='mdi mdi-heart text-danger'></i>{' '}
-                                        by Themesbrand
+                                        by Anuvrat
                                     </p>
                                 </div>
                             </div>

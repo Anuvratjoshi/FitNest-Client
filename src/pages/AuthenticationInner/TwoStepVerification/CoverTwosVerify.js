@@ -187,9 +187,9 @@ const CoverTwosVerify = () => {
                                 <div className='text-center'>
                                     <p className='mb-0'>
                                         &copy; {new Date().getFullYear()}{' '}
-                                        Velzon. Crafted with{' '}
+                                        FitNest. Crafted with{' '}
                                         <i className='mdi mdi-heart text-danger'></i>{' '}
-                                        by Themesbrand
+                                        by Anuvrat
                                     </p>
                                 </div>
                             </Col>
