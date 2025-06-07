@@ -22,7 +22,7 @@ const AdminEditUser = ({
     userData,
     editModalFlag,
     setEditModalFlag,
-    fetchAllUser,
+    fetchData,
 }) => {
     const [u_u_flag, set_u_u_flag] = useState(false)
     const validation = useFormik({
@@ -66,7 +66,7 @@ const AdminEditUser = ({
                 await adminUpdateUser(payload)
 
                 // #### refreshing the user table ####
-                fetchAllUser()
+                fetchData()
 
                 // #### closing the modal ####
                 setEditModalFlag({ isOpen: false, type: '' })
