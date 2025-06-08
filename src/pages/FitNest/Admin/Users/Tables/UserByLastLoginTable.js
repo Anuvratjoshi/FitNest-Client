@@ -8,6 +8,7 @@ const UserByLastLoginTable = ({
     usersByLastLogin,
     u_b_l_l_loading,
 }) => {
+    // #### Table Columns ####
     const userByLastLoginColumns = useMemo(
         () => [
             {
@@ -54,7 +55,7 @@ const UserByLastLoginTable = ({
             {
                 Header: 'Days Since Last Login',
                 accessor: cellProps => (
-                    <span className='text-danger fw-bold'>
+                    <span className='fw-bold badge bg-danger-subtle text-danger fs-12'>
                         {cellProps.daysSinceLastLogin}
                     </span>
                 ),

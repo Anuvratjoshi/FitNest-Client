@@ -35,7 +35,19 @@ axios.interceptors.response.use(
         let message
         switch (error.status) {
             case 500:
-                message = 'Internal Server Error'
+                const serverMessage = error?.response?.data?.message || ''
+                if (serverMessage?.includes('E11000 duplicate')) {
+                    const match = serverMessage.match(
+                        /dup key:\s*\{.*?:\s*"([^"]+)"\s*\}/,
+                    )
+                    if (match && match[1]) {
+                        message = `${match[1]} already exists`
+                    } else {
+                        message = 'Record already exists'
+                    }
+                } else {
+                    message = 'Internal Server Error'
+                }
                 break
             case 401:
                 message = 'Invalid credentials'

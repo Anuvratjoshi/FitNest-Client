@@ -72,6 +72,7 @@ const AdminEditUser = ({
                 setEditModalFlag({ isOpen: false, type: '' })
             } catch (error) {
                 console.log('!!! User Updating Error !!!', error)
+                toast.error(error, { autoClose: 1500 })
             } finally {
                 set_u_u_flag(false)
             }

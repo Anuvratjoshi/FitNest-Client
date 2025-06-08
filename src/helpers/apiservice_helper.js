@@ -29,6 +29,7 @@ export const usersMembershipStatus = data =>
     api.get(url.USER_MEMBERSHIP_STATUS, data)
 export const usersByLastLoginTime = data =>
     api.get(url.USER_BY_LAST_LOGIN, data)
+export const getUserCount = data => api.get(url.USER_COUNT, data)
 
 // --------------------------------------------Theme Methods----------------------------------------------
 

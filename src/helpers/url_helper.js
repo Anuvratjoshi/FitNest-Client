@@ -10,6 +10,7 @@ export const ADMIN_UPDATE_USER = 'gym/users/updateUser'
 export const ADMIN_DELETE_USER = 'gym/users/deleteUser'
 export const USER_MEMBERSHIP_STATUS = 'gym/users/usersMembershipStatus'
 export const USER_BY_LAST_LOGIN = 'gym/users/lastLogin'
+export const USER_COUNT = 'gym/users/getUserCount'
 
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER
