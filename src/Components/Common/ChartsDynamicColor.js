@@ -25,4 +25,4 @@ const getChartColorsArray = colors => {
     })
 }
 
-export default getChartColorsArray
+export { getChartColorsArray }

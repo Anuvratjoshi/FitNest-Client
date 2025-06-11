@@ -31,6 +31,10 @@ export const usersByLastLoginTime = data =>
     api.get(url.USER_BY_LAST_LOGIN, data)
 export const getUserCount = data => api.get(url.USER_COUNT, data)
 
+/* Admin Manage User Methods */
+export const getRegisteredUserMonthWise = data =>
+    api.get(url.REGISTERED_USERS_MONTH_WISE, data)
+
 // --------------------------------------------Theme Methods----------------------------------------------
 
 // Register Method

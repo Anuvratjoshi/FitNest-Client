@@ -1,0 +1,120 @@
+import React, { useEffect, useState } from 'react'
+import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap'
+import Timer from '../../../../Components/Common/Timer'
+import { BasicLineCharts } from '../../../../Components/Common/LineCharts'
+import { toast } from 'react-toastify'
+import { getRegisteredUserMonthWise } from '../../../../helpers/apiservice_helper'
+
+const UserAnalytics = () => {
+    // #### Fetching registered users monthly count ####
+    const [monthlyRegisteredUser, setMonthlyRegisteredUser] = useState([])
+    const [m_r_u_loading, set_m_r_u_loading] = useState(true)
+    const fetchRegisteredUsersMonthwise = async () => {
+        try {
+            set_m_r_u_loading(true)
+            const res = await getRegisteredUserMonthWise()
+            setMonthlyRegisteredUser(res.data)
+        } catch (error) {
+            console.log('!!! fetchRegisteredUsersMonthwise Error !!!', error)
+            toast.error(error, { autoClose: 1500 })
+        } finally {
+            set_m_r_u_loading(false)
+        }
+    }
+
+    const fetchData = async () => {
+        try {
+            await Promise.all([fetchRegisteredUsersMonthwise()])
+        } catch (error) {
+            console.log('!!! fetchData Error !!!', error)
+            toast.error(error, { autoClose: 1500 })
+        }
+    }
+
+    // #### initial side effect to fetch data ####
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    return (
+        <React.Fragment>
+            <div className='page-content'>
+                <Container fluid>
+                    <Row>
+                        <Timer
+                            consoleTitle='User Analytics'
+                            breadCrumbTitle='Manage Users'
+                            pageTitle='Analytics'
+                        />
+                    </Row>
+
+                    <Row>
+                        <Col lg={6}>
+                            <Card>
+                                <CardHeader>
+                                    <h4 className='card-title mb-0'>
+                                        User Registered (
+                                        <span className='mx-2 text-warning text-uppercase'>
+                                            {'Monthly'}
+                                        </span>
+                                        )
+                                    </h4>
+                                </CardHeader>
+                                <CardBody>
+                                    <BasicLineCharts
+                                        dataColors='["--vz-info"]'
+                                        series={[monthlyRegisteredUser[0]]}
+                                        categories={[
+                                            'Jan',
+                                            'Feb',
+                                            'Mar',
+                                            'Apr',
+                                            'May',
+                                            'Jun',
+                                            'Jul',
+                                            'Aug',
+                                            'Sep',
+                                            'Nov',
+                                            'Dec',
+                                        ]}
+                                        title=''
+                                        loading={m_r_u_loading}
+                                    />
+                                </CardBody>
+                            </Card>
+                        </Col>
+                        <Col lg={6}>
+                            <Card>
+                                <CardHeader>
+                                    <h4 className='card-title mb-0'>
+                                        User Registered (
+                                        <span className='mx-2 text-warning text-uppercase'>
+                                            {'Quaterly'}
+                                        </span>
+                                        )
+                                    </h4>
+                                </CardHeader>
+                                <CardBody>
+                                    <BasicLineCharts
+                                        dataColors='["--vz-info"]'
+                                        series={[monthlyRegisteredUser[1]]}
+                                        categories={[
+                                            'Jan',
+                                            'Apr',
+                                            'Aug',
+                                            'Dec',
+                                        ]}
+                                        title=''
+                                        loading={m_r_u_loading}
+                                    />
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </React.Fragment>
+    )
+}
+
+export default UserAnalytics

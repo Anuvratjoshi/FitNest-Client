@@ -6,6 +6,7 @@ import ForgetPasswordPage from '../pages/Authentication/ForgetPassword'
 import Logout from '../pages/Authentication/Logout'
 import Register from '../pages/Authentication/Register'
 import Users from '../pages/FitNest/Admin/Users'
+import UserAnalytics from '../pages/FitNest/Admin/Analytics'
 
 const sessionData = sessionStorage.getItem('authUser')
 const localData = localStorage.getItem('authUser')
@@ -16,6 +17,11 @@ const authProtectedRoutes = [
     {
         path: '/admin-dashboard',
         component: <Users />,
+        allowedRoles: ['admin'],
+    },
+    {
+        path: '/user-analytics',
+        component: <UserAnalytics />,
         allowedRoles: ['admin'],
     },
     {

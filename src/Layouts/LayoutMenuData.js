@@ -55,9 +55,9 @@ const Navdata = () => {
                     parentId: 'manage-user',
                 },
                 {
-                    id: 'analytics',
+                    id: 'user-analytics',
                     label: 'Analytics',
-                    link: '/analytics',
+                    link: '/user-analytics',
                     parentId: 'manage-user',
                 },
             ],

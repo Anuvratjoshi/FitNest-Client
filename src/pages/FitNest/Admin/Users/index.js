@@ -132,6 +132,8 @@ const Users = () => {
                 await Promise.all([
                     fetchAllUser(),
                     fetchUsersByMembershipStatus(selectedFilter),
+                    fetchuserByLastLoginTime(),
+                    fetchUserCount(),
                 ])
             } catch (error) {
                 console.log('!!! Error While Deleting User!!!', error)
