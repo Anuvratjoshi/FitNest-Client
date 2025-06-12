@@ -4,16 +4,23 @@ import Timer from '../../../../Components/Common/Timer'
 import { BasicLineCharts } from '../../../../Components/Common/LineCharts'
 import { toast } from 'react-toastify'
 import { getRegisteredUserMonthWise } from '../../../../helpers/apiservice_helper'
+import CHART_CATEGORIES from '../../../../Components/constants/categories'
 
 const UserAnalytics = () => {
     // #### Fetching registered users monthly count ####
-    const [monthlyRegisteredUser, setMonthlyRegisteredUser] = useState([])
+    const [monthlyRegisteredUser, setMonthlyRegisteredUser] = useState({
+        monthly: [],
+        quaterly: [],
+    })
     const [m_r_u_loading, set_m_r_u_loading] = useState(true)
     const fetchRegisteredUsersMonthwise = async () => {
         try {
             set_m_r_u_loading(true)
             const res = await getRegisteredUserMonthWise()
-            setMonthlyRegisteredUser(res.data)
+            setMonthlyRegisteredUser({
+                monthly: res?.data?.[0],
+                quaterly: res.data?.[1],
+            })
         } catch (error) {
             console.log('!!! fetchRegisteredUsersMonthwise Error !!!', error)
             toast.error(error, { autoClose: 1500 })
@@ -50,6 +57,7 @@ const UserAnalytics = () => {
 
                     <Row>
                         <Col lg={6}>
+                            {/* Line chart for registered users on monthly basis */}
                             <Card>
                                 <CardHeader>
                                     <h4 className='card-title mb-0'>
@@ -63,20 +71,12 @@ const UserAnalytics = () => {
                                 <CardBody>
                                     <BasicLineCharts
                                         dataColors='["--vz-info"]'
-                                        series={[monthlyRegisteredUser[0]]}
-                                        categories={[
-                                            'Jan',
-                                            'Feb',
-                                            'Mar',
-                                            'Apr',
-                                            'May',
-                                            'Jun',
-                                            'Jul',
-                                            'Aug',
-                                            'Sep',
-                                            'Nov',
-                                            'Dec',
+                                        series={[
+                                            monthlyRegisteredUser?.monthly,
                                         ]}
+                                        categories={
+                                            CHART_CATEGORIES?.LINE?.MONTHLY
+                                        }
                                         title=''
                                         loading={m_r_u_loading}
                                     />
@@ -84,6 +84,7 @@ const UserAnalytics = () => {
                             </Card>
                         </Col>
                         <Col lg={6}>
+                            {/* Line chart for registered users on quaterly basis */}
                             <Card>
                                 <CardHeader>
                                     <h4 className='card-title mb-0'>
@@ -97,13 +98,12 @@ const UserAnalytics = () => {
                                 <CardBody>
                                     <BasicLineCharts
                                         dataColors='["--vz-info"]'
-                                        series={[monthlyRegisteredUser[1]]}
-                                        categories={[
-                                            'Jan',
-                                            'Apr',
-                                            'Aug',
-                                            'Dec',
+                                        series={[
+                                            monthlyRegisteredUser?.quaterly,
                                         ]}
+                                        categories={
+                                            CHART_CATEGORIES?.LINE?.QUATERLY
+                                        }
                                         title=''
                                         loading={m_r_u_loading}
                                     />
