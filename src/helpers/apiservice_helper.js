@@ -29,7 +29,8 @@ export const usersMembershipStatus = data =>
     api.get(url.USER_MEMBERSHIP_STATUS, data)
 export const usersByLastLoginTime = data =>
     api.get(url.USER_BY_LAST_LOGIN, data)
-export const getUserCount = data => api.get(url.USER_COUNT, data)
+export const getSubscriptionInfo = data =>
+    api.get(url.USER_SUBSCRIPTION_INFO, data)
 
 /* Admin Manage User Methods */
 export const getRegisteredUserMonthWise = data =>

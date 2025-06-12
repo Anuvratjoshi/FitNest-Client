@@ -4,7 +4,7 @@ import Timer from '../../../../Components/Common/Timer'
 import {
     adminDeleteUser,
     getAllUsers,
-    getUserCount,
+    getSubscriptionInfo,
     usersByLastLoginTime,
     usersMembershipStatus,
 } from '../../../../helpers/apiservice_helper'
@@ -68,7 +68,7 @@ const Users = () => {
         }
     }
 
-    // #### Fetching users count ####
+    // #### Fetching users subscription count ####
     const [userCount, setUserCount] = useState({
         Active: null,
         'Not Active': null,
@@ -78,7 +78,7 @@ const Users = () => {
     const fetchUserCount = async () => {
         try {
             set_u_c_loading(true)
-            const res = await getUserCount()
+            const res = await getSubscriptionInfo()
             setUserCount({
                 Active: res.data?.[0]?.Active,
                 'Not Active': res.data?.[0]?.['Not Active'],
