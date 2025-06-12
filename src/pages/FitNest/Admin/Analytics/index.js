@@ -9,8 +9,8 @@ import CHART_CATEGORIES from '../../../../Components/constants/categories'
 const UserAnalytics = () => {
     // #### Fetching registered users monthly count ####
     const [monthlyRegisteredUser, setMonthlyRegisteredUser] = useState({
-        monthly: [],
-        quaterly: [],
+        monthly: {},
+        quaterly: {},
     })
     const [m_r_u_loading, set_m_r_u_loading] = useState(true)
     const fetchRegisteredUsersMonthwise = async () => {
@@ -76,6 +76,7 @@ const UserAnalytics = () => {
                                         ]}
                                         categories={
                                             CHART_CATEGORIES?.LINE?.MONTHLY
+                                                ?.DATA
                                         }
                                         title=''
                                         loading={m_r_u_loading}
@@ -103,6 +104,7 @@ const UserAnalytics = () => {
                                         ]}
                                         categories={
                                             CHART_CATEGORIES?.LINE?.QUATERLY
+                                                ?.DATA
                                         }
                                         title=''
                                         loading={m_r_u_loading}
