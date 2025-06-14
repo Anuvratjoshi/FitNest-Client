@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap'
-import Timer from '../../../../Components/Common/Timer'
-import { BasicLineCharts } from '../../../../Components/Common/LineCharts'
+import Timer from '../../../../../Components/Common/Timer'
+import { BasicLineCharts } from '../../../../../Components/Common/LineCharts'
 import { toast } from 'react-toastify'
 import {
     getRegisteredUserMonthWise,
     getSubscriptionInfo,
-} from '../../../../helpers/apiservice_helper'
-import CHART_CATEGORIES from '../../../../Components/constants/categories'
-import { SimplePie } from '../../../../Components/Common/PieChart'
+} from '../../../../../helpers/apiservice_helper'
+import CHART_CATEGORIES from '../../../../../Components/constants/categories'
+import { SimplePie } from '../../../../../Components/Common/PieChart'
 
 const UserAnalytics = () => {
     // #### Fetching registered users monthly count ####

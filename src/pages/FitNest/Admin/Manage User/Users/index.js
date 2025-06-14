@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Col, Container, Row } from 'reactstrap'
-import Timer from '../../../../Components/Common/Timer'
+import Timer from '../../../../../Components/Common/Timer'
 import {
     adminDeleteUser,
     getAllUsers,
     getSubscriptionInfo,
     usersByLastLoginTime,
     usersMembershipStatus,
-} from '../../../../helpers/apiservice_helper'
+} from '../../../../../helpers/apiservice_helper'
 import AdminEditUser from './Modals/AdminEditUser'
-import DeleteModal from '../../../../Components/Common/DeleteModal'
+import DeleteModal from '../../../../../Components/Common/DeleteModal'
 import { toast } from 'react-toastify'
 import UserTable from './Tables/UserTable'
 import UserByMembershipStatusTable from './Tables/UserByMembershipStatusTable'
 import UserByLastLoginTable from './Tables/UserByLastLoginTable'
-import GlobalCard from '../../../../Components/Common/GlobalCard'
+import GlobalCard from '../../../../../Components/Common/GlobalCard'
 
 const Users = () => {
     // #### Fetching users associated with a gym ####

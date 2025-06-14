@@ -15,7 +15,7 @@ import {
     Spinner,
 } from 'reactstrap'
 import * as Yup from 'yup'
-import { adminUpdateUser } from '../../../../../helpers/apiservice_helper'
+import { adminUpdateUser } from '../../../../../../helpers/apiservice_helper'
 import { toast } from 'react-toastify'
 
 const AdminEditUser = ({

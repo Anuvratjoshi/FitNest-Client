@@ -5,8 +5,8 @@ import Login from '../pages/Authentication/Login'
 import ForgetPasswordPage from '../pages/Authentication/ForgetPassword'
 import Logout from '../pages/Authentication/Logout'
 import Register from '../pages/Authentication/Register'
-import Users from '../pages/FitNest/Admin/Users'
-import UserAnalytics from '../pages/FitNest/Admin/Analytics'
+import Users from '../pages/FitNest/Admin/Manage User/Users'
+import UserAnalytics from '../pages/FitNest/Admin/Manage User/Analytics'
 
 const sessionData = sessionStorage.getItem('authUser')
 const localData = localStorage.getItem('authUser')
