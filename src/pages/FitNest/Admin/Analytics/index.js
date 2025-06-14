@@ -3,8 +3,12 @@ import { Card, CardBody, CardHeader, Col, Container, Row } from 'reactstrap'
 import Timer from '../../../../Components/Common/Timer'
 import { BasicLineCharts } from '../../../../Components/Common/LineCharts'
 import { toast } from 'react-toastify'
-import { getRegisteredUserMonthWise } from '../../../../helpers/apiservice_helper'
+import {
+    getRegisteredUserMonthWise,
+    getSubscriptionInfo,
+} from '../../../../helpers/apiservice_helper'
 import CHART_CATEGORIES from '../../../../Components/constants/categories'
+import { SimplePie } from '../../../../Components/Common/PieChart'
 
 const UserAnalytics = () => {
     // #### Fetching registered users monthly count ####
@@ -29,9 +33,33 @@ const UserAnalytics = () => {
         }
     }
 
+    // #### Fetching users subscription count ####
+    const [users, setUsers] = useState({
+        labels: [],
+        data: [],
+    })
+    const [u_loading, set_u_loading] = useState(true)
+    const fetchSubscriptionInfo = async () => {
+        try {
+            set_u_loading(true)
+            const res = await getSubscriptionInfo()
+            setUsers({
+                labels: Object.keys(res.data?.[0]),
+                data: Object.values(res.data?.[0]),
+            })
+        } catch (error) {
+            console.log('!!! fetchSubscriptionInfo Error !!!', error)
+            toast.error(error, { autoClose: 1500 })
+        } finally {
+            set_u_loading(false)
+        }
+    }
     const fetchData = async () => {
         try {
-            await Promise.all([fetchRegisteredUsersMonthwise()])
+            await Promise.all([
+                fetchRegisteredUsersMonthwise(),
+                fetchSubscriptionInfo(),
+            ])
         } catch (error) {
             console.log('!!! fetchData Error !!!', error)
             toast.error(error, { autoClose: 1500 })
@@ -54,7 +82,6 @@ const UserAnalytics = () => {
                             pageTitle='Analytics'
                         />
                     </Row>
-
                     <Row>
                         <Col lg={6}>
                             {/* Line chart for registered users on monthly basis */}
@@ -108,6 +135,27 @@ const UserAnalytics = () => {
                                         }
                                         title=''
                                         loading={m_r_u_loading}
+                                    />
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col lg={6}>
+                            {/* Pie chart for subscription info display */}
+                            <Card>
+                                <CardHeader>
+                                    <h4 className='card-title mb-0'>
+                                        Subscription Info
+                                    </h4>
+                                </CardHeader>
+                                <CardBody>
+                                    <SimplePie
+                                        dataColors='["--vz-primary", "--vz-success", "--vz-danger", "--vz-info"]'
+                                        series={users.data}
+                                        labels={users.labels}
+                                        loading={u_loading}
+                                        title=''
                                     />
                                 </CardBody>
                             </Card>

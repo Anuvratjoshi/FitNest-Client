@@ -75,7 +75,7 @@ const Users = () => {
         Total: null,
     })
     const [u_c_loading, set_u_c_loading] = useState(true)
-    const fetchUserCount = async () => {
+    const fetchSubscriptionInfo = async () => {
         try {
             set_u_c_loading(true)
             const res = await getSubscriptionInfo()
@@ -85,7 +85,7 @@ const Users = () => {
                 Total: res.data?.[0]?.Total,
             })
         } catch (error) {
-            console.log('!!! fetchUserCount Error !!!', error)
+            console.log('!!! fetchSubscriptionInfo Error !!!', error)
             toast.error(error, { autoClose: 1500 })
         } finally {
             set_u_c_loading(false)
@@ -98,7 +98,7 @@ const Users = () => {
                 fetchAllUser(),
                 fetchUsersByMembershipStatus('Active'),
                 fetchuserByLastLoginTime(),
-                fetchUserCount(),
+                fetchSubscriptionInfo(),
             ])
         } catch (error) {
             console.log('!!! fetchData Error !!!', error)
@@ -133,7 +133,7 @@ const Users = () => {
                     fetchAllUser(),
                     fetchUsersByMembershipStatus(selectedFilter),
                     fetchuserByLastLoginTime(),
-                    fetchUserCount(),
+                    fetchSubscriptionInfo(),
                 ])
             } catch (error) {
                 console.log('!!! Error While Deleting User!!!', error)
