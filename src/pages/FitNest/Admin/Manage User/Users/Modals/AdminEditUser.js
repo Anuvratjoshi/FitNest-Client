@@ -63,7 +63,9 @@ const AdminEditUser = ({
                 set_u_u_flag(true)
 
                 // #### updating the user ####
-                await adminUpdateUser(payload)
+                const res = await adminUpdateUser(payload)
+
+                toast.success(res?.message, { autoClose: 1500 })
 
                 // #### refreshing the user table ####
                 fetchData()

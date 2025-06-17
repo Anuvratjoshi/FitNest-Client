@@ -141,7 +141,7 @@ const UserAnalytics = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg={6}>
+                        <Col>
                             {/* Pie chart for subscription info display */}
                             <Card>
                                 <CardHeader>

@@ -36,6 +36,10 @@ export const getSubscriptionInfo = data =>
 export const getRegisteredUserMonthWise = data =>
     api.get(url.REGISTERED_USERS_MONTH_WISE, data)
 
+/* Admin Notifications Methods */
+export const getAdminNotifications = data =>
+    api.get(url.ADMIN_NOTIFICATIONS, data)
+
 // --------------------------------------------Theme Methods----------------------------------------------
 
 // Register Method

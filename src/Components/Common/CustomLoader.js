@@ -1,10 +1,10 @@
 import React from 'react'
 
-const CustomLoader = () => {
+const CustomLoader = ({ height }) => {
     return (
         <div
             className='d-flex justify-content-center align-items-center flex-column'
-            style={{ height: '350px' }}
+            style={{ height: height ?? '350px' }}
         >
             <svg
                 width='60'

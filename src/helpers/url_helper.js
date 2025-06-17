@@ -19,6 +19,9 @@ export const USER_SUBSCRIPTION_INFO = 'gym/users/getSubscriptionInfo'
 export const REGISTERED_USERS_MONTH_WISE =
     'gym/analytics/getRegisteredUserMonthWise'
 
+// --------------------------------------------notifications routes----------------------------------------------
+export const ADMIN_NOTIFICATIONS = 'activity/getAdminNotificationData'
+
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER
 export const POST_FAKE_REGISTER = '/auth/signup'
