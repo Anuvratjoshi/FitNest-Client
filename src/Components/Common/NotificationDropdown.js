@@ -20,8 +20,12 @@ import bell from '../../assets/images/svg/bell.svg'
 //SimpleBar
 import SimpleBar from 'simplebar-react'
 import moment from 'moment'
-import { getAdminNotifications } from '../../helpers/apiservice_helper'
+import {
+    getAdminNotifications,
+    readNotification,
+} from '../../helpers/apiservice_helper'
 import CustomLoader from './CustomLoader'
+import { toast } from 'react-toastify'
 
 const NotificationDropdown = () => {
     //Dropdown Toggle
@@ -38,17 +42,27 @@ const NotificationDropdown = () => {
         }
     }
 
+    // #### Fetching notification based on type : all | latest ####
     const [notificationData, setNotificationData] = useState([])
     const [n_d_loading, s_n_d_loading] = useState(true)
-    const fetchNotificationData = async () => {
+    const [isFetching, setIsFetching] = useState(false) // state to avoid overlaps
+    const fetchNotificationData = async type => {
+        if (isFetching) return // Prevent overlap
+        setIsFetching(true)
         try {
-            const res = await getAdminNotifications()
-            setNotificationData(res.data)
+            const res = await getAdminNotifications({ type: type ?? 'all' })
+            if (type === 'latest' && res.data?.length) {
+                setNotificationData(prev => [...res.data, ...prev])
+            } else if (!type) {
+                // #### initial load ####
+                setNotificationData(res.data || [])
+            }
         } catch (error) {
             console.log('!!! fetchNotificationData Error !!!', error)
             toast.error(error, { autoClose: 1500 })
         } finally {
             s_n_d_loading(false)
+            setIsFetching(false)
         }
     }
 
@@ -65,6 +79,65 @@ const NotificationDropdown = () => {
     useEffect(() => {
         fetchData()
     }, [])
+
+    // #### Fetch every 15 seconds safely ####
+    useEffect(() => {
+        const interval = setInterval(() => {
+            fetchNotificationData('latest').catch(err => {
+                console.error('Interval fetch error:', err)
+            })
+        }, 15000)
+
+        return () => clearInterval(interval)
+    }, [])
+
+    // #### Reading notification ####
+    const [flag, setFlag] = useState(false)
+    const readParitcularNotification = async id => {
+        if (!id) {
+            return toast.error('Notification ID is missing', {
+                autoClose: 1500,
+            })
+        }
+
+        if (flag) {
+            return toast.warn('Notification reading is already in progress', {
+                autoClose: 1500,
+            })
+        }
+
+        setFlag(true)
+
+        try {
+            const res = await readNotification({ _id: id })
+
+            if (!res || typeof res !== 'object') {
+                throw new Error('Unexpected response from server')
+            }
+
+            if (res.success && res.data?._id) {
+                setNotificationData(prev =>
+                    prev?.filter(
+                        notification => notification?._id !== res.data._id,
+                    ),
+                )
+                toast.success(res.message || 'Notification marked as read', {
+                    autoClose: 1500,
+                })
+            } else {
+                toast.error(
+                    res.message || 'Failed to mark notification as read',
+                    { autoClose: 1500 },
+                )
+            }
+        } catch (error) {
+            console.log('!!! readParitcularNotification Error !!!', error)
+            toast.error(error, { autoClose: 1500 })
+        } finally {
+            setFlag(false)
+        }
+    }
+
     const iconClassMap = {
         info: 'bx bx-info-circle text-center',
         warn: 'bx bx-error-alt text-center',
@@ -83,10 +156,14 @@ const NotificationDropdown = () => {
                     className='btn btn-icon btn-topbar btn-ghost-secondary rounded-circle'
                 >
                     <i className='bx bx-bell fs-22'></i>
-                    <span className='position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger'>
-                        {notificationData?.length}
-                        <span className='visually-hidden'>unread messages</span>
-                    </span>
+                    {notificationData?.length > 0 && (
+                        <span className='position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger'>
+                            {notificationData?.length}
+                            <span className='visually-hidden'>
+                                unread messages
+                            </span>
+                        </span>
+                    )}
                 </DropdownToggle>
                 <DropdownMenu className='dropdown-menu-lg dropdown-menu-end p-0'>
                     <div className='dropdown-head bg-primary bg-pattern rounded-top'>
@@ -197,9 +274,17 @@ const NotificationDropdown = () => {
                                                             className='stretched-link text-decoration-none'
                                                         >
                                                             <h6 className='mt-0 mb-1 lh-base fw-semibold text-capitalize'>
-                                                                {
-                                                                    notification?.message
-                                                                }
+                                                                {typeof notification?.message ===
+                                                                    'string' &&
+                                                                notification
+                                                                    .message
+                                                                    .length > 20
+                                                                    ? `${notification.message.slice(
+                                                                          0,
+                                                                          20,
+                                                                      )} .....`
+                                                                    : notification?.message ||
+                                                                      'No message'}
                                                             </h6>
                                                         </Link>
 
@@ -215,9 +300,18 @@ const NotificationDropdown = () => {
                                                             }}
                                                         >
                                                             <p className='mb-1 m-0'>
-                                                                {
-                                                                    notification?.description
-                                                                }
+                                                                {typeof notification?.description ===
+                                                                    'string' &&
+                                                                notification
+                                                                    .description
+                                                                    .length >
+                                                                    100
+                                                                    ? `${notification.description.slice(
+                                                                          0,
+                                                                          100,
+                                                                      )} .....`
+                                                                    : notification?.description ||
+                                                                      'No description'}
                                                             </p>
                                                         </div>
 
@@ -232,8 +326,18 @@ const NotificationDropdown = () => {
                                                     </div>
                                                     <div>
                                                         <input
+                                                            style={{
+                                                                cursor: 'pointer',
+                                                            }}
                                                             className='form-check-input'
                                                             type='checkbox'
+                                                            checked={flag}
+                                                            readOnly
+                                                            onClick={() =>
+                                                                readParitcularNotification(
+                                                                    notification?._id,
+                                                                )
+                                                            }
                                                         />
                                                     </div>
                                                 </div>
@@ -288,7 +392,7 @@ const NotificationDropdown = () => {
                                 </div>
                                 <div className='text-center pb-5 mt-2'>
                                     <h6 className='fs-18 fw-semibold lh-base'>
-                                        Hey! You have no any messages
+                                        Hey! You have no new messages
                                     </h6>
                                 </div>
                             </SimpleBar>

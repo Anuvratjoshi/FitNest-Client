@@ -39,7 +39,8 @@ export const getRegisteredUserMonthWise = data =>
 /* Admin Notifications Methods */
 export const getAdminNotifications = data =>
     api.get(url.ADMIN_NOTIFICATIONS, data)
-
+export const readNotification = data =>
+    api.update(url.ADMIN_MARK_NOTIFICATION_ASREAD, data)
 // --------------------------------------------Theme Methods----------------------------------------------
 
 // Register Method

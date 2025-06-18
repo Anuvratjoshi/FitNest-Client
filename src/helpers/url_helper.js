@@ -21,6 +21,7 @@ export const REGISTERED_USERS_MONTH_WISE =
 
 // --------------------------------------------notifications routes----------------------------------------------
 export const ADMIN_NOTIFICATIONS = 'activity/getAdminNotificationData'
+export const ADMIN_MARK_NOTIFICATION_ASREAD = 'activity/readNotification'
 
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER
