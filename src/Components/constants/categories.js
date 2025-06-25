@@ -11,6 +11,7 @@ const CHART_CATEGORIES = {
                 'Jul',
                 'Aug',
                 'Sep',
+                'Oct',
                 'Nov',
                 'Dec',
             ],

@@ -35,6 +35,8 @@ export const getSubscriptionInfo = data =>
 /* Admin Manage User Methods */
 export const getRegisteredUserMonthWise = data =>
     api.get(url.REGISTERED_USERS_MONTH_WISE, data)
+export const getSubscriptionBreakdown = data =>
+    api.get(url.SUBSCRIPTION_BREAKDOWN, data)
 
 /* Admin Notifications Methods */
 export const getAdminNotifications = data =>

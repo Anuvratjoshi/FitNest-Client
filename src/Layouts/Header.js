@@ -193,7 +193,7 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
                             <WebAppsDropdown />
 
                             {/* MyCartDropdwon */}
-                            <MyCartDropdown />
+                            {/* <MyCartDropdown /> */}
 
                             {/* FullScreenDropdown */}
                             <FullScreenDropdown />

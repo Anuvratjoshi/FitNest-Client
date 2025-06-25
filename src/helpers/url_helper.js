@@ -18,6 +18,7 @@ export const USER_SUBSCRIPTION_INFO = 'gym/users/getSubscriptionInfo'
 // --------------------------------------------analytics routes----------------------------------------------
 export const REGISTERED_USERS_MONTH_WISE =
     'gym/analytics/getRegisteredUserMonthWise'
+export const SUBSCRIPTION_BREAKDOWN = 'gym/analytics/subscriptionBreakdown'
 
 // --------------------------------------------notifications routes----------------------------------------------
 export const ADMIN_NOTIFICATIONS = 'activity/getAdminNotificationData'

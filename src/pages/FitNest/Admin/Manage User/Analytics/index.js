@@ -5,10 +5,14 @@ import { BasicLineCharts } from '../../../../../Components/Common/LineCharts'
 import { toast } from 'react-toastify'
 import {
     getRegisteredUserMonthWise,
+    getSubscriptionBreakdown,
     getSubscriptionInfo,
 } from '../../../../../helpers/apiservice_helper'
 import CHART_CATEGORIES from '../../../../../Components/constants/categories'
-import { SimplePie } from '../../../../../Components/Common/PieChart'
+import {
+    PatternedDonut,
+    SimplePie,
+} from '../../../../../Components/Common/PieChart'
 
 const UserAnalytics = () => {
     // #### Fetching registered users monthly count ####
@@ -54,11 +58,35 @@ const UserAnalytics = () => {
             set_u_loading(false)
         }
     }
+
+    // #### Fetching users subscription breakdown ####
+    const [subscriptionBreakdown, setSubscriptionBreakdown] = useState({
+        labels: [],
+        data: [],
+    })
+    const [s_loading, set_s_loading] = useState(true)
+    const fetchSubscriptionBreakdown = async () => {
+        try {
+            set_s_loading(true)
+            const res = await getSubscriptionBreakdown()
+            setSubscriptionBreakdown({
+                labels: Object.keys(res.data?.[0]),
+                data: Object.values(res.data?.[0]),
+            })
+        } catch (error) {
+            console.log('!!! fetchSubscriptionBreakdown Error !!!', error)
+            toast.error(error, { autoClose: 1500 })
+        } finally {
+            set_s_loading(false)
+        }
+    }
+
     const fetchData = async () => {
         try {
             await Promise.all([
                 fetchRegisteredUsersMonthwise(),
                 fetchSubscriptionInfo(),
+                fetchSubscriptionBreakdown(),
             ])
         } catch (error) {
             console.log('!!! fetchData Error !!!', error)
@@ -155,6 +183,27 @@ const UserAnalytics = () => {
                                         series={users.data}
                                         labels={users.labels}
                                         loading={u_loading}
+                                        title=''
+                                    />
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            {/* Pie chart for subscription breakdown display */}
+                            <Card>
+                                <CardHeader>
+                                    <h4 className='card-title mb-0'>
+                                        Subscription Breakdown
+                                    </h4>
+                                </CardHeader>
+                                <CardBody>
+                                    <PatternedDonut
+                                        dataColors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
+                                        series={subscriptionBreakdown.data}
+                                        labels={subscriptionBreakdown.labels}
+                                        loading={s_loading}
                                         title=''
                                     />
                                 </CardBody>
