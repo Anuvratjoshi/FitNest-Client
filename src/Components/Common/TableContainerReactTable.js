@@ -164,16 +164,36 @@ const TableContainer = ({
                             className='mb-2 mb-md-0'
                             style={{ padding: '0px 28px' }}
                         >
-                            <CSVLink {...csv}>
-                                <Button
-                                    disabled={loading}
-                                    color='info'
-                                    className='btn-label w-100'
+                            {loading ? (
+                                <div
+                                    style={{
+                                        cursor: 'not-allowed',
+                                    }}
                                 >
-                                    <i className='ri-download-2-fill label-icon align-middle fs-16 '></i>
-                                    Export CSV
-                                </Button>
-                            </CSVLink>
+                                    <Button
+                                        color='info'
+                                        className='btn-label w-100'
+                                        disabled
+                                        style={{ cursor: 'not-allowed' }}
+                                    >
+                                        <i className='ri-download-2-fill label-icon align-middle fs-16'></i>
+                                        Export CSV
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div style={{ cursor: 'pointer' }}>
+                                    <CSVLink {...csv}>
+                                        <Button
+                                            disabled={loading}
+                                            color='info'
+                                            className='btn-label w-100'
+                                        >
+                                            <i className='ri-download-2-fill label-icon align-middle fs-16'></i>
+                                            Export CSV
+                                        </Button>
+                                    </CSVLink>
+                                </div>
+                            )}
                         </Col>
                     )}
 

@@ -24,6 +24,9 @@ export const SUBSCRIPTION_BREAKDOWN = 'gym/analytics/subscriptionBreakdown'
 export const ADMIN_NOTIFICATIONS = 'activity/getAdminNotificationData'
 export const ADMIN_MARK_NOTIFICATION_ASREAD = 'activity/readNotification'
 
+// --------------------------------------------admin activity routes----------------------------------------------
+export const ADMIN_ACTIVITY = 'activity/getActivityLogs'
+
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER
 export const POST_FAKE_REGISTER = '/auth/signup'

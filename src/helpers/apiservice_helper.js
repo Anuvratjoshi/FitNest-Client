@@ -43,6 +43,10 @@ export const getAdminNotifications = data =>
     api.get(url.ADMIN_NOTIFICATIONS, data)
 export const readNotification = data =>
     api.update(url.ADMIN_MARK_NOTIFICATION_ASREAD, data)
+
+/* Admin Activity Methods */
+export const getActivity = data => api.get(url.ADMIN_ACTIVITY, data)
+
 // --------------------------------------------Theme Methods----------------------------------------------
 
 // Register Method

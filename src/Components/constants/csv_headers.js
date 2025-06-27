@@ -22,4 +22,15 @@ const ADMIN_USER_BY_LAST_LOGIN_HEADERS = [
     { label: 'Membership Is Active', key: 'membership.isActive' },
 ]
 
-export { ADMIN_USER_HEADERS, ADMIN_USER_BY_LAST_LOGIN_HEADERS }
+const ADMIN_MANAGE_USERS_ACTIVITY = [
+    { label: 'Description', key: 'description' },
+    { label: 'DATE', key: 'timestamp' },
+    { label: 'Origin', key: 'origin' },
+    { label: 'Group', key: 'group' },
+]
+
+export {
+    ADMIN_USER_HEADERS,
+    ADMIN_USER_BY_LAST_LOGIN_HEADERS,
+    ADMIN_MANAGE_USERS_ACTIVITY,
+}

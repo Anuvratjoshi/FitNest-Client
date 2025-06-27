@@ -60,6 +60,12 @@ const Navdata = () => {
                     link: '/user-analytics',
                     parentId: 'manage-user',
                 },
+                {
+                    id: 'admin-activity',
+                    label: 'Activity Logs',
+                    link: '/admin-activity',
+                    parentId: 'manage-user',
+                },
             ],
         },
     ]
