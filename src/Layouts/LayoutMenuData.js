@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 const Navdata = () => {
     const history = useNavigate()
     //state data
-    const [isDashboard1, setIsDashboard1] = useState(false)
+    const [isDashboard1, setIsDashboard1] = useState(true)
+    const [isDashboard2, setIsDashboard2] = useState(false)
 
     const [iscurrentState, setIscurrentState] = useState('Dashboard1')
 
@@ -27,7 +28,7 @@ const Navdata = () => {
         if (iscurrentState !== 'Dashboard1') {
             setIsDashboard1(false)
         }
-    }, [history, iscurrentState, isDashboard1])
+    }, [history, iscurrentState, isDashboard1, isDashboard2])
 
     const menuItems = [
         {
@@ -37,7 +38,7 @@ const Navdata = () => {
         {
             id: 'manage-user',
             label: 'Manage Users',
-            icon: 'ri-dashboard-2-line',
+            icon: 'ri-dashboard-2-line text-info',
             link: '/#',
             allowedRoles: ['admin'],
             stateVariables: isDashboard1,
@@ -65,6 +66,28 @@ const Navdata = () => {
                     label: 'Activity Logs',
                     link: '/admin-activity',
                     parentId: 'manage-user',
+                },
+            ],
+        },
+        {
+            id: 'fitnest-subscription',
+            label: 'FitNest Subscription',
+            icon: 'ri-wireless-charging-line text-info',
+            link: '/#',
+            allowedRoles: ['admin'],
+            stateVariables: isDashboard2,
+            click: function (e) {
+                e.preventDefault()
+                setIsDashboard2(!isDashboard2)
+                setIscurrentState('Dashboard2')
+                updateIconSidebar(e)
+            },
+            subItems: [
+                {
+                    id: 'subscription',
+                    label: 'Card Details',
+                    link: '/admin-card-details',
+                    parentId: 'fitnest-subscription',
                 },
             ],
         },

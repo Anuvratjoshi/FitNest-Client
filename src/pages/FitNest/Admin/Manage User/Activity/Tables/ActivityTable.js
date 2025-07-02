@@ -38,6 +38,24 @@ const ActivityTable = ({ data, loading, pageSize }) => {
                 filterable: false,
             },
             {
+                Header: 'Level',
+                accessor: cellProps => (
+                    <span
+                        className={
+                            cellProps.level == 'info'
+                                ? 'badge rounded-pill fs-6 text-info bg-info-subtle'
+                                : cellProps.level == 'error'
+                                ? 'badge rounded-pill fs-6 text-danger bg-danger-subtle'
+                                : 'badge rounded-pill fs-6 text-warning bg-warning-subtle'
+                        }
+                    >
+                        {cellProps.level}
+                    </span>
+                ),
+                disableFilters: true,
+                filterable: false,
+            },
+            {
                 Header: 'Origin',
                 accessor: cellProps => <span>{cellProps.origin}</span>,
                 disableFilters: true,

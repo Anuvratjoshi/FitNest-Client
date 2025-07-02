@@ -47,6 +47,15 @@ export const readNotification = data =>
 /* Admin Activity Methods */
 export const getActivity = data => api.get(url.ADMIN_ACTIVITY, data)
 
+/* Admin Payments Methods */
+export const createStripeCustomer = data =>
+    api.create(url.CREATE_STRIPE_CUSTOMER, data)
+export const attachPaymentMethod = data =>
+    api.create(url.ATTACH_PAYMENT_METHOD, data)
+export const createSetupIntent = data =>
+    api.create(url.CREATE_SETUP_INTENT, data)
+export const getCustomerCards = data => api.get(url.GET_CUSTOMER_CARDS, data)
+
 // --------------------------------------------Theme Methods----------------------------------------------
 
 // Register Method
