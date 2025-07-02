@@ -9,9 +9,7 @@ import CreditCard from './Cards/CreditCard'
 import { getCustomerCards } from '../../../../../helpers/apiservice_helper'
 import CustomLoader from '../../../../../Components/Common/CustomLoader'
 const CardDetails = () => {
-    const stripePromise = loadStripe(
-        'pk_test_51MhEeYSBYIcjN0ceLLEsLiCNdwusuz7quMVsBimIGzpvhakCIZOeID4Vc9Ina8MmKtmZTydcIx1xM5L1SyTpcIN300RyUc7ZCJ',
-    )
+    const stripePromise = loadStripe(process.env?.REACT_APP_STRIPE_PUBLIC_KEY)
     const user = getLoggedinUser()
     // #### Fetching users all attached cards ####
     const [customerCards, setCustomerCards] = useState({
