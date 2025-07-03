@@ -94,6 +94,7 @@ const CardDetails = () => {
                                 <StripePaymentForm
                                     gymId={user?.data?._id}
                                     fetchCustomerCards={fetchCustomerCards}
+                                    totalCardAdded={customerCards?.all?.length}
                                 />
                             </Elements>
                         )}

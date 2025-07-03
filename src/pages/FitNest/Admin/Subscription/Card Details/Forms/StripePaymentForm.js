@@ -23,7 +23,7 @@ import {
     createSetupIntent,
 } from '../../../../../../helpers/apiservice_helper'
 
-const StripePaymentForm = ({ gymId, fetchCustomerCards }) => {
+const StripePaymentForm = ({ gymId, fetchCustomerCards, totalCardAdded }) => {
     const stripe = useStripe()
     const elements = useElements()
     const [loading, setLoading] = useState(false)
@@ -43,6 +43,11 @@ const StripePaymentForm = ({ gymId, fetchCustomerCards }) => {
         }),
         onSubmit: async values => {
             if (!stripe || !elements) return
+            if (totalCardAdded === 3)
+                return setMessage({
+                    type: 'danger',
+                    text: 'You can only add upto 3 cards',
+                })
             setLoading(true)
             setMessage(null)
 
@@ -106,7 +111,6 @@ const StripePaymentForm = ({ gymId, fetchCustomerCards }) => {
                 })
                 setTimeout(() => {
                     fetchCustomerCards()
-                    setMessage({ type: '', text: '' })
                     validation.resetForm()
                     // Clear the CardElement input field
                     const cardElement = elements.getElement(CardElement)
@@ -141,6 +145,9 @@ const StripePaymentForm = ({ gymId, fetchCustomerCards }) => {
         }
     }
 
+    if (message) {
+        setTimeout(() => setMessage(null), 3000)
+    }
     return (
         <Card className='shadow-sm'>
             <CardBody className='mb-2'>
