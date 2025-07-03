@@ -3,7 +3,15 @@ import ReactCreditCards from 'react-credit-cards-2'
 import 'react-credit-cards-2/dist/es/styles-compiled.css'
 import CardInfo from '../Modals/CardInfo'
 
-const CreditCard = ({ last4, exp_month, exp_year, defaultCard, brand }) => {
+const CreditCard = ({
+    last4,
+    exp_month,
+    exp_year,
+    defaultCard,
+    brand,
+    paymentId,
+    fetchCustomerCards,
+}) => {
     const [clickedCard, setClickedCard] = useState({})
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -20,6 +28,7 @@ const CreditCard = ({ last4, exp_month, exp_year, defaultCard, brand }) => {
                     }}
                     onClick={() => {
                         setClickedCard({
+                            paymentId,
                             last4,
                             exp_month,
                             exp_year,
@@ -58,6 +67,7 @@ const CreditCard = ({ last4, exp_month, exp_year, defaultCard, brand }) => {
                     details={clickedCard}
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
+                    fetchCustomerCards={fetchCustomerCards}
                 />
             )}
         </React.Fragment>

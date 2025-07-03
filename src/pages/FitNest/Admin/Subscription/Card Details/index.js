@@ -74,6 +74,10 @@ const CardDetails = () => {
                                                     exp_year={card?.exp_year}
                                                     defaultCard={card?.default}
                                                     brand={card?.brand}
+                                                    paymentId={card?.id}
+                                                    fetchCustomerCards={
+                                                        fetchCustomerCards
+                                                    }
                                                 />
                                             ))
                                         ) : (
