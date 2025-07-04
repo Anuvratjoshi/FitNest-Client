@@ -145,6 +145,20 @@ const StripePaymentForm = ({ gymId, fetchCustomerCards, totalCardAdded }) => {
         }
     }
 
+    const resetForm = () => {
+        try {
+            validation.resetForm()
+            const cardElement = elements.getElement(CardElement)
+            if (cardElement) cardElement.clear()
+        } catch (error) {
+            console.log(
+                '!!! Error While Resetting The Stripe Payment Form !!!',
+                error,
+            )
+            toast.error(error, { autoClose: 1500 })
+        }
+    }
+
     if (message) {
         setTimeout(() => setMessage(null), 3000)
     }
@@ -250,23 +264,44 @@ const StripePaymentForm = ({ gymId, fetchCustomerCards, totalCardAdded }) => {
                         </div>
                     </FormGroup>
 
-                    <Button
-                        color='primary'
-                        type='submit'
-                        disabled={
-                            !stripe || loading || !validation.dirty || cardError
-                        }
-                        className='w-100 mt-4 fw-semibold'
-                    >
-                        {loading ? (
-                            <>
-                                <Spinner size='sm' className='me-2' />
-                                Processing...
-                            </>
-                        ) : (
-                            'Create Stripe Customer'
-                        )}
-                    </Button>
+                    <div className='d-flex justify-content-center align-items-center flex-wrap gap-2'>
+                        <Button
+                            type='button'
+                            disabled={
+                                !stripe ||
+                                loading ||
+                                !validation.dirty ||
+                                cardError
+                            }
+                            className='mt-4 fw-semibold'
+                            color='danger'
+                            style={{ width: '180px' }}
+                            onClick={() => resetForm()}
+                        >
+                            Reset Form
+                        </Button>
+                        <Button
+                            color='primary'
+                            type='submit'
+                            disabled={
+                                !stripe ||
+                                loading ||
+                                !validation.dirty ||
+                                cardError
+                            }
+                            className='mt-4 fw-semibold'
+                            style={{ width: '180px' }}
+                        >
+                            {loading ? (
+                                <>
+                                    <Spinner size='sm' className='me-2' />
+                                    Processing...
+                                </>
+                            ) : (
+                                'Create Stripe Customer'
+                            )}
+                        </Button>
+                    </div>
                 </Form>
             </CardBody>
         </Card>

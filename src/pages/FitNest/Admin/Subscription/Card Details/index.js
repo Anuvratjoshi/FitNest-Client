@@ -78,6 +78,10 @@ const CardDetails = () => {
                                                     fetchCustomerCards={
                                                         fetchCustomerCards
                                                     }
+                                                    totalCardAdded={
+                                                        customerCards?.all
+                                                            ?.length
+                                                    }
                                                 />
                                             ))
                                         ) : (

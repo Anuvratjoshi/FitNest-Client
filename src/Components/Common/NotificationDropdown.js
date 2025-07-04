@@ -92,21 +92,21 @@ const NotificationDropdown = () => {
     }, [])
 
     // #### Reading notification ####
-    const [flag, setFlag] = useState(false)
+    const [clickedNotificationId, setClickedNotificationId] = useState('')
     const readParitcularNotification = async id => {
+        setClickedNotificationId(id)
+
         if (!id) {
             return toast.error('Notification ID is missing', {
                 autoClose: 1500,
             })
         }
 
-        if (flag) {
+        if (clickedNotificationId) {
             return toast.warn('Notification reading is already in progress', {
                 autoClose: 1500,
             })
         }
-
-        setFlag(true)
 
         try {
             const res = await readNotification({ _id: id })
@@ -134,7 +134,7 @@ const NotificationDropdown = () => {
             console.log('!!! readParitcularNotification Error !!!', error)
             toast.error(error, { autoClose: 1500 })
         } finally {
-            setFlag(false)
+            setClickedNotificationId('')
         }
     }
 
@@ -331,7 +331,15 @@ const NotificationDropdown = () => {
                                                             }}
                                                             className='form-check-input'
                                                             type='checkbox'
-                                                            checked={flag}
+                                                            checked={
+                                                                notification?._id ===
+                                                                clickedNotificationId
+                                                            }
+                                                            disabled={
+                                                                clickedNotificationId &&
+                                                                notification?._id !==
+                                                                    clickedNotificationId
+                                                            }
                                                             readOnly
                                                             onClick={() =>
                                                                 readParitcularNotification(

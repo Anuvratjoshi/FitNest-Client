@@ -11,6 +11,7 @@ const CreditCard = ({
     brand,
     paymentId,
     fetchCustomerCards,
+    totalCardAdded,
 }) => {
     const [clickedCard, setClickedCard] = useState({})
     const [isOpen, setIsOpen] = useState(false)
@@ -38,28 +39,30 @@ const CreditCard = ({
                         setIsOpen(true)
                     }}
                 >
-                    <ReactCreditCards
-                        number={`**** **** **** ${last4}`}
-                        expiry={`${
-                            exp_month < 10 ? '0' + exp_month : exp_month
-                        }/${exp_year}`}
-                        cvc={'***'}
-                        name={brand}
-                        focused={'number'}
-                    />
-                    {defaultCard && (
-                        <span
-                            className='badge rounded-pill bg-danger position-absolute'
-                            style={{
-                                top: '10px',
-                                right: '10px',
-                                fontSize: '0.75rem',
-                                padding: '5px 8px',
-                            }}
-                        >
-                            Default
-                        </span>
-                    )}
+                    <div className='force-visa-bg'>
+                        <ReactCreditCards
+                            number={`**** **** **** ${last4}`}
+                            expiry={`${
+                                exp_month < 10 ? '0' + exp_month : exp_month
+                            }/${exp_year}`}
+                            cvc={'***'}
+                            name={brand}
+                            focused={'number'}
+                        />
+                        {defaultCard && (
+                            <span
+                                className='badge rounded-pill bg-danger position-absolute'
+                                style={{
+                                    top: '10px',
+                                    right: '10px',
+                                    fontSize: '0.75rem',
+                                    padding: '5px 8px',
+                                }}
+                            >
+                                Default
+                            </span>
+                        )}
+                    </div>
                 </div>
             </div>
             {isOpen && (
@@ -68,6 +71,7 @@ const CreditCard = ({
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     fetchCustomerCards={fetchCustomerCards}
+                    totalCardAdded={totalCardAdded}
                 />
             )}
         </React.Fragment>

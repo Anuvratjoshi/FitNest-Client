@@ -19,7 +19,13 @@ import {
 } from '../../../../../../helpers/apiservice_helper'
 import { toast } from 'react-toastify'
 
-const CardInfo = ({ details, isOpen, setIsOpen, fetchCustomerCards }) => {
+const CardInfo = ({
+    details,
+    isOpen,
+    setIsOpen,
+    fetchCustomerCards,
+    totalCardAdded,
+}) => {
     // #### Delete Modal ####
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const onCloseClick = () => {
@@ -29,6 +35,11 @@ const CardInfo = ({ details, isOpen, setIsOpen, fetchCustomerCards }) => {
     // #### Detaching/Deleting A Card ####
     const [loading, setLoading] = useState(false)
     const onDeleteClick = async () => {
+        if (totalCardAdded === 1)
+            return toast.error('Oops! You need to keep at least one card.', {
+                autoClose: 3000,
+            })
+
         setLoading(true)
         try {
             const response = await detachCard(details)

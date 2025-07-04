@@ -322,4 +322,11 @@ input:-webkit-autofill:active {
     75% { transform: rotate(-10deg); }
     100% { transform: rotate(0deg); }
   }
+
+  /* Change the bg of credit card to blue */
+  .force-visa-bg .rccs__card--unknown > div {
+    background: linear-gradient(25deg, #0f509e, #1399cd) !important;
+  }
+  
+  
   
