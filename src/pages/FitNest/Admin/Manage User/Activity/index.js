@@ -5,6 +5,8 @@ import ActivityTable from './Tables/ActivityTable'
 import { getActivity } from '../../../../../helpers/apiservice_helper'
 
 const Activity = () => {
+    document.title = 'Activity | Manage-Users'
+
     // #### Fetching admin activity logs ####
     const [adminActivityData, setAdminActivityData] = useState([])
     const [a_a_loading, set_a_a_loading] = useState(true)

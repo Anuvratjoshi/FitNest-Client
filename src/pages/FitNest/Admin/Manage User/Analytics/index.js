@@ -15,6 +15,8 @@ import {
 } from '../../../../../Components/Common/PieChart'
 
 const UserAnalytics = () => {
+    document.title = 'Analytics | Manage-Users'
+
     // #### Fetching registered users monthly count ####
     const [monthlyRegisteredUser, setMonthlyRegisteredUser] = useState({
         monthly: {},

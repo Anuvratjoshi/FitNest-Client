@@ -8,7 +8,7 @@ import Register from '../pages/Authentication/Register'
 import Users from '../pages/FitNest/Admin/Manage User/Users'
 import UserAnalytics from '../pages/FitNest/Admin/Manage User/Analytics'
 import AdminActivity from '../pages/FitNest/Admin/Manage User/Activity'
-import CardDetails from '../pages/FitNest/Admin/Subscription/Card Details'
+import FitnestSubscription from '../pages/FitNest/Admin/Subscription/Fitnest Subscription'
 
 const sessionData = sessionStorage.getItem('authUser')
 const localData = localStorage.getItem('authUser')
@@ -32,8 +32,8 @@ const authProtectedRoutes = [
         allowedRoles: ['admin'],
     },
     {
-        path: '/admin-card-details',
-        component: <CardDetails />,
+        path: '/admin-subscription',
+        component: <FitnestSubscription />,
         allowedRoles: ['admin'],
     },
     {

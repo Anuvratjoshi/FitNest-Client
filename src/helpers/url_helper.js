@@ -34,6 +34,7 @@ export const CREATE_SETUP_INTENT = 'gym/payment/createSetupIntent'
 export const GET_CUSTOMER_CARDS = 'gym/payment/getCustomerCards'
 export const DETACH_CARD = 'gym/payment/detachPaymentMethod'
 export const SET_CARD_AS_DEFAULT = 'gym/payment/makeDefaultCard'
+export const CREATE_SUBSCRIPTION = 'gym/payment/createStripeSubscription'
 
 // --------------------------------------------theme routes----------------------------------------------
 //REGISTER

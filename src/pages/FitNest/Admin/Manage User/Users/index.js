@@ -17,6 +17,8 @@ import UserByLastLoginTable from './Tables/UserByLastLoginTable'
 import GlobalCard from '../../../../../Components/Common/GlobalCard'
 
 const Users = () => {
+    document.title = 'Users | Manage-Users'
+
     // #### Fetching users associated with a gym ####
     const [allUsers, setAllUsers] = useState([])
     const [a_u_loading, set_a_u_loading] = useState(true)

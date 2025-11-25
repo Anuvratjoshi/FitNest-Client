@@ -57,6 +57,8 @@ export const createSetupIntent = data =>
 export const getCustomerCards = data => api.get(url.GET_CUSTOMER_CARDS, data)
 export const detachCard = data => api.create(url.DETACH_CARD, data)
 export const makeDefaultCard = data => api.create(url.SET_CARD_AS_DEFAULT, data)
+export const createStripeSubscription = data =>
+    api.create(url.CREATE_SUBSCRIPTION, data)
 
 // --------------------------------------------Theme Methods----------------------------------------------
 

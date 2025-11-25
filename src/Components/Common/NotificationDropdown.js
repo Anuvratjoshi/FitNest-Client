@@ -11,7 +11,7 @@ import {
     TabContent,
     TabPane,
 } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import classnames from 'classnames'
 
 //import images
@@ -28,6 +28,7 @@ import CustomLoader from './CustomLoader'
 import { toast } from 'react-toastify'
 
 const NotificationDropdown = () => {
+    const navigate = useNavigate()
     //Dropdown Toggle
     const [isNotificationDropdown, setIsNotificationDropdown] = useState(false)
     const toggleNotificationDropdown = () => {
@@ -60,6 +61,13 @@ const NotificationDropdown = () => {
         } catch (error) {
             console.log('!!! fetchNotificationData Error !!!', error)
             toast.error(error, { autoClose: 1500 })
+            if (error?.includes('Login token expired')) {
+                localStorage.removeItem('authUser')
+                sessionStorage.removeItem('authUser')
+                setTimeout(() => {
+                    navigate('/login')
+                }, 3000)
+            }
         } finally {
             s_n_d_loading(false)
             setIsFetching(false)

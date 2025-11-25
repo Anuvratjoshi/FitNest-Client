@@ -28,6 +28,9 @@ const Navdata = () => {
         if (iscurrentState !== 'Dashboard1') {
             setIsDashboard1(false)
         }
+        if (iscurrentState !== 'Dashboard2') {
+            setIsDashboard2(false)
+        }
     }, [history, iscurrentState, isDashboard1, isDashboard2])
 
     const menuItems = [
@@ -85,8 +88,8 @@ const Navdata = () => {
             subItems: [
                 {
                     id: 'subscription',
-                    label: 'Card Details',
-                    link: '/admin-card-details',
+                    label: 'Subscription',
+                    link: '/admin-subscription',
                     parentId: 'fitnest-subscription',
                 },
             ],
