@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import {
@@ -16,8 +16,11 @@ import {
     ModalFooter,
 } from 'reactstrap'
 import FeatherIcon from 'feather-icons-react'
+import ConfirmationModal from './ConfirmationModal'
 
 const QuotationModal = ({ isOpen, toggle, selectedPlan }) => {
+    const [showConfirmationModal, shouldShowConfirmationModal] = useState(false)
+
     const validation = useFormik({
         enableReinitialize: true,
         initialValues: {
@@ -60,224 +63,241 @@ const QuotationModal = ({ isOpen, toggle, selectedPlan }) => {
         toggle()
     }
     return (
-        <Modal isOpen={isOpen} toggle={closeModal} centered size='lg'>
-            <ModalHeader
-                tag='h5'
-                className='p-3 bg-primary modal-title'
-                toggle={closeModal}
-            >
-                <div className='d-flex align-items-center'>
-                    <FeatherIcon icon='file-text' className='icon-sm me-2' />
-                    <span>Request Quotation</span>
-                </div>
-            </ModalHeader>
-
-            <ModalBody className='p-4'>
-                <Form
-                    className='needs-validation'
-                    onSubmit={e => {
-                        e.preventDefault()
-                        validation.handleSubmit()
-                    }}
+        <React.Fragment>
+            <Modal isOpen={isOpen} toggle={closeModal} centered size='lg'>
+                <ModalHeader
+                    tag='h5'
+                    className='p-3 bg-primary modal-title'
+                    toggle={closeModal}
                 >
-                    <Row>
-                        <Col md={6}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='fullName'>
-                                    Full Name
-                                    <sup className='text-danger'>*</sup>
-                                </Label>
-                                <Input
-                                    type='text'
-                                    name='fullName'
-                                    id='fullName'
-                                    placeholder='Enter your full name'
-                                    value={validation.values.fullName}
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    invalid={
-                                        validation.touched.fullName &&
-                                        !!validation.errors.fullName
-                                    }
-                                />
-                                <FormFeedback>
-                                    {validation.errors.fullName}
-                                </FormFeedback>
-                            </FormGroup>
-                        </Col>
+                    <div className='d-flex align-items-center'>
+                        <FeatherIcon
+                            icon='file-text'
+                            className='icon-sm me-2'
+                        />
+                        <span>Request Quotation</span>
+                    </div>
+                </ModalHeader>
 
-                        <Col md={6}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='email'>
-                                    Email <sup className='text-danger'>*</sup>
-                                </Label>
-                                <Input
-                                    type='email'
-                                    name='email'
-                                    id='email'
-                                    placeholder='Enter your email'
-                                    value={validation.values.email}
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    invalid={
-                                        validation.touched.email &&
-                                        !!validation.errors.email
-                                    }
-                                />
-                                <FormFeedback>
-                                    {validation.errors.email}
-                                </FormFeedback>
-                            </FormGroup>
-                        </Col>
-                    </Row>
+                <ModalBody className='p-4'>
+                    <Form
+                        className='needs-validation'
+                        onSubmit={e => {
+                            e.preventDefault()
+                            validation.handleSubmit()
+                        }}
+                    >
+                        <Row>
+                            <Col md={6}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='fullName'>
+                                        Full Name
+                                        <sup className='text-danger'>*</sup>
+                                    </Label>
+                                    <Input
+                                        type='text'
+                                        name='fullName'
+                                        id='fullName'
+                                        placeholder='Enter your full name'
+                                        value={validation.values.fullName}
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                        invalid={
+                                            validation.touched.fullName &&
+                                            !!validation.errors.fullName
+                                        }
+                                    />
+                                    <FormFeedback>
+                                        {validation.errors.fullName}
+                                    </FormFeedback>
+                                </FormGroup>
+                            </Col>
 
-                    <Row>
-                        <Col md={6}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='phone'>
-                                    Phone Number{' '}
-                                    <sup className='text-danger'>*</sup>
-                                </Label>
-                                <Input
-                                    type='tel'
-                                    name='phone'
-                                    id='phone'
-                                    placeholder='Enter your phone number'
-                                    value={validation.values.phone}
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    invalid={
-                                        validation.touched.phone &&
-                                        !!validation.errors.phone
-                                    }
-                                />
-                                <FormFeedback>
-                                    {validation.errors.phone}
-                                </FormFeedback>
-                            </FormGroup>
-                        </Col>
+                            <Col md={6}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='email'>
+                                        Email{' '}
+                                        <sup className='text-danger'>*</sup>
+                                    </Label>
+                                    <Input
+                                        type='email'
+                                        name='email'
+                                        id='email'
+                                        placeholder='Enter your email'
+                                        value={validation.values.email}
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                        invalid={
+                                            validation.touched.email &&
+                                            !!validation.errors.email
+                                        }
+                                    />
+                                    <FormFeedback>
+                                        {validation.errors.email}
+                                    </FormFeedback>
+                                </FormGroup>
+                            </Col>
+                        </Row>
 
-                        <Col md={6}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='selectedPlan'>
-                                    Selected Plan{' '}
-                                    <sup className='text-danger'>*</sup>
-                                </Label>
-                                <Input
-                                    type='select'
-                                    name='selectedPlan'
-                                    id='selectedPlan'
-                                    value={validation.values.selectedPlan}
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    invalid={
-                                        validation.touched.selectedPlan &&
-                                        !!validation.errors.selectedPlan
-                                    }
-                                >
-                                    <option value=''>
-                                        --- Select Plan ---
-                                    </option>
-                                    <option value='Basic'>Basic</option>
-                                    <option value='Professional'>
-                                        Professional
-                                    </option>
-                                </Input>
-                                <FormFeedback>
-                                    {validation.errors.selectedPlan}
-                                </FormFeedback>
-                            </FormGroup>
-                        </Col>
+                        <Row>
+                            <Col md={6}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='phone'>
+                                        Phone Number{' '}
+                                        <sup className='text-danger'>*</sup>
+                                    </Label>
+                                    <Input
+                                        type='tel'
+                                        name='phone'
+                                        id='phone'
+                                        placeholder='Enter your phone number'
+                                        value={validation.values.phone}
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                        invalid={
+                                            validation.touched.phone &&
+                                            !!validation.errors.phone
+                                        }
+                                    />
+                                    <FormFeedback>
+                                        {validation.errors.phone}
+                                    </FormFeedback>
+                                </FormGroup>
+                            </Col>
 
-                        <Col md={6}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='duration'>
-                                    Selected Plan{' '}
-                                    <sup className='text-danger'>*</sup>
-                                </Label>
-                                <Input
-                                    type='select'
-                                    name='duration'
-                                    id='duration'
-                                    value={validation.values.duration}
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    invalid={
-                                        validation.touched.duration &&
-                                        !!validation.errors.duration
-                                    }
-                                >
-                                    <option value=''>
-                                        --- Select Duration ---
-                                    </option>
-                                    <option value='monthly'>Monthly</option>
-                                    <option value='annualy'>Annualy</option>
-                                </Input>
-                                <FormFeedback>
-                                    {validation.errors.duration}
-                                </FormFeedback>
-                            </FormGroup>
-                        </Col>
-                        <Col md={6}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='companyName'>
-                                    Company Name
-                                </Label>
-                                <Input
-                                    type='text'
-                                    name='companyName'
-                                    id='companyName'
-                                    placeholder='Enter your company name (optional)'
-                                    value={validation.values.companyName}
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                />
-                            </FormGroup>
-                        </Col>
+                            <Col md={6}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='selectedPlan'>
+                                        Selected Plan{' '}
+                                        <sup className='text-danger'>*</sup>
+                                    </Label>
+                                    <Input
+                                        type='select'
+                                        name='selectedPlan'
+                                        id='selectedPlan'
+                                        value={validation.values.selectedPlan}
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                        invalid={
+                                            validation.touched.selectedPlan &&
+                                            !!validation.errors.selectedPlan
+                                        }
+                                    >
+                                        <option value=''>
+                                            --- Select Plan ---
+                                        </option>
+                                        <option value='Basic'>Basic</option>
+                                        <option value='Professional'>
+                                            Professional
+                                        </option>
+                                    </Input>
+                                    <FormFeedback>
+                                        {validation.errors.selectedPlan}
+                                    </FormFeedback>
+                                </FormGroup>
+                            </Col>
 
-                        <Col sm={12}>
-                            <FormGroup className='mb-3'>
-                                <Label htmlFor='additionalRequirements'>
-                                    Additional Requirements
-                                </Label>
-                                <Input
-                                    type='textarea'
-                                    name='additionalRequirements'
-                                    id='additionalRequirements'
-                                    placeholder='Enter any additional requirements or notes (optional)'
-                                    rows={3}
-                                    value={
-                                        validation.values.additionalRequirements
-                                    }
-                                    onChange={validation.handleChange}
-                                    onBlur={validation.handleBlur}
-                                    invalid={
-                                        validation.touched
-                                            .additionalRequirements &&
-                                        !!validation.errors
-                                            .additionalRequirements
-                                    }
-                                />
-                                <FormFeedback>
-                                    {validation.errors.additionalRequirements}
-                                </FormFeedback>
-                            </FormGroup>
-                        </Col>
-                    </Row>
-                </Form>
-            </ModalBody>
+                            <Col md={6}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='duration'>
+                                        Selected Plan{' '}
+                                        <sup className='text-danger'>*</sup>
+                                    </Label>
+                                    <Input
+                                        type='select'
+                                        name='duration'
+                                        id='duration'
+                                        value={validation.values.duration}
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                        invalid={
+                                            validation.touched.duration &&
+                                            !!validation.errors.duration
+                                        }
+                                    >
+                                        <option value=''>
+                                            --- Select Duration ---
+                                        </option>
+                                        <option value='monthly'>Monthly</option>
+                                        <option value='annualy'>Annualy</option>
+                                    </Input>
+                                    <FormFeedback>
+                                        {validation.errors.duration}
+                                    </FormFeedback>
+                                </FormGroup>
+                            </Col>
+                            <Col md={6}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='companyName'>
+                                        Company Name
+                                    </Label>
+                                    <Input
+                                        type='text'
+                                        name='companyName'
+                                        id='companyName'
+                                        placeholder='Enter your company name (optional)'
+                                        value={validation.values.companyName}
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                    />
+                                </FormGroup>
+                            </Col>
 
-            <ModalFooter className='p-3 border-top'>
-                <Button
-                    color='primary'
-                    type='button'
-                    onClick={() => validation.handleSubmit()}
-                    disabled={!validation.dirty || !validation.isValid}
-                >
-                    Submit Request
-                </Button>
-            </ModalFooter>
-        </Modal>
+                            <Col sm={12}>
+                                <FormGroup className='mb-3'>
+                                    <Label htmlFor='additionalRequirements'>
+                                        Additional Requirements
+                                    </Label>
+                                    <Input
+                                        type='textarea'
+                                        name='additionalRequirements'
+                                        id='additionalRequirements'
+                                        placeholder='Enter any additional requirements or notes (optional)'
+                                        rows={3}
+                                        value={
+                                            validation.values
+                                                .additionalRequirements
+                                        }
+                                        onChange={validation.handleChange}
+                                        onBlur={validation.handleBlur}
+                                        invalid={
+                                            validation.touched
+                                                .additionalRequirements &&
+                                            !!validation.errors
+                                                .additionalRequirements
+                                        }
+                                    />
+                                    <FormFeedback>
+                                        {
+                                            validation.errors
+                                                .additionalRequirements
+                                        }
+                                    </FormFeedback>
+                                </FormGroup>
+                            </Col>
+                        </Row>
+                    </Form>
+                </ModalBody>
+
+                <ModalFooter className='p-3 border-top'>
+                    <Button
+                        color='primary'
+                        type='button'
+                        onClick={() => shouldShowConfirmationModal(true)}
+                        disabled={!validation.dirty}
+                    >
+                        Submit Request
+                    </Button>
+                </ModalFooter>
+            </Modal>
+            {showConfirmationModal && (
+                <ConfirmationModal
+                    isOpen={showConfirmationModal}
+                    onSubmit={() => validation.handleSubmit()}
+                    toggle={() => shouldShowConfirmationModal(false)}
+                />
+            )}
+        </React.Fragment>
     )
 }
 
