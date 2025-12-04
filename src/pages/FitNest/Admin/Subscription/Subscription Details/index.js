@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row } from 'reactstrap'
 import Timer from '../../../../../Components/Common/Timer'
+import Subscription from './Components/Subscription'
 
 const SubscriptionDetails = () => {
     return (
@@ -13,6 +14,9 @@ const SubscriptionDetails = () => {
                             breadCrumbTitle='FitNest Subscription'
                             pageTitle='Subscription Details'
                         />
+                    </Row>
+                    <Row>
+                        <Subscription />
                     </Row>
                 </Container>
             </div>

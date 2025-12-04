@@ -1,6 +1,6 @@
 const FITNEST_SUBSCIPTION_PRICING = [
     {
-        id: 'price_1RQ3kgSBYIcjN0ceGR22QTUv',
+        id: '1',
         type: 'Basic',
         rate: 999,
         description:
@@ -20,7 +20,7 @@ const FITNEST_SUBSCIPTION_PRICING = [
         emailCampaignsSymbol: 'close',
     },
     {
-        id: 'price_1RQ3moSBYIcjN0cetlwUHkA2',
+        id: '2',
         type: 'Professional',
         rate: 1499,
         description:
