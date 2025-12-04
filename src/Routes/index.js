@@ -9,9 +9,13 @@ import VerticalLayout from '../Layouts/index'
 import { authProtectedRoutes, publicRoutes } from './allRoutes'
 import { AuthProtected } from './AuthProtected'
 import { useProfile } from '../Components/Hooks/UserHooks'
+import { getLoggedinUser } from '../helpers/api_helper'
 
 const Index = () => {
     const { token } = useProfile()
+    const user = getLoggedinUser()
+    const userRole = user?.data?.role || 'guest'
+
     return (
         <React.Fragment>
             <Routes>
@@ -32,20 +36,26 @@ const Index = () => {
                 </Route>
 
                 <Route>
-                    {authProtectedRoutes.map((route, idx) => (
-                        <Route
-                            path={route.path}
-                            element={
-                                <AuthProtected>
-                                    <VerticalLayout>
-                                        {route.component}
-                                    </VerticalLayout>
-                                </AuthProtected>
-                            }
-                            key={idx}
-                            exact={true}
-                        />
-                    ))}
+                    {authProtectedRoutes
+                        .filter(
+                            route =>
+                                !route.allowedRoles ||
+                                route.allowedRoles.includes(userRole),
+                        )
+                        .map((route, idx) => (
+                            <Route
+                                path={route.path}
+                                element={
+                                    <AuthProtected>
+                                        <VerticalLayout>
+                                            {route.component}
+                                        </VerticalLayout>
+                                    </AuthProtected>
+                                }
+                                key={idx}
+                                exact={true}
+                            />
+                        ))}
                 </Route>
             </Routes>
         </React.Fragment>

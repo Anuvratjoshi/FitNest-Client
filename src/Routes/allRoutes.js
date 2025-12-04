@@ -8,13 +8,14 @@ import Register from '../pages/Authentication/Register'
 import Users from '../pages/FitNest/Admin/Manage User/Users'
 import UserAnalytics from '../pages/FitNest/Admin/Manage User/Analytics'
 import AdminActivity from '../pages/FitNest/Admin/Manage User/Activity'
-import FitnestSubscription from '../pages/FitNest/Admin/Subscription/Fitnest Subscription'
-import CardDetails from '../pages/FitNest/Admin/Subscription/Card Details'
+import SubscriptionDetails from '../pages/FitNest/Admin/Subscription/Subscription Details'
+import { getLoggedinUser } from '../helpers/api_helper'
+// import FitnestSubscription from '../pages/FitNest/Admin/Subscription/Fitnest Subscription'
+// import CardDetails from '../pages/FitNest/Admin/Subscription/Card Details'
 
-const sessionData = sessionStorage.getItem('authUser')
-const localData = localStorage.getItem('authUser')
-const role =
-    JSON.parse(sessionData)?.data?.role || JSON.parse(localData)?.data?.role
+const user = getLoggedinUser()
+const role = user?.data?.role || 'guest'
+
 const authProtectedRoutes = [
     // ***** Gym/Admin *****
     {
@@ -37,10 +38,15 @@ const authProtectedRoutes = [
     //     component: <CardDetails />,
     //     allowedRoles: ['admin'],
     // },
+    // {
+    //     path: '/admin-subscription',
+    //     component: <FitnestSubscription />,
+    //     allowedRoles: ['admin'],
+    // },
     {
         path: '/admin-subscription',
-        component: <FitnestSubscription />,
-        allowedRoles: ['admin'],
+        component: <SubscriptionDetails />,
+        allowedRoles: ['superadmin', 'admin'],
     },
     {
         path: '/',

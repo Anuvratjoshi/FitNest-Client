@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getLoggedinUser } from '../helpers/api_helper'
 
 const Navdata = () => {
     const history = useNavigate()
@@ -33,6 +34,9 @@ const Navdata = () => {
         }
     }, [history, iscurrentState, isDashboard1, isDashboard2])
 
+    const user = getLoggedinUser()
+    const userRole = user?.data?.role || 'guest'
+
     const menuItems = [
         {
             label: 'Menu',
@@ -57,18 +61,21 @@ const Navdata = () => {
                     label: 'Users',
                     link: '/admin-dashboard',
                     parentId: 'manage-user',
+                    allowedRoles: ['admin'],
                 },
                 {
                     id: 'user-analytics',
                     label: 'Analytics',
                     link: '/user-analytics',
                     parentId: 'manage-user',
+                    allowedRoles: ['admin'],
                 },
                 {
                     id: 'admin-activity',
                     label: 'Activity Logs',
                     link: '/admin-activity',
                     parentId: 'manage-user',
+                    allowedRoles: ['admin'],
                 },
             ],
         },
@@ -97,10 +104,28 @@ const Navdata = () => {
                     label: 'Subscription',
                     link: '/admin-subscription',
                     parentId: 'fitnest-subscription',
+                    allowedRoles: ['superadmin', 'admin'],
                 },
             ],
         },
     ]
-    return <React.Fragment>{menuItems}</React.Fragment>
+
+    const filteredMenuItems = menuItems
+        .map(item => ({
+            ...item,
+            subItems: item.subItems
+                ? item.subItems.filter(
+                      subItem =>
+                          !subItem.allowedRoles ||
+                          subItem.allowedRoles.includes(userRole),
+                  )
+                : item.subItems,
+        }))
+        .filter(
+            item =>
+                item.isHeader || (item.subItems && item.subItems.length > 0),
+        )
+
+    return <React.Fragment>{filteredMenuItems}</React.Fragment>
 }
 export default Navdata
