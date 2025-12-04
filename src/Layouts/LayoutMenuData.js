@@ -86,6 +86,12 @@ const Navdata = () => {
                 updateIconSidebar(e)
             },
             subItems: [
+                // {
+                //     id: 'card-details',
+                //     label: 'Card Details',
+                //     link: '/admin-card-details',
+                //     parentId: 'fitnest-subscription',
+                // },
                 {
                     id: 'subscription',
                     label: 'Subscription',

@@ -36,6 +36,7 @@ axios.interceptors.response.use(
         switch (error.status) {
             case 500:
                 const serverMessage = error?.response?.data?.message || ''
+                console.log({ serverMessage })
                 if (serverMessage?.includes('E11000 duplicate')) {
                     const match = serverMessage.match(
                         /dup key:\s*\{.*?:\s*"([^"]+)"\s*\}/,
@@ -45,24 +46,16 @@ axios.interceptors.response.use(
                     } else {
                         message = 'Record already exists'
                     }
+                } else if (serverMessage === 'jwt expired') {
+                    message = 'Session expired. Please login again.'
+                    redirectUnauthorizedUser()
                 } else {
                     message = 'Internal Server Error'
                 }
                 break
             case 401:
                 message = 'Invalid credentials'
-                const authUser = getLoggedinUser()
-                const role = authUser?.data?.role
-                let token = authUser?.data?.token
-
-                if (token && role) {
-                    // #### Clear storage if we get 401 & Redirect to login ####
-                    localStorage.removeItem('authUser')
-                    sessionStorage.removeItem('authUser')
-
-                    window.location.href =
-                        role === 'admin' ? '/login' : 'superadmin-login'
-                }
+                redirectUnauthorizedUser()
 
                 break
             case 404:
@@ -142,6 +135,21 @@ const getLoggedinUser = () => {
         return null
     } else {
         return JSON.parse(user)
+    }
+}
+
+const redirectUnauthorizedUser = () => {
+    const authUser = getLoggedinUser()
+    const role = authUser?.data?.role
+    let token = authUser?.data?.token
+
+    if (token && role) {
+        // #### Clear storage if we get 401 & Redirect to login ####
+        localStorage.removeItem('authUser')
+        sessionStorage.removeItem('authUser')
+
+        // #### Redirect to login ####
+        window.location.href = role === 'admin' ? '/login' : 'superadmin-login'
     }
 }
 
