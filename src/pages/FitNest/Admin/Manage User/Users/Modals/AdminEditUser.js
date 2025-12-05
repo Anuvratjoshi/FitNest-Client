@@ -13,10 +13,12 @@ import {
     Row,
     Col,
     Spinner,
+    ModalFooter,
 } from 'reactstrap'
 import * as Yup from 'yup'
 import { adminUpdateUser } from '../../../../../../helpers/apiservice_helper'
 import { toast } from 'react-toastify'
+import FeatherIcon from 'feather-icons-react'
 
 const AdminEditUser = ({
     userData,
@@ -90,14 +92,22 @@ const AdminEditUser = ({
         <Modal isOpen={editModalFlag?.isOpen} centered>
             <ModalHeader
                 tag='h5'
-                className='p-3 bg-soft-info modal-title'
+                className='p-3 bg-primary modal-title'
                 toggle={toggle}
             >
-                {editModalFlag?.type === 'view'
-                    ? 'View User Details'
-                    : 'Edit User'}
+                <div className='d-flex align-items-center'>
+                    <FeatherIcon
+                        icon={editModalFlag?.type === 'view' ? 'eye' : 'edit'}
+                        className='icon-sm me-2'
+                    />
+                    <span>
+                        {editModalFlag?.type === 'view'
+                            ? 'View User Details'
+                            : 'Edit User'}
+                    </span>
+                </div>
             </ModalHeader>
-            <ModalBody>
+            <ModalBody className='p-4'>
                 <Form
                     className='needs-validation'
                     onSubmit={e => {
@@ -302,28 +312,28 @@ const AdminEditUser = ({
                             {validation.errors.autoRenew}
                         </FormFeedback>
                     </FormGroup>
-
-                    {/* Submit Button */}
-                    {editModalFlag?.type === 'edit' && (
-                        <div className='text-end'>
-                            {!u_u_flag ? (
-                                <Button
-                                    color='primary'
-                                    type='submit'
-                                    disabled={!validation.dirty || u_u_flag}
-                                >
-                                    Save Changes
-                                </Button>
-                            ) : (
-                                <Button color='primary' type='submit' disabled>
-                                    Updating{' '}
-                                    <Spinner className='mx-1' size='sm' />
-                                </Button>
-                            )}
-                        </div>
-                    )}
                 </Form>
             </ModalBody>
+            <ModalFooter className='p-3 border-top'>
+                {editModalFlag?.type === 'edit' && (
+                    <div className='text-end'>
+                        {!u_u_flag ? (
+                            <Button
+                                color='primary'
+                                type='button'
+                                onClick={validation.handleSubmit}
+                                disabled={!validation.dirty || u_u_flag}
+                            >
+                                Save Changes
+                            </Button>
+                        ) : (
+                            <Button color='primary' type='button' disabled>
+                                Updating <Spinner className='mx-1' size='sm' />
+                            </Button>
+                        )}
+                    </div>
+                )}
+            </ModalFooter>
         </Modal>
     )
 }
