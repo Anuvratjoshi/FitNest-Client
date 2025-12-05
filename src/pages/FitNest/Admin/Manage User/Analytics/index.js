@@ -180,13 +180,13 @@ const UserAnalytics = () => {
                                     </h4>
                                 </CardHeader>
                                 <CardBody>
-                                    <SimplePie
+                                    {/* <SimplePie
                                         dataColors='["--vz-primary", "--vz-success", "--vz-danger", "--vz-info"]'
                                         series={users.data}
                                         labels={users.labels}
                                         loading={u_loading}
                                         title=''
-                                    />
+                                    /> */}
                                 </CardBody>
                             </Card>
                         </Col>
@@ -201,13 +201,13 @@ const UserAnalytics = () => {
                                     </h4>
                                 </CardHeader>
                                 <CardBody>
-                                    <PatternedDonut
+                                    {/* <PatternedDonut
                                         dataColors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]'
                                         series={subscriptionBreakdown.data}
                                         labels={subscriptionBreakdown.labels}
                                         loading={s_loading}
                                         title=''
-                                    />
+                                    /> */}
                                 </CardBody>
                             </Card>
                         </Col>
